@@ -71,11 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Check if character is a letter or space
-      if (!/^[a-zA-Z\s]$/.test(e.key)) {
+      // Only allow letters
+      if (!/^[a-zA-Z]$/.test(e.key)) {
         e.preventDefault();
         showUsernameHint(
-          "Numbers and special characters are not allowed in username.",
+          "Only letters are allowed. No spaces, numbers or special characters.",
         );
       }
     });
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sanitize input (handles drag-and-drop, paste, IME, autofill)
     usernameInput.addEventListener("input", function () {
       const originalVal = this.value;
-      const sanitizedVal = originalVal.replace(/[^a-zA-Z\s]/g, "");
+      const sanitizedVal = originalVal.replace(/[^a-zA-Z]/g, "");
 
       if (originalVal !== sanitizedVal) {
         this.value = sanitizedVal;

@@ -127,6 +127,8 @@
   height: 44px;
   width: auto;
   object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(84%) sepia(58%) saturate(1915%)
+    hue-rotate(359deg) brightness(103%) contrast(106%);
 }
 
 .auth-brand-logo .brand-text {
