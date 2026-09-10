@@ -1,0 +1,155 @@
+/* Featured Blog Hero Card */
+.featured-blog-box {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.featured-blog-box:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.featured-blog-img-wrap {
+  height: 100%;
+  min-height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-blog-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featured-blog-box:hover .featured-blog-img-wrap img {
+  transform: scale(1.05);
+}
+
+/* Category Filter Pills */
+.blog-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.blog-cat-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--title-font);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--border-secondary);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.blog-cat-btn:hover,
+.blog-cat-btn.active {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  border-color: var(--primary-color);
+}
+
+/* Quick Infographic Cards */
+.infographic-card {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  height: 100%;
+  border-top: 4px solid var(--primary-color);
+}
+
+.infographic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.infographic-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.infographic-card:hover .infographic-icon {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+}
+
+/* Author Spotlight Cards */
+.author-spotlight-card {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  height: 100%;
+}
+
+.author-spotlight-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+.author-avatar-lg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  border: 3px solid var(--primary-color);
+}
+
+/* Pagination */
+.theme-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.theme-pagination a,
+.theme-pagination span {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--title-font);
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.theme-pagination a:hover,
+.theme-pagination .active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--black-color);
+}

@@ -1,0 +1,119 @@
+/* Contact Info Cards */
+.contact-info-card {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.contact-icon-box {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.contact-info-card:hover .contact-icon-box {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.08);
+}
+
+.contact-card-title {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.contact-card-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* Contact Form Wrapper */
+.contact-form-wrapper {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 767px) {
+  .contact-form-wrapper {
+    padding: 24px;
+  }
+}
+
+.contact-input-control {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--primary-radius);
+  border: 1px solid var(--border-primary);
+  background-color: var(--bg-secondary);
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.contact-input-control:focus {
+  background-color: var(--white-color);
+  border-color: var(--bg-primary);
+  box-shadow: 0 0 0 3px rgba(26, 60, 82, 0.1);
+}
+
+/* Operating Hours Box */
+.hours-table {
+  width: 100%;
+}
+
+.hours-table tr {
+  border-bottom: 1px dashed var(--border-secondary);
+}
+
+.hours-table tr:last-child {
+  border-bottom: none;
+}
+
+.hours-table td {
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+/* Map Representation */
+.map-embed-container {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-secondary);
+  height: 380px;
+  background-color: var(--bg-secondary);
+  position: relative;
+}
+
+.map-embed-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

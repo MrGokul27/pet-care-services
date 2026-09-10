@@ -1,0 +1,166 @@
+/* Collection Main Cards */
+.collection-card {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+}
+
+.collection-img-wrap {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.collection-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.collection-card:hover .collection-img-wrap img {
+  transform: scale(1.08);
+}
+
+.collection-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: var(--bg-primary);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+.collection-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.collection-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.collection-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.collection-features {
+  margin-bottom: 20px;
+}
+
+.collection-features li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.collection-features li i {
+  color: #10b981;
+}
+
+/* Add-ons Cards */
+.addon-item-card {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  padding: 24px 20px;
+  text-align: center;
+  transition: var(--transition);
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.addon-item-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.addon-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 16px;
+  transition: var(--transition);
+}
+
+.addon-item-card:hover .addon-icon {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+}
+
+.addon-price {
+  font-family: var(--title-font);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--bg-primary);
+  margin-top: 10px;
+}
+
+/* Safety Protocol Cards */
+.safety-protocol-card {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  padding: 30px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: var(--transition);
+  height: 100%;
+}
+
+.safety-protocol-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+  transform: translateY(-4px);
+}
+
+.safety-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--primary-radius);
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.safety-protocol-card:hover .safety-icon {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+}
