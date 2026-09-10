@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Pet Care Services UK</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+
+    <!-- Bootstrap 5.3.3 CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6.5.1 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom Theme & Auth Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-page-wrapper">
+      <!-- Decorative Background Elements -->
+      <div class="auth-bg-decorations">
+        <div class="auth-blob auth-blob-1"></div>
+        <div class="auth-blob auth-blob-2"></div>
+        <div class="auth-blob auth-blob-3"></div>
+        <i class="fa-solid fa-paw auth-paw-icon paw-pos-1"></i>
+        <i class="fa-solid fa-paw auth-paw-icon paw-pos-2"></i>
+        <i class="fa-solid fa-paw auth-paw-icon paw-pos-3"></i>
+        <i class="fa-solid fa-paw auth-paw-icon paw-pos-4"></i>
+      </div>
+
+      <!-- Top Navigation Bar -->
+      <header class="auth-top-nav">
+        <div class="container">
+          <div class="auth-nav-inner">
+            <!-- Brand Logo -->
+            <a href="../index.html" class="auth-brand-logo">
+              <img
+                src="../assets/images/logoStackly.webp"
+                alt="Pet Care Services Logo"
+              />
+              <div class="brand-text">
+                Pet Care <span>Services & Clinic</span>
+              </div>
+            </a>
+
+            <!-- Back to Home Button -->
+            <a
+              href="../index.html"
+              class="auth-back-home-btn"
+              title="Return to Homepage"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Back to Home</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Login Container -->
+      <main class="auth-main-container">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-xl-11">
+              <div class="auth-card-wrapper">
+                <div class="row g-0 align-items-stretch">
+                  <!-- Left: Interactive Visual & Perks Panel -->
+                  <div class="col-lg-5 d-none d-lg-block">
+                    <div class="auth-side-panel">
+                      <div class="auth-side-top">
+                        <div class="auth-side-badge">
+                          <i class="fa-solid fa-shield-cat"></i> Secure Pet Care
+                          Portal
+                        </div>
+                        <h2 class="auth-side-title">
+                          Welcome Back to <span>Pet Care</span> Hub
+                        </h2>
+                        <p class="auth-side-desc">
+                          Manage clinical records, view upcoming grooming
+                          sessions, order nutritional food, and connect with
+                          certified veterinary specialists in seconds.
+                        </p>
+
+                        <!-- Feature List -->
+                        <div class="auth-perks-list">
+                          <div class="auth-perk-item">
+                            <div class="auth-perk-icon">
+                              <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div class="auth-perk-text">
+                              <h6>Instant Online Appointments</h6>
+                              <p>Schedule checkups & spa grooming easily</p>
+                            </div>
+                          </div>
+
+                          <div class="auth-perk-item">
+                            <div class="auth-perk-icon">
+                              <i class="fa-solid fa-notes-medical"></i>
+                            </div>
+                            <div class="auth-perk-text">
+                              <h6>Digital Health History</h6>
+                              <p>
+                                Vaccination cards, prescriptions & pet stats
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="auth-perk-item">
+                            <div class="auth-perk-icon">
+                              <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div class="auth-perk-text">
+                              <h6>Quick Reorders & Perks</h6>
+                              <p>Member-only discounts on food and supplies</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Pet Community Trust Card -->
+                      <div class="auth-community-card">
+                        <div class="auth-avatar-stack">
+                          <img
+                            src="../assets/images/home/home-hero-avatars-1.webp"
+                            alt="Pet Parent"
+                          />
+                          <img
+                            src="../assets/images/home/home-hero-avatars-2.webp"
+                            alt="Pet Parent"
+                          />
+                          <img
+                            src="../assets/images/home/home-hero-avatars-3.webp"
+                            alt="Pet Parent"
+                          />
+                          <img
+                            src="../assets/images/home/home-hero-avatars-4.webp"
+                            alt="Pet Parent"
+                          />
+                        </div>
+                        <div class="auth-community-info">
+                          <strong>15,000+ Pet Parents</strong>
+                          <span>Trust our certified care specialists</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right: Login Form Panel -->
+                  <div class="col-lg-7">
+                    <div class="auth-form-panel">
+                      <!-- Form Header -->
+                      <div class="auth-form-header">
+                        <div class="auth-form-badge">
+                          <i class="fa-solid fa-key"></i> Account Access
+                        </div>
+                        <h1 class="auth-form-title">Sign In to Your Account</h1>
+                        <p class="auth-form-subtitle">
+                          Enter your account role, email address and password to
+                          continue.
+                        </p>
+                      </div>
+
+                      <!-- Login Form -->
+                      <form id="login_form" novalidate>
+                        <!-- Field 1: Role (Required) -->
+                        <div class="auth-input-group">
+                          <label for="login_role" class="auth-label">
+                            Select Account Role
+                            <span class="required-star">*</span>
+                          </label>
+                          <div class="auth-input-wrapper">
+                            <i class="fa-solid fa-user-tag auth-input-icon"></i>
+                            <select
+                              id="login_role"
+                              name="role"
+                              class="auth-input auth-select"
+                              required
+                            >
+                              <option value="" disabled selected>
+                                -- Choose your account role --
+                              </option>
+                              <option value="pet_owner">
+                                🐾 Pet Owner / Parent
+                              </option>
+                              <option value="veterinarian">
+                                🩺 Certified Veterinarian
+                              </option>
+                              <option value="pet_groomer">
+                                ✂️ Professional Pet Groomer
+                              </option>
+                              <option value="shelter_breeder">
+                                🏠 Shelter / Foster Organization
+                              </option>
+                              <option value="staff_volunteer">
+                                🤝 Pet Care Staff / Volunteer
+                              </option>
+                            </select>
+                          </div>
+                          <div
+                            id="login_role_msg"
+                            class="auth-feedback-msg"
+                          ></div>
+                        </div>
+
+                        <!-- Field 2: Email (Required) -->
+                        <div class="auth-input-group">
+                          <label for="login_email" class="auth-label">
+                            Email Address <span class="required-star">*</span>
+                          </label>
+                          <div class="auth-input-wrapper">
+                            <i
+                              class="fa-regular fa-envelope auth-input-icon"
+                            ></i>
+                            <input
+                              type="email"
+                              id="login_email"
+                              name="email"
+                              class="auth-input"
+                              placeholder="e.g. alex.miller@example.com"
+                              autocomplete="email"
+                              required
+                            />
+                          </div>
+                          <div
+                            id="login_email_msg"
+                            class="auth-feedback-msg"
+                          ></div>
+                        </div>
+
+                        <!-- Field 3: Password (Required + Weak Password Validation) -->
+                        <div class="auth-input-group">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-1"
+                          >
+                            <label for="login_password" class="auth-label mb-0">
+                              Password <span class="required-star">*</span>
+                            </label>
+                            <a href="#" class="auth-forgot-link"
+                              >Forgot password?</a
+                            >
+                          </div>
+                          <div class="auth-input-wrapper">
+                            <i class="fa-solid fa-lock auth-input-icon"></i>
+                            <input
+                              type="password"
+                              id="login_password"
+                              name="password"
+                              class="auth-input has-toggle"
+                              placeholder="Enter your secret password"
+                              autocomplete="current-password"
+                              required
+                            />
+                            <button
+                              type="button"
+                              class="auth-password-toggle"
+                              data-target="login_password"
+                              aria-label="Toggle password visibility"
+                              tabindex="-1"
+                            >
+                              <i class="fa-regular fa-eye"></i>
+                            </button>
+                          </div>
+                          <div
+                            id="login_password_msg"
+                            class="auth-feedback-msg"
+                          ></div>
+
+                          <!-- Password Strength Meter Component -->
+                          <div
+                            id="login_strength_meter"
+                            class="auth-strength-meter"
+                          >
+                            <div class="strength-meter-header">
+                              <span class="strength-label"
+                                >Password Security:</span
+                              >
+                              <span class="strength-status-text">Empty</span>
+                            </div>
+                            <div class="strength-progress-bars">
+                              <div class="strength-segment"></div>
+                              <div class="strength-segment"></div>
+                              <div class="strength-segment"></div>
+                              <div class="strength-segment"></div>
+                            </div>
+                            <ul class="strength-checklist">
+                              <li
+                                class="strength-rule-item rule-invalid"
+                                data-rule="length"
+                              >
+                                <i class="fa-regular fa-circle"></i> Min 8
+                                characters
+                              </li>
+                              <li
+                                class="strength-rule-item rule-invalid"
+                                data-rule="letters"
+                              >
+                                <i class="fa-regular fa-circle"></i> Upper &
+                                lowercase
+                              </li>
+                              <li
+                                class="strength-rule-item rule-invalid"
+                                data-rule="number"
+                              >
+                                <i class="fa-regular fa-circle"></i> Number
+                                (0-9)
+                              </li>
+                              <li
+                                class="strength-rule-item rule-invalid"
+                                data-rule="special"
+                              >
+                                <i class="fa-regular fa-circle"></i> Special
+                                symbol (@#$)
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <!-- Field 4: Remember Me (Required) -->
+                        <div class="auth-checkbox-group">
+                          <label
+                            class="auth-custom-checkbox"
+                            for="login_remember"
+                          >
+                            <input
+                              type="checkbox"
+                              id="login_remember"
+                              name="remember"
+                              required
+                            />
+                            <span class="auth-checkbox-checkmark"></span>
+                          </label>
+                          <label
+                            for="login_remember"
+                            class="auth-checkbox-label"
+                          >
+                            Remember me on this device
+                            <span class="required-star">*</span>
+                          </label>
+                        </div>
+                        <div
+                          id="login_remember_msg"
+                          class="auth-feedback-msg"
+                          style="margin-top: -15px; margin-bottom: 15px"
+                        ></div>
+
+                        <!-- Submit Button -->
+                        <button
+                          type="submit"
+                          id="login_submit_btn"
+                          class="auth-submit-btn"
+                        >
+                          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                          <span>Sign In to Account</span>
+                        </button>
+
+                        <!-- Switch to Register Link -->
+                        <div class="auth-switch-prompt">
+                          Don't have a Pet Care account yet?
+                          <a href="register.html">Create New Account</a>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Bottom Mini Footer -->
+      <footer class="auth-bottom-footer">
+        <div class="container">
+          <p class="mb-0">
+            &copy; 2026 Pet Care Services UK. All rights reserved. &bull;
+            <a href="contact.html">Contact Support</a> &bull;
+            <a href="../index.html">Visit Homepage</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Auth Script -->
+    <script src="../assets/js/auth.js"></script>
+  </body>
+</html>
