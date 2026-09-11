@@ -26,6 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
         /href=["']index\.html["']/g,
         'href="../index.html"',
       );
+      // Point 404 links to ../404.html (404.html is in root directory)
+      adjusted = adjusted.replace(
+        /href=["']404\.html["']/g,
+        'href="../404.html"',
+      );
+      adjusted = adjusted.replace(
+        /action=["']404\.html["']/g,
+        'action="../404.html"',
+      );
       // Subpage links remain sibling references (e.g., about.html, shop.html)
       adjusted = adjusted.replace(/href=["']pages\/([^"']+)["']/g, 'href="$1"');
       adjusted = adjusted.replace(
@@ -561,6 +570,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initFlashDealCountdown();
 
+  // 10. Global Redirect for Empty and Hash (#) Links to 404 Page
+  function initEmptyLinkRedirect() {
+    document.addEventListener("click", function (e) {
+      const link = e.target.closest("a");
+      if (!link) return;
+
+      const href = link.getAttribute("href");
+
+      // Check if href is empty, '#', '#!', 'javascript:void(0)', 'javascript:;'
+      const isEmptyOrHash =
+        href === null ||
+        href === "" ||
+        href === "#" ||
+        href === "#!" ||
+        href === "javascript:void(0)" ||
+        href === "javascript:void(0);" ||
+        href === "javascript:;";
+
+      if (isEmptyOrHash) {
+        e.preventDefault();
+        const target404 = isInPagesDir ? "../404.html" : "404.html";
+        window.location.href = target404;
+        return;
+      }
+
+      // Check for non-existent anchor IDs on current page
+      if (href && href.startsWith("#") && href.length > 1) {
+        const targetId = href.substring(1);
+        const targetEl =
+          document.getElementById(targetId) ||
+          document.querySelector(`[name="${targetId}"]`);
+        if (!targetEl) {
+          e.preventDefault();
+          const target404 = isInPagesDir ? "../404.html" : "404.html";
+          window.location.href = target404;
+        }
+      }
+    });
+  }
+
+  initEmptyLinkRedirect();
+
   // Fallback Header Template for offline/strict local file protocol
   function getFallbackHeaderHTML() {
     return `
@@ -603,7 +654,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <button class="header-action-btn search-open-btn" aria-label="Search" title="Search">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <a href="contact.html" class="header-action-btn d-none d-sm-inline-flex" aria-label="User Account" title="My Account">
+          <a href="login.html" class="header-action-btn d-none d-sm-inline-flex" aria-label="User Account" title="My Account / Login">
             <i class="fa-regular fa-user"></i>
           </a>
           <a href="shop.html" class="header-action-btn d-none d-sm-inline-flex" aria-label="Wishlist" title="Wishlist">
@@ -638,6 +689,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <li><a href="collections.html">Collections</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="login.html"><i class="fa-regular fa-user me-2"></i>Login / Register</a></li>
   </ul>
   <div class="mobile-nav-contact">
     <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>

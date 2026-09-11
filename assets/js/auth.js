@@ -630,4 +630,41 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 1300);
     });
   }
+
+  // Global Redirect for Empty and Hash (#) Links to 404 Page
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    const isEmptyOrHash =
+      href === null ||
+      href === "" ||
+      href === "#" ||
+      href === "#!" ||
+      href === "javascript:void(0)" ||
+      href === "javascript:void(0);" ||
+      href === "javascript:;";
+
+    const currentPath = window.location.pathname.replace(/\\/g, "/");
+    const isInPagesDir = currentPath.includes("/pages/");
+    const target404 = isInPagesDir ? "../404.html" : "404.html";
+
+    if (isEmptyOrHash) {
+      e.preventDefault();
+      window.location.href = target404;
+      return;
+    }
+
+    if (href && href.startsWith("#") && href.length > 1) {
+      const targetId = href.substring(1);
+      const targetEl =
+        document.getElementById(targetId) ||
+        document.querySelector(`[name="${targetId}"]`);
+      if (!targetEl) {
+        e.preventDefault();
+        window.location.href = target404;
+      }
+    }
+  });
 });
