@@ -495,6 +495,29 @@ textarea {
   border: 2px solid var(--white-color);
 }
 
+.btn-login-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  font-family: var(--title-font);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 2px solid var(--primary-color);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-login-now:hover {
+  background-color: var(--bg-primary);
+  color: var(--white-color);
+  border-color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
 .mobile-menu-toggle-btn {
   display: none;
   background: none;
@@ -563,7 +586,11 @@ body:has(.page-banner-section)
 .inner-page .site-header:not(.sticky) .header-action-btn,
 body:has(.page-banner-section) .site-header:not(.sticky) .header-action-btn,
 .has-page-banner .site-header:not(.sticky) .header-action-btn,
-.site-header.header-on-banner:not(.sticky) .header-action-btn {
+.site-header.header-on-banner:not(.sticky) .header-action-btn,
+.inner-page .site-header:not(.sticky) .btn-login-now,
+body:has(.page-banner-section) .site-header:not(.sticky) .btn-login-now,
+.has-page-banner .site-header:not(.sticky) .btn-login-now,
+.site-header.header-on-banner:not(.sticky) .btn-login-now {
   background-color: rgba(255, 255, 255, 0.15);
   color: var(--white-color);
   border-color: rgba(255, 255, 255, 0.25);
