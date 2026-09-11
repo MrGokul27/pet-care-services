@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           preloader.classList.add("preloader-fade-out");
           document.body.classList.remove("preloader-active");
+          initScrollReveal();
 
           setTimeout(() => {
             preloader.style.display = "none";
@@ -85,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (preloader.style.display !== "none") {
         preloader.classList.add("preloader-fade-out");
         document.body.classList.remove("preloader-active");
+        initScrollReveal();
         setTimeout(() => {
           preloader.style.display = "none";
           preloader.setAttribute("aria-hidden", "true");
@@ -93,7 +95,155 @@ document.addEventListener("DOMContentLoaded", function () {
     }, totalDuration + 700);
   }
 
+  // ==========================================================================
+  // Pet Care Services - High Performance Scroll Reveal Engine
+  // ==========================================================================
+  function initScrollReveal() {
+    // Strictly skip on dashboard pages
+    if (
+      document.body.classList.contains("dashboard-body") ||
+      window.location.pathname.includes("dashboard.html")
+    ) {
+      return;
+    }
+
+    // Auto-discover section elements across all pages if not already marked
+    const autoRevealSelectors = [
+      ".page-banner-content",
+      ".hero-home-content",
+      ".hero-image-wrapper",
+      ".section-title",
+      ".about-story-content",
+      ".about-media-collage",
+      ".our-story-img-grid",
+      ".story-gallery-grid",
+      ".story-stat-card",
+      ".story-img-card",
+      ".wcu-card",
+      ".journey-step-card",
+      ".facility-box",
+      ".facilities-section",
+      ".facilities-showcase-grid",
+      ".feature-box-single",
+      ".mission-vision-card",
+      ".category-card",
+      ".categories-card",
+      ".product-card",
+      ".product-card-single",
+      ".product-item-wrap",
+      ".service-card",
+      ".service-card-single",
+      ".collection-card",
+      ".team-card-single",
+      ".team-member-card",
+      ".blog-card",
+      ".blog-card-single",
+      ".featured-blog-box",
+      ".counter-card-single",
+      ".counter-item",
+      ".testimonial-card",
+      ".testimonial-card-single",
+      ".testimonial-slide-item",
+      ".pricing-card",
+      ".faq-accordion .accordion-item",
+      ".faq-item",
+      ".contact-info-card",
+      ".contact-benefit-card",
+      ".contact-form-wrapper",
+      ".contact-map-wrapper",
+      ".booking-section-wrapper",
+      ".emergency-banner-box",
+      ".shop-perk-item",
+      ".flash-deal-box",
+      ".deal-countdown-banner",
+      ".shop-sidebar-widget",
+      ".blog-sidebar-widget",
+      ".brand-partner-item",
+      ".error-visual-showcase",
+      ".error-badge-title",
+      ".error-main-heading",
+      ".error-desc-text",
+      ".error-btn-actions",
+      ".error-card-link",
+      ".cta-banner-content",
+      ".cta-content",
+      ".promo-newsletter-card",
+      ".auth-card-wrapper",
+    ];
+
+    autoRevealSelectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((el) => {
+        if (
+          !el.hasAttribute("data-reveal") &&
+          !el.classList.contains("reveal-fade-up") &&
+          !el.classList.contains("reveal-fade-left") &&
+          !el.classList.contains("reveal-fade-right") &&
+          !el.classList.contains("reveal-zoom-in")
+        ) {
+          el.classList.add("reveal-fade-up");
+        }
+      });
+    });
+
+    // Auto-stagger children inside rows / grids
+    const staggerContainers = document.querySelectorAll(
+      ".row, .categories-grid, .products-grid, .services-grid, .team-grid, .blog-grid, .error-quick-links",
+    );
+
+    staggerContainers.forEach((container) => {
+      const items = container.querySelectorAll(
+        ":scope > [class*='col-'] > .reveal-fade-up, :scope > [class*='col-'] > [data-reveal], :scope > [class*='col-'] .product-card, :scope > [class*='col-'] .product-card-single, :scope > [class*='col-'] .service-card, :scope > [class*='col-'] .service-card-single, :scope > [class*='col-'] .collection-card, :scope > [class*='col-'] .categories-card, :scope > [class*='col-'] .category-card, :scope > [class*='col-'] .team-card-single, :scope > [class*='col-'] .team-member-card, :scope > [class*='col-'] .blog-card, :scope > [class*='col-'] .blog-card-single, :scope > [class*='col-'] .contact-info-card, :scope > [class*='col-'] .contact-benefit-card, :scope > [class*='col-'] .wcu-card, :scope > [class*='col-'] .journey-step-card, :scope > [class*='col-'] .error-card-link, :scope > [class*='col-'] .shop-perk-item, :scope > [class*='col-'] .counter-item",
+      );
+      items.forEach((item, index) => {
+        if (
+          !item.hasAttribute("data-reveal-delay") &&
+          !item.className.includes("reveal-delay-")
+        ) {
+          const delay = (index % 4) * 100 + 50;
+          item.setAttribute("data-reveal-delay", delay);
+        }
+      });
+    });
+
+    // Collect all elements intended for scroll reveal
+    const revealElements = document.querySelectorAll(
+      ".reveal-fade-up, .reveal-fade-down, .reveal-fade-left, .reveal-fade-right, .reveal-zoom-in, [data-reveal]",
+    );
+
+    if (!revealElements.length) return;
+
+    // Check if IntersectionObserver is supported
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: "0px 0px -40px 0px",
+          threshold: 0.08,
+        },
+      );
+
+      revealElements.forEach((el) => {
+        revealObserver.observe(el);
+      });
+    } else {
+      // Fallback: reveal all immediately if IntersectionObserver unavailable
+      revealElements.forEach((el) => el.classList.add("is-revealed"));
+    }
+  }
+
   initPetPreloader();
+  // If there's no preloader on page, init scroll reveal immediately
+  if (!document.getElementById("pet-preloader")) {
+    initScrollReveal();
+  }
 
   // Determine if the current page is inside the 'pages/' directory
   const currentPath = window.location.pathname.replace(/\\/g, "/");
