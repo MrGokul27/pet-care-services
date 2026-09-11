@@ -59,9 +59,9 @@
             <div class="col-sm-6 col-lg-3">
               <div class="shop-perk-item">
                 <div class="shop-perk-icon">
-                  <i class="fa-solid fa-truck"></i>
+                  <i class="fa-solid fa-truck-fast"></i>
                 </div>
-                <div>
+                <div class="shop-perk-text">
                   <h5>Free UK Delivery</h5>
                   <span>On all orders over £40</span>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="shop-perk-icon">
                   <i class="fa-solid fa-leaf"></i>
                 </div>
-                <div>
+                <div class="shop-perk-text">
                   <h5>100% Organic Verified</h5>
                   <span>Natural ingredients only</span>
                 </div>
@@ -83,7 +83,7 @@
                 <div class="shop-perk-icon">
                   <i class="fa-solid fa-rotate-left"></i>
                 </div>
-                <div>
+                <div class="shop-perk-text">
                   <h5>30-Day Money Back</h5>
                   <span>Hassle-free guarantee</span>
                 </div>
@@ -94,7 +94,7 @@
                 <div class="shop-perk-icon">
                   <i class="fa-solid fa-user-doctor"></i>
                 </div>
-                <div>
+                <div class="shop-perk-text">
                   <h5>Free Vet Advisor</h5>
                   <span>Call +91 9876543210</span>
                 </div>
@@ -111,58 +111,73 @@
             <div class="row align-items-center g-4">
               <div class="col-lg-7">
                 <span
-                  class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-2"
-                  >Deal of the Week &bull; 35% OFF</span
+                  class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-2 deal-badge"
+                  ><i class="fa-solid fa-bolt me-1"></i> Deal of the Week &bull;
+                  35% OFF</span
                 >
-                <h2 class="text-white mb-2" style="font-size: 2.2rem">
+                <h2
+                  class="text-white mb-2 flash-deal-title"
+                  style="font-size: 2.2rem"
+                >
                   Complete Senior Dog Joint & Coat Revival Pack
                 </h2>
-                <p style="color: rgba(255, 255, 255, 0.85); font-size: 15px">
+                <p
+                  class="flash-deal-desc"
+                  style="color: rgba(255, 255, 255, 0.85); font-size: 15px"
+                >
                   Includes Glucosamine joint chews, Wild Alaskan Salmon Oil, and
                   an orthopedic memory foam cushion.
                 </p>
 
-                <div class="flash-countdown">
+                <div class="flash-countdown" id="dealCountdown">
                   <div class="countdown-box">
-                    <span class="countdown-number">03</span>
+                    <span class="countdown-number" id="deal-days">03</span>
                     <span class="countdown-label">Days</span>
                   </div>
                   <div class="countdown-box">
-                    <span class="countdown-number">14</span>
+                    <span class="countdown-number" id="deal-hours">14</span>
                     <span class="countdown-label">Hours</span>
                   </div>
                   <div class="countdown-box">
-                    <span class="countdown-number">42</span>
+                    <span class="countdown-number" id="deal-mins">42</span>
                     <span class="countdown-label">Mins</span>
                   </div>
                   <div class="countdown-box">
-                    <span class="countdown-number">18</span>
+                    <span class="countdown-number" id="deal-secs">18</span>
                     <span class="countdown-label">Secs</span>
                   </div>
                 </div>
 
-                <div class="d-flex align-items-center gap-3">
-                  <span
-                    class="display-6 fw-bold text-warning"
-                    style="font-family: var(--title-font)"
-                    >£54.99</span
-                  >
-                  <span class="fs-5 text-decoration-line-through text-white-50"
-                    >£85.00</span
-                  >
-                  <a href="#" class="theme-btn btn-add-to-cart ms-3"
+                <div class="d-flex align-items-center gap-3 flex-wrap mt-3">
+                  <div class="deal-price-tag">
+                    <span
+                      class="display-6 fw-bold text-warning"
+                      style="font-family: var(--title-font)"
+                      >£54.99</span
+                    >
+                    <span
+                      class="fs-5 text-decoration-line-through text-white-50 ms-2"
+                      >£85.00</span
+                    >
+                  </div>
+                  <a href="#" class="theme-btn btn-add-to-cart flash-claim-btn"
                     ><i class="fa-solid fa-cart-shopping"></i> Claim Deal</a
                   >
                 </div>
               </div>
 
               <div class="col-lg-5 text-center d-none d-lg-block">
-                <img
-                  src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=500&q=80"
-                  alt="Deal Bundle"
-                  class="rounded-4 shadow-lg"
-                  style="max-height: 280px; width: 100%; object-fit: cover"
-                />
+                <div class="flash-deal-img-wrapper">
+                  <img
+                    src="../assets/images/about/about-our-story-img-2.webp"
+                    alt="Deal Bundle"
+                    class="rounded-4 shadow-lg flash-deal-img"
+                    style="max-height: 280px; width: 100%; object-fit: cover"
+                  />
+                  <div class="deal-floating-badge">
+                    <i class="fa-solid fa-fire"></i> Limited Deal
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -302,7 +317,7 @@
                     <div class="product-image-wrap">
                       <span class="product-badge">Organic</span>
                       <img
-                        src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=400&q=80"
+                        src="../assets/images/home/home-featured-pet-products-1.webp"
                         alt="Salmon Kibble"
                       />
                       <div class="product-actions">
@@ -349,7 +364,7 @@
                     <div class="product-image-wrap">
                       <span class="product-badge">Best Seller</span>
                       <img
-                        src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=400&q=80"
+                        src="../assets/images/home/home-featured-pet-products-2.webp"
                         alt="Cat Bed"
                       />
                       <div class="product-actions">
@@ -396,7 +411,7 @@
                     <div class="product-image-wrap">
                       <span class="product-badge">New</span>
                       <img
-                        src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=400&q=80"
+                        src="../assets/images/home/home-featured-pet-products-3.webp"
                         alt="Herbal Pet Shampoo"
                       />
                       <div class="product-actions">
@@ -442,7 +457,7 @@
                   <div class="product-card">
                     <div class="product-image-wrap">
                       <img
-                        src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=400&q=80"
+                        src="../assets/images/home/home-featured-pet-products-4.webp"
                         alt="Chew Toy"
                       />
                       <div class="product-actions">
@@ -489,7 +504,7 @@
                     <div class="product-image-wrap">
                       <span class="product-badge">Top Vet Choice</span>
                       <img
-                        src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=400&q=80"
+                        src="../assets/images/shop/shop-product-image-5.webp"
                         alt="Omega 3 Oil"
                       />
                       <div class="product-actions">
@@ -535,7 +550,7 @@
                   <div class="product-card">
                     <div class="product-image-wrap">
                       <img
-                        src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=400&q=80"
+                        src="../assets/images/about/about-our-story-img-2.webp"
                         alt="Catnip Toys"
                       />
                       <div class="product-actions">
@@ -607,42 +622,71 @@
                   Select your pet's life stage and sensitivities to filter
                   veterinarian-tailored food formulations.
                 </p>
+                <div
+                  class="nutrition-guide-highlights mt-4 d-flex flex-column gap-2"
+                >
+                  <div class="nutrition-highlight-item">
+                    <i class="fa-solid fa-circle-check text-warning"></i>
+                    <span>100% Certified Vet Nutritionist Formulations</span>
+                  </div>
+                  <div class="nutrition-highlight-item">
+                    <i class="fa-solid fa-circle-check text-warning"></i>
+                    <span>Breed & Allergy-Sensitive Matching</span>
+                  </div>
+                  <div class="nutrition-highlight-item">
+                    <i class="fa-solid fa-circle-check text-warning"></i>
+                    <span>Instant Custom Feeding Schedule</span>
+                  </div>
+                </div>
               </div>
 
               <div class="col-lg-7">
-                <form class="pet-care-form">
+                <form class="pet-care-form nutrition-finder-form">
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label class="small text-white-50 mb-1">Pet Type</label>
-                      <select class="nutrition-select" required>
-                        <option>Dog (Canine)</option>
-                        <option>Cat (Feline)</option>
-                        <option>Puppy / Kitten</option>
-                      </select>
+                      <div class="nutrition-select-wrapper">
+                        <label class="small text-white-50 mb-1 fw-medium"
+                          ><i class="fa-solid fa-paw me-1"></i> Pet Type</label
+                        >
+                        <select class="nutrition-select" required>
+                          <option>Dog (Canine)</option>
+                          <option>Cat (Feline)</option>
+                          <option>Puppy / Kitten</option>
+                        </select>
+                      </div>
                     </div>
                     <div class="col-md-4">
-                      <label class="small text-white-50 mb-1"
-                        >Age Bracket</label
-                      >
-                      <select class="nutrition-select" required>
-                        <option>Puppy / Kitten (0-1 yr)</option>
-                        <option>Adult (1-7 yrs)</option>
-                        <option>Senior (7+ yrs)</option>
-                      </select>
+                      <div class="nutrition-select-wrapper">
+                        <label class="small text-white-50 mb-1 fw-medium"
+                          ><i class="fa-solid fa-calendar-days me-1"></i> Age
+                          Bracket</label
+                        >
+                        <select class="nutrition-select" required>
+                          <option>Puppy / Kitten (0-1 yr)</option>
+                          <option>Adult (1-7 yrs)</option>
+                          <option>Senior (7+ yrs)</option>
+                        </select>
+                      </div>
                     </div>
                     <div class="col-md-4">
-                      <label class="small text-white-50 mb-1"
-                        >Health Focus</label
-                      >
-                      <select class="nutrition-select" required>
-                        <option>Weight Management</option>
-                        <option>Sensitive Digestion</option>
-                        <option>Skin & Fur Lustre</option>
-                        <option>Joint & Mobility</option>
-                      </select>
+                      <div class="nutrition-select-wrapper">
+                        <label class="small text-white-50 mb-1 fw-medium"
+                          ><i class="fa-solid fa-heart-pulse me-1"></i> Health
+                          Focus</label
+                        >
+                        <select class="nutrition-select" required>
+                          <option>Weight Management</option>
+                          <option>Sensitive Digestion</option>
+                          <option>Skin & Fur Lustre</option>
+                          <option>Joint & Mobility</option>
+                        </select>
+                      </div>
                     </div>
                     <div class="col-12 mt-3">
-                      <button type="submit" class="theme-btn w-100">
+                      <button
+                        type="submit"
+                        class="theme-btn w-100 nutrition-submit-btn"
+                      >
                         <i class="fa-solid fa-wand-magic-sparkles"></i> Show
                         Recommended Diets
                       </button>
@@ -675,7 +719,7 @@
               <div class="bundle-card">
                 <div class="bundle-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80"
+                    src="../assets/images/home/home-insta-overlay-img-1.webp"
                     alt="Puppy Welcome Box"
                   />
                 </div>
@@ -709,7 +753,7 @@
               <div class="bundle-card">
                 <div class="bundle-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=80"
+                    src="../assets/images/home/home-insta-overlay-img-2.webp"
                     alt="Cat Wellness Kit"
                   />
                 </div>
@@ -743,7 +787,7 @@
               <div class="bundle-card">
                 <div class="bundle-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=500&q=80"
+                    src="../assets/images/home/home-promo-newsletter-img.webp"
                     alt="Dental Care Kit"
                   />
                 </div>
@@ -809,7 +853,7 @@
                 </p>
                 <div class="testimonial-author-row">
                   <img
-                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80"
+                    src="../assets/images/home/home-testimonial-avatar-1.webp"
                     alt="Shopper"
                     class="testimonial-avatar"
                   />
@@ -839,7 +883,7 @@
                 </p>
                 <div class="testimonial-author-row">
                   <img
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80"
+                    src="../assets/images/home/home-testimonial-avatar-2.webp"
                     alt="Shopper"
                     class="testimonial-avatar"
                   />
@@ -869,7 +913,7 @@
                 </p>
                 <div class="testimonial-author-row">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80"
+                    src="../assets/images/home/home-testimonial-avatar-3.webp"
                     alt="Shopper"
                     class="testimonial-avatar"
                   />
@@ -944,7 +988,10 @@
 
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <div class="accordion" id="shopFaqAccordion">
+              <div
+                class="accordion custom-faq-accordion shop-faq-accordion"
+                id="shopFaqAccordion"
+              >
                 <div class="accordion-item">
                   <h3 class="accordion-header" id="shopOne">
                     <button
@@ -955,7 +1002,13 @@
                       aria-expanded="true"
                       aria-controls="shopCollapseOne"
                     >
-                      How does veterinary prescription food verification work?
+                      <span class="faq-icon-bullet"
+                        ><i class="fa-solid fa-prescription-bottle-medical"></i
+                      ></span>
+                      <span
+                        >How does veterinary prescription food verification
+                        work?</span
+                      >
                     </button>
                   </h3>
                   <div
@@ -983,7 +1036,13 @@
                       aria-expanded="false"
                       aria-controls="shopCollapseTwo"
                     >
-                      What is your return policy if my pet dislikes the taste?
+                      <span class="faq-icon-bullet"
+                        ><i class="fa-solid fa-shield-cat"></i
+                      ></span>
+                      <span
+                        >What is your return policy if my pet dislikes the
+                        taste?</span
+                      >
                     </button>
                   </h3>
                   <div
@@ -1011,7 +1070,12 @@
                       aria-expanded="false"
                       aria-controls="shopCollapseThree"
                     >
-                      Do you offer recurring monthly auto-deliveries?
+                      <span class="faq-icon-bullet"
+                        ><i class="fa-solid fa-truck-ramp-box"></i
+                      ></span>
+                      <span
+                        >Do you offer recurring monthly auto-deliveries?</span
+                      >
                     </button>
                   </h3>
                   <div
@@ -1037,7 +1101,7 @@
       <!-- SECTION 10: VIP Shop Discount Newsletter -->
       <section class="section-padding bg-white">
         <div class="container">
-          <div class="promo-banner-box">
+          <div class="promo-banner-box shop-promo-vip-box">
             <div class="row align-items-center g-4">
               <div class="col-lg-7">
                 <div
@@ -1061,28 +1125,37 @@
                   code, plus pet birthday surprises and seasonal treat samples!
                 </p>
                 <form class="promo-newsletter-form">
-                  <input
-                    type="email"
-                    class="promo-newsletter-input"
-                    placeholder="Your email address..."
-                    required
-                  />
+                  <div class="promo-newsletter-input-wrapper">
+                    <i class="fa-regular fa-envelope promo-input-icon"></i>
+                    <input
+                      type="email"
+                      class="promo-newsletter-input"
+                      placeholder="Your email address..."
+                      required
+                    />
+                  </div>
                   <button
                     type="submit"
-                    class="theme-btn"
+                    class="theme-btn promo-newsletter-btn"
                     style="white-space: nowrap"
                   >
-                    Get £10 Voucher
+                    <i class="fa-solid fa-tag me-1"></i> Get £10 Voucher
                   </button>
                 </form>
               </div>
               <div class="col-lg-5 text-center d-none d-lg-block">
-                <img
-                  src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=500&q=80"
-                  alt="Discount Treats"
-                  class="rounded-4 shadow-lg"
-                  style="max-height: 260px; width: 100%; object-fit: cover"
-                />
+                <div class="vip-promo-img-wrapper">
+                  <img
+                    src="../assets/images/home/home-featured-pet-products-2.webp"
+                    alt="Discount Treats"
+                    class="rounded-4 shadow-lg vip-promo-img"
+                    style="max-height: 260px; width: 100%; object-fit: cover"
+                  />
+                  <div class="vip-discount-badge">
+                    <span class="discount-val">£10</span>
+                    <span class="discount-lbl">OFF</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

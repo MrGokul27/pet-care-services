@@ -459,6 +459,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // 9. Flash Deal of the Week Live Countdown Timer
+  function initFlashDealCountdown() {
+    const daysEl = document.getElementById("deal-days");
+    const hoursEl = document.getElementById("deal-hours");
+    const minsEl = document.getElementById("deal-mins");
+    const secsEl = document.getElementById("deal-secs");
+
+    if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+    // Get or initialize persistent countdown end time
+    const storageKey = "flash_deal_end_time";
+    let endTime = null;
+    try {
+      endTime = localStorage.getItem(storageKey);
+    } catch (e) {}
+
+    const now = new Date().getTime();
+    if (!endTime || parseInt(endTime, 10) <= now) {
+      const durationMs =
+        (3 * 24 * 60 * 60 + 14 * 60 * 60 + 42 * 60 + 18) * 1000;
+      endTime = now + durationMs;
+      try {
+        localStorage.setItem(storageKey, endTime);
+      } catch (e) {}
+    } else {
+      endTime = parseInt(endTime, 10);
+    }
+
+    function updateCountdown() {
+      const current = new Date().getTime();
+      let distance = endTime - current;
+
+      if (distance <= 0) {
+        const durationMs =
+          (3 * 24 * 60 * 60 + 14 * 60 * 60 + 42 * 60 + 18) * 1000;
+        endTime = current + durationMs;
+        try {
+          localStorage.setItem(storageKey, endTime);
+        } catch (e) {}
+        distance = endTime - current;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = String(days).padStart(2, "0");
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minsEl.textContent = String(minutes).padStart(2, "0");
+      secsEl.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  initFlashDealCountdown();
+
   // Fallback Header Template for offline/strict local file protocol
   function getFallbackHeaderHTML() {
     return `

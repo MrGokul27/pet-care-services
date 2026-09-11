@@ -1,86 +1,297 @@
-/* Perks Bar */
 .shop-perks-bar {
   background-color: var(--white-color);
   border-bottom: 1px solid var(--border-secondary);
-  padding: 24px 0;
+  padding: 30px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .shop-perk-item {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--primary-radius);
+  padding: 18px 20px;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 40, 66, 0.04);
+  cursor: default;
+}
+
+.shop-perk-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), #ffb703);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .shop-perk-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   background-color: var(--bg-secondary);
   color: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
   flex-shrink: 0;
-  transition: var(--transition);
+  box-shadow: 0 3px 10px rgba(0, 40, 66, 0.06);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.shop-perk-item:hover .shop-perk-icon {
-  background-color: var(--primary-color);
-  color: var(--black-color);
+.shop-perk-text {
+  flex-grow: 1;
 }
 
 .shop-perk-item h5 {
   font-size: 16px;
-  margin-bottom: 2px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .shop-perk-item span {
   font-size: 13px;
   color: var(--text-secondary);
+  line-height: 1.35;
+  display: block;
 }
 
-/* Flash Deal Banner */
+/* Perk Item Hover Effects */
+.shop-perk-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-color);
+  box-shadow: 0 14px 28px rgba(0, 40, 66, 0.1);
+  background-color: #ffffff;
+}
+
+.shop-perk-item:hover::after {
+  transform: scaleX(1);
+}
+
+.shop-perk-item:hover .shop-perk-icon {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.12) rotate(-8deg);
+  box-shadow: 0 6px 18px rgba(255, 209, 0, 0.4);
+}
+
+.shop-perk-item:hover h5 {
+  color: var(--bg-primary);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 3: Flash Deal of the Week Countdown Banner
+   -------------------------------------------------------------------------- */
 .flash-deal-box {
-  background: linear-gradient(135deg, var(--bg-primary) 0%, #0c202e 100%);
+  background: linear-gradient(135deg, #1a3c52 0%, #0c202e 100%);
   border-radius: var(--card-radius);
-  padding: 40px;
+  padding: 44px 40px;
   color: var(--white-color);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 16px 36px rgba(0, 40, 66, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.4s ease;
+}
+
+.flash-deal-box::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 209, 0, 0.12) 0%,
+    rgba(255, 209, 0, 0) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.flash-deal-box:hover {
+  box-shadow: 0 22px 48px rgba(0, 40, 66, 0.24);
+  border-color: rgba(255, 209, 0, 0.35);
+}
+
+.deal-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 209, 0, 0.35);
+}
+
+.deal-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 209, 0, 0.6);
+}
+
+.flash-deal-title {
+  transition: color 0.3s ease;
+}
+
+.flash-deal-box:hover .flash-deal-title {
+  color: #ffffff;
 }
 
 .flash-countdown {
   display: flex;
-  gap: 12px;
-  margin: 20px 0;
+  gap: 14px;
+  margin: 24px 0 20px;
+  flex-wrap: wrap;
 }
 
 .countdown-box {
-  background-color: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 10px 16px;
-  border-radius: var(--primary-radius);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 12px 18px;
+  border-radius: 12px;
   text-align: center;
-  min-width: 65px;
+  min-width: 72px;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: default;
 }
 
 .countdown-number {
   font-family: var(--title-font);
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--primary-color);
   display: block;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
 }
 
 .countdown-label {
   font-size: 11px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 3px;
+  display: block;
 }
 
-/* Shop Sidebar */
+/* Countdown Box Hover */
+.countdown-box:hover {
+  transform: translateY(-5px) scale(1.06);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(255, 209, 0, 0.3);
+}
+
+.countdown-box:hover .countdown-number {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+/* Deal CTA & Price */
+.deal-price-tag {
+  display: flex;
+  align-items: baseline;
+}
+
+.flash-claim-btn {
+  box-shadow: 0 6px 18px rgba(255, 209, 0, 0.3);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.flash-claim-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(255, 209, 0, 0.5);
+  background-color: #ffd829;
+}
+
+.flash-claim-btn i {
+  transition: transform 0.3s ease;
+}
+
+.flash-claim-btn:hover i {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+/* Flash Deal Image & Floating Badge */
+.flash-deal-img-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.flash-deal-img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.flash-deal-img-wrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.4);
+}
+
+.flash-deal-img-wrapper:hover .flash-deal-img {
+  transform: scale(1.07);
+}
+
+.deal-floating-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #e63946;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  box-shadow: 0 4px 14px rgba(230, 57, 70, 0.45);
+  animation: dealPulse 2.2s infinite ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 3;
+}
+
+@keyframes dealPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px rgba(230, 57, 70, 0.45);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px rgba(230, 57, 70, 0.45);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 4: Shop Sidebar & Product Grid
+   -------------------------------------------------------------------------- */
 .shop-sidebar-widget {
   background-color: var(--white-color);
   border: 1px solid var(--border-secondary);
@@ -98,7 +309,7 @@
 }
 
 .shop-widget-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -118,6 +329,7 @@
   font-size: 14px;
   color: var(--text-secondary);
   padding: 4px 0;
+  transition: var(--transition);
 }
 
 .shop-category-list li a:hover,
@@ -135,14 +347,291 @@
   border-radius: 20px;
 }
 
-/* Bundle Cards */
+/* Product Cards */
+.product-card {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.product-image-wrap {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-secondary);
+}
+
+.product-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image-wrap img {
+  transform: scale(1.08);
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.product-actions {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.product-card:hover .product-actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.product-btn-action {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.product-btn-action:hover {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.1);
+}
+
+.product-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-category {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.product-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.product-name a {
+  color: var(--text-primary);
+}
+
+.product-name a:hover {
+  color: var(--bg-primary);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #f59e0b;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.product-rating span {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.product-price-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-secondary);
+}
+
+.product-price {
+  font-family: var(--title-font);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--bg-primary);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 5: Pet Food & Nutrition Finder Guide
+   -------------------------------------------------------------------------- */
+.nutrition-finder-box {
+  background: linear-gradient(135deg, #153245 0%, #0d222f 100%);
+  color: var(--white-color);
+  border-radius: var(--card-radius);
+  padding: 44px 40px;
+  box-shadow: 0 16px 36px rgba(0, 40, 66, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.nutrition-finder-box::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 209, 0, 0.12) 0%,
+    rgba(255, 209, 0, 0) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.nutrition-finder-box:hover {
+  box-shadow: 0 22px 48px rgba(0, 40, 66, 0.24);
+  border-color: rgba(255, 209, 0, 0.3);
+}
+
+.nutrition-guide-highlights {
+  margin-top: 20px;
+}
+
+.nutrition-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.nutrition-highlight-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 209, 0, 0.35);
+  transform: translateX(6px);
+  color: #ffffff;
+}
+
+.nutrition-select-wrapper {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nutrition-select-wrapper:hover {
+  transform: translateY(-3px);
+}
+
+.nutrition-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--white-color);
+  padding: 13px 18px;
+  border-radius: var(--primary-radius);
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  outline: none;
+}
+
+.nutrition-select:hover,
+.nutrition-select:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 18px rgba(255, 209, 0, 0.25);
+  color: #ffffff;
+}
+
+.nutrition-select option {
+  background-color: var(--bg-primary);
+  color: var(--white-color);
+  padding: 8px 12px;
+}
+
+.nutrition-submit-btn {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  font-size: 15px;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 6px 18px rgba(255, 209, 0, 0.3);
+}
+
+.nutrition-submit-btn:hover {
+  background-color: #ffd829;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(255, 209, 0, 0.5);
+  color: var(--black-color);
+}
+
+.nutrition-submit-btn i {
+  transition: transform 0.4s ease;
+}
+
+.nutrition-submit-btn:hover i {
+  transform: rotate(25deg) scale(1.2);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 6: Bundle Cards
+   -------------------------------------------------------------------------- */
 .bundle-card {
   background-color: var(--white-color);
   border: 1px solid var(--border-secondary);
   border-radius: var(--card-radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -178,30 +667,9 @@
   flex-grow: 1;
 }
 
-/* Nutrition Guide Card */
-.nutrition-finder-box {
-  background-color: var(--bg-primary);
-  color: var(--white-color);
-  border-radius: var(--card-radius);
-  padding: 40px;
-  box-shadow: var(--shadow-md);
-}
-
-.nutrition-select {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--white-color);
-  padding: 12px 18px;
-  border-radius: var(--primary-radius);
-  width: 100%;
-}
-
-.nutrition-select option {
-  background-color: var(--bg-primary);
-  color: var(--white-color);
-}
-
-/* Brand Logos Grid */
+/* --------------------------------------------------------------------------
+   SECTION 8: Brand Logos Grid
+   -------------------------------------------------------------------------- */
 .brand-partner-item {
   background-color: var(--white-color);
   border: 1px solid var(--border-secondary);
@@ -213,7 +681,7 @@
   font-size: 18px;
   color: var(--text-secondary);
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .brand-partner-item:hover {
@@ -221,4 +689,268 @@
   color: var(--bg-primary);
   box-shadow: var(--shadow-md);
   transform: translateY(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 9: Shopping & Shipping FAQ Accordion
+   -------------------------------------------------------------------------- */
+.shop-faq-accordion .accordion-item {
+  border: 1px solid var(--border-secondary);
+  border-radius: 14px !important;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--white-color);
+}
+
+.shop-faq-accordion .accordion-button {
+  font-family: var(--title-font);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 20px 24px;
+  background-color: var(--white-color);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.shop-faq-accordion .faq-icon-bullet {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* FAQ Item Hover Effects */
+.shop-faq-accordion .accordion-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 40, 66, 0.1);
+  border-color: var(--primary-color);
+}
+
+.shop-faq-accordion .accordion-button:hover {
+  background-color: rgba(238, 246, 255, 0.55);
+  color: var(--bg-primary);
+}
+
+.shop-faq-accordion .accordion-item:hover .faq-icon-bullet {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.12) rotate(-8deg);
+  box-shadow: 0 4px 14px rgba(255, 209, 0, 0.35);
+}
+
+/* FAQ Expanded State */
+.shop-faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--bg-primary);
+  background-color: var(--bg-secondary);
+  box-shadow: none;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+}
+
+.shop-faq-accordion .accordion-button:not(.collapsed) .faq-icon-bullet {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+}
+
+.shop-faq-accordion .accordion-button:focus {
+  box-shadow: none;
+}
+
+.shop-faq-accordion .accordion-body {
+  padding: 20px 24px 24px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.75;
+  background-color: var(--white-color);
+  border-top: 1px solid var(--border-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 10: VIP Shop Discount Newsletter
+   -------------------------------------------------------------------------- */
+.shop-promo-vip-box {
+  background: linear-gradient(135deg, #18374d 0%, #0c1e2b 100%);
+  border-radius: var(--card-radius);
+  padding: 50px 40px;
+  color: var(--white-color);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 40, 66, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.4s ease;
+}
+
+.shop-promo-vip-box::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 209, 0, 0.12) 0%,
+    rgba(255, 209, 0, 0) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.shop-promo-vip-box:hover {
+  box-shadow: 0 22px 48px rgba(0, 40, 66, 0.24);
+  border-color: rgba(255, 209, 0, 0.35);
+  transform: translateY(-3px);
+}
+
+.promo-newsletter-input-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.promo-input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  transition: color 0.3s ease;
+  pointer-events: none;
+}
+
+.shop-promo-vip-box .promo-newsletter-input {
+  width: 100%;
+  padding: 14px 22px 14px 44px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white-color);
+  font-size: 15px;
+  transition: all 0.35s ease;
+}
+
+.shop-promo-vip-box .promo-newsletter-input:hover,
+.shop-promo-vip-box .promo-newsletter-input:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 18px rgba(255, 209, 0, 0.25);
+  outline: none;
+}
+
+.shop-promo-vip-box .promo-newsletter-input:focus + .promo-input-icon {
+  color: var(--primary-color);
+}
+
+.promo-newsletter-btn {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  font-size: 15px;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 6px 18px rgba(255, 209, 0, 0.3);
+}
+
+.promo-newsletter-btn:hover {
+  background-color: #ffd829;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(255, 209, 0, 0.5);
+  color: var(--black-color);
+}
+
+.promo-newsletter-btn i {
+  transition: transform 0.3s ease;
+}
+
+.promo-newsletter-btn:hover i {
+  transform: rotate(-15deg) scale(1.15);
+}
+
+/* VIP Promo Image & Badge */
+.vip-promo-img-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.vip-promo-img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.vip-promo-img-wrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.4);
+}
+
+.vip-promo-img-wrapper:hover .vip-promo-img {
+  transform: scale(1.08);
+}
+
+.vip-discount-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--black-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  border: 2px solid #ffffff;
+  animation: floatVipBadge 3.2s ease-in-out infinite;
+  z-index: 3;
+}
+
+.vip-discount-badge .discount-val {
+  font-family: var(--title-font);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.vip-discount-badge .discount-lbl {
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes floatVipBadge {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(4deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .flash-deal-box,
+  .nutrition-finder-box,
+  .shop-promo-vip-box {
+    padding: 32px 24px;
+  }
 }
