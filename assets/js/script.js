@@ -153,8 +153,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function initHeaderFeatures() {
     highlightActiveNav();
 
-    // Sticky Header
     const siteHeader = document.querySelector(".site-header");
+    if (document.querySelector(".page-banner-section") || isInPagesDir) {
+      siteHeader?.classList.add("header-on-banner");
+      document.body.classList.add("has-page-banner");
+    }
+
+    // Sticky Header
     window.addEventListener("scroll", function () {
       if (window.scrollY > 80) {
         siteHeader?.classList.add("sticky");

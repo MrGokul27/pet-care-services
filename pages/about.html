@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="../assets/css/about.css" />
   </head>
-  <body>
+  <body class="inner-page">
     <!-- Header Placeholder (Common Component) -->
     <div id="header-placeholder"></div>
 
@@ -53,7 +53,7 @@
       </section>
 
       <!-- SECTION 2: Our Story & Compassionate Mission -->
-      <section class="section-padding bg-white">
+      <section class="section-padding bg-white our-story-section">
         <div class="container">
           <div class="row align-items-center g-5">
             <div class="col-lg-6">
@@ -78,63 +78,88 @@
               </p>
               <div class="row g-3">
                 <div class="col-6">
-                  <div
-                    class="p-3 rounded-3"
-                    style="background-color: var(--bg-secondary)"
-                  >
-                    <h4 class="fw-bold mb-1" style="color: var(--bg-primary)">
-                      100% RCVS
-                    </h4>
-                    <span class="small text-secondary"
-                      >Accredited Veterinary Clinic</span
-                    >
+                  <div class="story-stat-card">
+                    <div class="story-stat-icon">
+                      <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="story-stat-info">
+                      <h4 class="story-stat-number">100% RCVS</h4>
+                      <span class="story-stat-label"
+                        >Accredited Veterinary Clinic</span
+                      >
+                    </div>
                   </div>
                 </div>
                 <div class="col-6">
-                  <div
-                    class="p-3 rounded-3"
-                    style="background-color: var(--bg-secondary)"
-                  >
-                    <h4 class="fw-bold mb-1" style="color: var(--bg-primary)">
-                      Fear-Free
-                    </h4>
-                    <span class="small text-secondary"
-                      >Certified Animal Handlers</span
-                    >
+                  <div class="story-stat-card">
+                    <div class="story-stat-icon">
+                      <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <div class="story-stat-info">
+                      <h4 class="story-stat-number">Fear-Free</h4>
+                      <span class="story-stat-label"
+                        >Certified Animal Handlers</span
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-6">
-              <div class="row g-3">
+              <div class="row g-3 story-gallery-grid">
                 <div class="col-6">
-                  <img
-                    src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=500&q=80"
-                    alt="Veterinary Clinic Consultation"
-                    class="rounded-4 shadow-sm w-100 mb-3"
-                    style="height: 240px; object-fit: cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=500&q=80"
-                    alt="Small Pet Care"
-                    class="rounded-4 shadow-sm w-100"
-                    style="height: 180px; object-fit: cover"
-                  />
+                  <div class="story-img-card story-img-card-lg mb-3">
+                    <img
+                      src="../assets/images/about/about-our-story-img-1.webp"
+                      alt="Veterinary Clinic Consultation"
+                      class="story-img"
+                    />
+                    <div class="story-img-overlay">
+                      <span class="story-img-tag"
+                        ><i class="fa-solid fa-stethoscope"></i> Clinical
+                        Care</span
+                      >
+                    </div>
+                  </div>
+                  <div class="story-img-card story-img-card-sm">
+                    <img
+                      src="../assets/images/about/about-our-story-img-2.webp"
+                      alt="Small Pet Care"
+                      class="story-img"
+                    />
+                    <div class="story-img-overlay">
+                      <span class="story-img-tag"
+                        ><i class="fa-solid fa-paw"></i> Gentle Touch</span
+                      >
+                    </div>
+                  </div>
                 </div>
                 <div class="col-6 pt-4">
-                  <img
-                    src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=500&q=80"
-                    alt="Happy Dogs Grooming"
-                    class="rounded-4 shadow-sm w-100 mb-3"
-                    style="height: 180px; object-fit: cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=500&q=80"
-                    alt="Pet Playtime"
-                    class="rounded-4 shadow-sm w-100"
-                    style="height: 240px; object-fit: cover"
-                  />
+                  <div class="story-img-card story-img-card-sm mb-3">
+                    <img
+                      src="../assets/images/about/about-our-story-img-3.webp"
+                      alt="Happy Dogs Grooming"
+                      class="story-img"
+                    />
+                    <div class="story-img-overlay">
+                      <span class="story-img-tag"
+                        ><i class="fa-solid fa-bath"></i> Spa Grooming</span
+                      >
+                    </div>
+                  </div>
+                  <div class="story-img-card story-img-card-lg">
+                    <img
+                      src="../assets/images/about/about-our-story-img-4.webp"
+                      alt="Pet Playtime"
+                      class="story-img"
+                    />
+                    <div class="story-img-overlay">
+                      <span class="story-img-tag"
+                        ><i class="fa-solid fa-shield-dog"></i> Safe Play</span
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -235,7 +260,7 @@
               <div class="team-member-card">
                 <div class="team-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80"
+                    src="../assets/images/about/about-team-member-card-1.webp"
                     alt="Dr. Eleanor Vance"
                   />
                   <div class="team-social-overlay">
@@ -257,7 +282,7 @@
               <div class="team-member-card">
                 <div class="team-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80"
+                    src="../assets/images/about/about-team-member-card-2.webp"
                     alt="Dr. Marcus Thorne"
                   />
                   <div class="team-social-overlay">
@@ -279,7 +304,7 @@
               <div class="team-member-card">
                 <div class="team-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+                    src="../assets/images/about/about-team-member-card-3.webp"
                     alt="Sophia Harrison"
                   />
                   <div class="team-social-overlay">
@@ -301,7 +326,7 @@
               <div class="team-member-card">
                 <div class="team-img-wrap">
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+                    src="../assets/images/about/about-team-member-card-4.webp"
                     alt="Liam Bennett"
                   />
                   <div class="team-social-overlay">
@@ -403,7 +428,7 @@
       </section>
 
       <!-- SECTION 6: Modern Facilities & Safety Standards -->
-      <section class="section-padding bg-white">
+      <section class="section-padding bg-white facilities-section">
         <div class="container">
           <div class="row align-items-center g-5">
             <div class="col-lg-5">
@@ -419,8 +444,8 @@
               </p>
               <div class="facility-box mb-3">
                 <div class="facility-icon"><i class="fa-solid fa-fan"></i></div>
-                <div>
-                  <h5 class="mb-1">HEPA Air Purification</h5>
+                <div class="facility-content">
+                  <h5 class="facility-title mb-1">HEPA Air Purification</h5>
                   <p class="text-secondary small mb-0">
                     Continuous hospital-grade air turnover eliminating odors,
                     airborne pathogens, and allergens.
@@ -431,8 +456,8 @@
                 <div class="facility-icon">
                   <i class="fa-solid fa-video"></i>
                 </div>
-                <div>
-                  <h5 class="mb-1">24/7 CCTV & Webcam Access</h5>
+                <div class="facility-content">
+                  <h5 class="facility-title mb-1">24/7 CCTV & Webcam Access</h5>
                   <p class="text-secondary small mb-0">
                     Live secure webcam feeds for pet parents during boarding and
                     daycare stays.
@@ -441,8 +466,10 @@
               </div>
               <div class="facility-box">
                 <div class="facility-icon"><i class="fa-solid fa-cat"></i></div>
-                <div>
-                  <h5 class="mb-1">Dedicated Feline Only Wing</h5>
+                <div class="facility-content">
+                  <h5 class="facility-title mb-1">
+                    Dedicated Feline Only Wing
+                  </h5>
                   <p class="text-secondary small mb-0">
                     A quiet, dog-free waiting area and exam suite specifically
                     tailored to keep cats peaceful.
@@ -452,12 +479,17 @@
             </div>
 
             <div class="col-lg-7">
-              <img
-                src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=900&q=80"
-                alt="Modern Veterinary Clinic"
-                class="rounded-4 shadow-lg w-100"
-                style="max-height: 480px; object-fit: cover"
-              />
+              <div class="facility-image-wrapper">
+                <img
+                  src="../assets/images/about/about-modern-facilities.webp"
+                  alt="Modern Veterinary Clinic"
+                  class="facility-main-img"
+                />
+                <div class="facility-badge-float">
+                  <i class="fa-solid fa-circle-check text-warning"></i>
+                  <span>100% Sterile & ISO-Certified Suite</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -465,7 +497,7 @@
 
       <!-- SECTION 7: Key Milestones / Growth Timeline -->
       <section
-        class="section-padding"
+        class="section-padding timeline-section"
         style="background-color: var(--bg-secondary)"
       >
         <div class="container">
@@ -484,43 +516,76 @@
 
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">2014 &bull; Inception in London</div>
-                <p class="text-secondary">
-                  Opened our first community clinic in Kensington with a focus
-                  on preventative medicine and stress-free care.
-                </p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">
-                  2018 &bull; Luxury Grooming Spa Expansion
+              <div class="timeline-container">
+                <div class="timeline-item">
+                  <div class="timeline-dot">
+                    <i class="fa-solid fa-paw"></i>
+                  </div>
+                  <div class="timeline-card">
+                    <div class="timeline-card-header">
+                      <span class="timeline-year-badge">2014</span>
+                      <h4 class="timeline-title">Inception in London</h4>
+                    </div>
+                    <p class="timeline-text text-secondary mb-0">
+                      Opened our first community clinic in Kensington with a
+                      focus on preventative medicine and stress-free care.
+                    </p>
+                  </div>
                 </div>
-                <p class="text-secondary">
-                  Introduced certified organic spa bathing suites, coat
-                  hydro-massages, and specialized feline styling.
-                </p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">
-                  2021 &bull; 24/7 Urgent Care Wing & Daycare
+
+                <div class="timeline-item">
+                  <div class="timeline-dot">
+                    <i class="fa-solid fa-spa"></i>
+                  </div>
+                  <div class="timeline-card">
+                    <div class="timeline-card-header">
+                      <span class="timeline-year-badge">2018</span>
+                      <h4 class="timeline-title">
+                        Luxury Grooming Spa Expansion
+                      </h4>
+                    </div>
+                    <p class="timeline-text text-secondary mb-0">
+                      Introduced certified organic spa bathing suites, coat
+                      hydro-massages, and specialized feline styling.
+                    </p>
+                  </div>
                 </div>
-                <p class="text-secondary">
-                  Upgraded surgical diagnostics to include digital imaging,
-                  24-hour triage, and cage-free play lounges.
-                </p>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-year">
-                  2026 &bull; Over 15,000 Happy Pets Served
+
+                <div class="timeline-item">
+                  <div class="timeline-dot">
+                    <i class="fa-solid fa-truck-medical"></i>
+                  </div>
+                  <div class="timeline-card">
+                    <div class="timeline-card-header">
+                      <span class="timeline-year-badge">2021</span>
+                      <h4 class="timeline-title">
+                        24/7 Urgent Care Wing & Daycare
+                      </h4>
+                    </div>
+                    <p class="timeline-text text-secondary mb-0">
+                      Upgraded surgical diagnostics to include digital imaging,
+                      24-hour triage, and cage-free play lounges.
+                    </p>
+                  </div>
                 </div>
-                <p class="text-secondary">
-                  Recognized with the UK Pet Care Excellence Honor and launched
-                  our comprehensive online pet wellness store.
-                </p>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot">
+                    <i class="fa-solid fa-trophy"></i>
+                  </div>
+                  <div class="timeline-card">
+                    <div class="timeline-card-header">
+                      <span class="timeline-year-badge">2026</span>
+                      <h4 class="timeline-title">
+                        Over 15,000 Happy Pets Served
+                      </h4>
+                    </div>
+                    <p class="timeline-text text-secondary mb-0">
+                      Recognized with the UK Pet Care Excellence Honor and
+                      launched our comprehensive online pet wellness store.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -560,7 +625,7 @@
                 </p>
                 <div class="testimonial-author-row">
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+                    src="../assets/images/about/about-testimonial-avatar-1.webp"
                     alt="Customer"
                     class="testimonial-avatar"
                   />
@@ -590,7 +655,7 @@
                 </p>
                 <div class="testimonial-author-row">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                    src="../assets/images/about/about-testimonial-avatar-2.webp"
                     alt="Customer"
                     class="testimonial-avatar"
                   />
@@ -620,7 +685,7 @@
                 </p>
                 <div class="testimonial-author-row">
                   <img
-                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80"
+                    src="../assets/images/about/about-testimonial-avatar-3.webp"
                     alt="Customer"
                     class="testimonial-avatar"
                   />
@@ -639,7 +704,7 @@
 
       <!-- SECTION 9: Frequently Asked Questions (FAQ Accordion) -->
       <section
-        class="section-padding"
+        class="section-padding about-faq-section"
         style="background-color: var(--bg-secondary)"
       >
         <div class="container">
@@ -656,7 +721,10 @@
 
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <div class="accordion" id="aboutFaqAccordion">
+              <div
+                class="accordion custom-faq-accordion"
+                id="aboutFaqAccordion"
+              >
                 <!-- Item 1 -->
                 <div class="accordion-item">
                   <h3 class="accordion-header" id="headingOne">
@@ -668,8 +736,13 @@
                       aria-expanded="true"
                       aria-controls="collapseOne"
                     >
-                      Do I need to book appointments in advance or do you accept
-                      walk-ins?
+                      <span class="faq-icon-bullet"
+                        ><i class="fa-solid fa-calendar-check"></i
+                      ></span>
+                      <span
+                        >Do I need to book appointments in advance or do you
+                        accept walk-ins?</span
+                      >
                     </button>
                   </h3>
                   <div
@@ -698,7 +771,13 @@
                       aria-expanded="false"
                       aria-controls="collapseTwo"
                     >
-                      What does Fear-Free certification mean for my nervous pet?
+                      <span class="faq-icon-bullet"
+                        ><i class="fa-solid fa-shield-heart"></i
+                      ></span>
+                      <span
+                        >What does Fear-Free certification mean for my nervous
+                        pet?</span
+                      >
                     </button>
                   </h3>
                   <div
@@ -727,7 +806,10 @@
                       aria-expanded="false"
                       aria-controls="collapseThree"
                     >
-                      Do you accept pet insurance direct claims?
+                      <span class="faq-icon-bullet"
+                        ><i class="fa-solid fa-file-invoice-dollar"></i
+                      ></span>
+                      <span>Do you accept pet insurance direct claims?</span>
                     </button>
                   </h3>
                   <div
@@ -756,7 +838,13 @@
                       aria-expanded="false"
                       aria-controls="collapseFour"
                     >
-                      What vaccines are required before boarding or grooming?
+                      <span class="faq-icon-bullet"
+                        ><i class="fa-solid fa-syringe"></i
+                      ></span>
+                      <span
+                        >What vaccines are required before boarding or
+                        grooming?</span
+                      >
                     </button>
                   </h3>
                   <div
