@@ -8,6 +8,10 @@
   overflow-x: hidden;
 }
 
+input[type="password"]::-ms-reveal {
+  display: none;
+}
+
 /* Background Floating Paw Print & Blobs Decoration */
 .auth-bg-decorations {
   position: absolute;

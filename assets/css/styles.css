@@ -2127,3 +2127,544 @@ body:has(.page-banner-section)
   color: var(--white-color);
   transform: translateY(-4px);
 }
+
+/* ==========================================================================
+   Pet Care Services - Luxury Preloader
+   ========================================================================== */
+body.preloader-active {
+  overflow: hidden !important;
+}
+
+.pet-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 50% 45%,
+    #00375c 0%,
+    #00233b 50%,
+    #001322 100%
+  );
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.5s ease;
+  user-select: none;
+  overflow: hidden;
+}
+
+.pet-preloader.preloader-fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Ambient Floating Background Elements */
+.preloader-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.preloader-backdrop .floating-paws .bubble {
+  position: absolute;
+  color: rgba(255, 209, 0, 0.12);
+  font-size: 24px;
+  animation: floatPaw 8s infinite ease-in-out;
+}
+
+.preloader-backdrop .floating-paws .bubble-1 {
+  top: 12%;
+  left: 10%;
+  font-size: 28px;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+.preloader-backdrop .floating-paws .bubble-2 {
+  top: 75%;
+  left: 14%;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.08);
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+.preloader-backdrop .floating-paws .bubble-3 {
+  top: 20%;
+  right: 12%;
+  font-size: 20px;
+  color: rgba(255, 107, 107, 0.15);
+  animation-duration: 5.5s;
+  animation-delay: 0.5s;
+}
+.preloader-backdrop .floating-paws .bubble-4 {
+  bottom: 18%;
+  right: 15%;
+  font-size: 32px;
+  animation-duration: 8s;
+  animation-delay: 1.5s;
+}
+.preloader-backdrop .floating-paws .bubble-5 {
+  top: 48%;
+  left: 6%;
+  font-size: 18px;
+  color: rgba(255, 209, 0, 0.15);
+  animation-duration: 6.5s;
+  animation-delay: 2s;
+}
+.preloader-backdrop .floating-paws .bubble-6 {
+  top: 52%;
+  right: 8%;
+  font-size: 26px;
+  animation-duration: 7.5s;
+  animation-delay: 0.8s;
+}
+
+@keyframes floatPaw {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-25px) rotate(15deg) scale(1.15);
+    opacity: 0.75;
+  }
+}
+
+/* Glassmorphism Preloader Card */
+.preloader-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 440px;
+  width: 90%;
+  padding: 38px 32px 34px;
+  background: rgba(0, 40, 66, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 209, 0, 0.22);
+  border-radius: 28px;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 209, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pet-preloader.preloader-fade-out .preloader-card {
+  transform: scale(0.92) translateY(-10px);
+}
+
+/* Center Emblem Wrap */
+.preloader-emblem-wrap {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emblem-ring-outer {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 209, 0, 0.55);
+  animation: spinClockwise 14s linear infinite;
+  box-shadow: 0 0 25px rgba(255, 209, 0, 0.2);
+}
+
+.emblem-ring-inner {
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #ffd100;
+  border-right-color: rgba(255, 255, 255, 0.4);
+  animation: spinCounterClockwise 3.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+    infinite;
+}
+
+.emblem-center {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 35% 35%, #004d80, #002842);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.25);
+  border: 2px solid rgba(255, 209, 0, 0.4);
+}
+
+.paw-main-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pawPulse 2s ease-in-out infinite;
+}
+
+.svg-paw-hero {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 10px rgba(255, 209, 0, 0.45));
+}
+
+.paw-heart {
+  animation: heartThrob 1.2s ease-in-out infinite;
+  transform-origin: 50px 60px;
+}
+
+.paw-toe-1 {
+  animation: toeWiggle 2s ease-in-out infinite 0.1s;
+  transform-origin: 24px 40px;
+}
+.paw-toe-2 {
+  animation: toeWiggle 2s ease-in-out infinite 0.2s;
+  transform-origin: 41px 27px;
+}
+.paw-toe-3 {
+  animation: toeWiggle 2s ease-in-out infinite 0.3s;
+  transform-origin: 59px 27px;
+}
+.paw-toe-4 {
+  animation: toeWiggle 2s ease-in-out infinite 0.4s;
+  transform-origin: 76px 40px;
+}
+
+/* Sparkles on Emblem */
+.preloader-emblem-wrap .sparkle {
+  position: absolute;
+  color: var(--primary-color);
+  font-size: 13px;
+  pointer-events: none;
+  animation: sparkleTwinkle 1.8s ease-in-out infinite;
+}
+.preloader-emblem-wrap .sparkle-1 {
+  top: 4px;
+  right: 6px;
+  animation-delay: 0.3s;
+}
+.preloader-emblem-wrap .sparkle-2 {
+  bottom: 8px;
+  left: 6px;
+  color: #ff6b81;
+  font-size: 11px;
+  animation-delay: 0.9s;
+}
+
+/* Text Content */
+.preloader-text-wrap {
+  margin-bottom: 18px;
+}
+
+.preloader-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 209, 0, 0.12);
+  border: 1px solid rgba(255, 209, 0, 0.3);
+  padding: 5px 16px;
+  border-radius: 30px;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+
+.preloader-badge i {
+  font-size: 10px;
+}
+
+.preloader-title {
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  margin-bottom: 6px;
+}
+
+.preloader-status-msg {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--body-font);
+  font-size: 14px;
+  font-weight: 400;
+  min-height: 22px;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Walking Paws Trail */
+.walking-paws-trail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.walking-paws-trail .step-paw {
+  font-size: 15px;
+  color: var(--primary-color);
+  opacity: 0.2;
+  transform: translateY(0) scale(0.85);
+  animation: walkStep 1.6s infinite ease-in-out;
+}
+
+.walking-paws-trail .step-1 {
+  animation-delay: 0s;
+  transform: rotate(-12deg);
+}
+.walking-paws-trail .step-2 {
+  animation-delay: 0.4s;
+  transform: rotate(8deg);
+}
+.walking-paws-trail .step-3 {
+  animation-delay: 0.8s;
+  transform: rotate(-10deg);
+}
+.walking-paws-trail .step-4 {
+  animation-delay: 1.2s;
+  transform: rotate(10deg);
+}
+
+@keyframes walkStep {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(0) scale(0.85);
+    filter: drop-shadow(0 0 0 rgba(255, 209, 0, 0));
+  }
+  30%,
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(255, 209, 0, 0.85));
+  }
+}
+
+/* Progress Bar */
+.preloader-progress-wrap {
+  width: 100%;
+}
+
+.preloader-progress-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 12px;
+}
+
+.preloader-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffd100 0%, #ffaa00 70%, #ff8800 100%);
+  border-radius: 10px;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 12px rgba(255, 209, 0, 0.7);
+}
+
+.progress-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmerSweep 1.5s infinite;
+  border-radius: 10px;
+}
+
+.progress-runner-paw {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  color: #002842;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  animation: runnerBob 0.8s ease-in-out infinite;
+}
+
+.preloader-progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.meta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-label i {
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+.meta-percent {
+  font-family: var(--title-font);
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+@keyframes spinClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pawPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes heartThrob {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.22);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes toeWiggle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes sparkleTwinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25) rotate(180deg);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes runnerBob {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-70%) rotate(12deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .preloader-card {
+    padding: 30px 18px 26px;
+    border-radius: 22px;
+  }
+  .preloader-emblem-wrap {
+    width: 105px;
+    height: 105px;
+    margin-bottom: 16px;
+  }
+  .emblem-center {
+    width: 88px;
+    height: 88px;
+  }
+  .paw-main-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .preloader-title {
+    font-size: 19px;
+  }
+  .preloader-status-msg {
+    font-size: 13px;
+  }
+}

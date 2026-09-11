@@ -26,6 +26,155 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
+    <!-- ==========================================================================
+       Preloader Component (2 Seconds Duration)
+       ========================================================================== -->
+    <div
+      id="pet-preloader"
+      class="pet-preloader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading Pet Care Services"
+    >
+      <div class="preloader-backdrop">
+        <div class="floating-paws">
+          <span class="bubble bubble-1"><i class="fa-solid fa-paw"></i></span>
+          <span class="bubble bubble-2"><i class="fa-solid fa-bone"></i></span>
+          <span class="bubble bubble-3"><i class="fa-solid fa-heart"></i></span>
+          <span class="bubble bubble-4"><i class="fa-solid fa-paw"></i></span>
+          <span class="bubble bubble-5"><i class="fa-solid fa-star"></i></span>
+          <span class="bubble bubble-6"><i class="fa-solid fa-paw"></i></span>
+        </div>
+      </div>
+
+      <div class="preloader-card">
+        <!-- Logo / Brand Emblem -->
+        <div class="preloader-emblem-wrap">
+          <div class="emblem-ring-outer"></div>
+          <div class="emblem-ring-inner"></div>
+          <div class="emblem-center">
+            <div class="paw-main-icon">
+              <svg
+                class="svg-paw-hero"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Large Paw Pad -->
+                <path
+                  class="paw-pad"
+                  d="M50 44C38.5 44 29 53 29 65C29 74.8 37.4 83 50 83C62.6 83 71 74.8 71 65C71 53 61.5 44 50 44Z"
+                  fill="url(#pawGrad)"
+                />
+                <!-- Heart cutout inside pad -->
+                <path
+                  class="paw-heart"
+                  d="M50 58 C46.5 53.5 41 56 41 61 C41 65.5 50 72 50 72 C50 72 59 65.5 59 61 C59 56 53.5 53.5 50 58 Z"
+                  fill="#002842"
+                />
+                <!-- 4 Toes -->
+                <ellipse
+                  class="paw-toe paw-toe-1"
+                  cx="24"
+                  cy="41"
+                  rx="7.5"
+                  ry="11.5"
+                  transform="rotate(-22 24 41)"
+                  fill="url(#pawGrad)"
+                />
+                <ellipse
+                  class="paw-toe paw-toe-2"
+                  cx="41"
+                  cy="27"
+                  rx="8"
+                  ry="12.5"
+                  transform="rotate(-7 41 27)"
+                  fill="url(#pawGrad)"
+                />
+                <ellipse
+                  class="paw-toe paw-toe-3"
+                  cx="59"
+                  cy="27"
+                  rx="8"
+                  ry="12.5"
+                  transform="rotate(7 59 27)"
+                  fill="url(#pawGrad)"
+                />
+                <ellipse
+                  class="paw-toe paw-toe-4"
+                  cx="76"
+                  cy="41"
+                  rx="7.5"
+                  ry="11.5"
+                  transform="rotate(22 76 41)"
+                  fill="url(#pawGrad)"
+                />
+                <defs>
+                  <linearGradient
+                    id="pawGrad"
+                    x1="20"
+                    y1="15"
+                    x2="80"
+                    y2="85"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0%" stop-color="#ffd100" />
+                    <stop offset="100%" stop-color="#ff9900" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <!-- Sparkles -->
+            <span class="sparkle sparkle-1"
+              ><i class="fa-solid fa-sparkles"></i
+            ></span>
+            <span class="sparkle sparkle-2"
+              ><i class="fa-solid fa-heart"></i
+            ></span>
+          </div>
+        </div>
+
+        <!-- Brand Name & Badge -->
+        <div class="preloader-text-wrap">
+          <div class="preloader-badge">
+            <i class="fa-solid fa-paw"></i>
+            <span>Pet Care Services</span>
+            <i class="fa-solid fa-paw"></i>
+          </div>
+          <h2 class="preloader-title">Pampering Your Best Friends</h2>
+          <div class="preloader-status-msg" id="preloader-status">
+            Waking up happy tails...
+          </div>
+        </div>
+
+        <!-- Walking Paw Trail -->
+        <div class="walking-paws-trail">
+          <span class="step-paw step-1"><i class="fa-solid fa-paw"></i></span>
+          <span class="step-paw step-2"><i class="fa-solid fa-paw"></i></span>
+          <span class="step-paw step-3"><i class="fa-solid fa-paw"></i></span>
+          <span class="step-paw step-4"><i class="fa-solid fa-paw"></i></span>
+        </div>
+
+        <!-- Progress Bar & Percentage -->
+        <div class="preloader-progress-wrap">
+          <div class="preloader-progress-track">
+            <div class="preloader-progress-bar" id="preloader-bar">
+              <span class="progress-glow"></span>
+              <span class="progress-runner-paw"
+                ><i class="fa-solid fa-paw"></i
+              ></span>
+            </div>
+          </div>
+          <div class="preloader-progress-meta">
+            <span class="meta-label"
+              ><i class="fa-solid fa-shield-cat"></i> Premium Care Loading</span
+            >
+            <span class="meta-percent" id="preloader-percent">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Header Placeholder (Common Component) -->
     <div id="header-placeholder"></div>
 

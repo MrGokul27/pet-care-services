@@ -1,6 +1,100 @@
 document.addEventListener("DOMContentLoaded", function () {
   "use strict";
 
+  // ==========================================================================
+  // Pet Care Services - Luxury Preloader (2 Seconds Duration)
+  // ==========================================================================
+  function initPetPreloader() {
+    const preloader = document.getElementById("pet-preloader");
+    if (!preloader) return;
+
+    // Lock body scrolling during preloader
+    document.body.classList.add("preloader-active");
+
+    const progressBar = document.getElementById("preloader-bar");
+    const percentText = document.getElementById("preloader-percent");
+    const statusText = document.getElementById("preloader-status");
+
+    const totalDuration = 2000; // 2 seconds
+    const startTime = performance.now();
+
+    const statusMessages = [
+      { threshold: 0, text: "Waking up happy tails..." },
+      { threshold: 32, text: "Gathering grooming & care kits..." },
+      { threshold: 68, text: "Packing nutrition & warm cuddles..." },
+      { threshold: 92, text: "Ready for your furry friends! 🐾" },
+    ];
+
+    let currentStatusIndex = -1;
+
+    function updatePreloader(now) {
+      const elapsed = now - startTime;
+      const rawProgress = Math.min(elapsed / totalDuration, 1);
+
+      // Smooth easing (easeOutCubic)
+      const easeProgress = 1 - Math.pow(1 - rawProgress, 2.2);
+      const currentPercent = Math.min(Math.round(easeProgress * 100), 100);
+
+      if (progressBar) {
+        progressBar.style.width = currentPercent + "%";
+      }
+      if (percentText) {
+        percentText.textContent = currentPercent + "%";
+      }
+
+      // Dynamic friendly status updates
+      for (let i = statusMessages.length - 1; i >= 0; i--) {
+        if (currentPercent >= statusMessages[i].threshold) {
+          if (currentStatusIndex !== i && statusText) {
+            currentStatusIndex = i;
+            statusText.style.opacity = "0";
+            statusText.style.transform = "translateY(4px)";
+            setTimeout(() => {
+              statusText.textContent = statusMessages[i].text;
+              statusText.style.opacity = "1";
+              statusText.style.transform = "translateY(0)";
+            }, 140);
+          }
+          break;
+        }
+      }
+
+      if (rawProgress < 1) {
+        requestAnimationFrame(updatePreloader);
+      } else {
+        // Complete 100% and initiate fade out
+        if (progressBar) progressBar.style.width = "100%";
+        if (percentText) percentText.textContent = "100%";
+
+        setTimeout(() => {
+          preloader.classList.add("preloader-fade-out");
+          document.body.classList.remove("preloader-active");
+
+          setTimeout(() => {
+            preloader.style.display = "none";
+            preloader.setAttribute("aria-hidden", "true");
+          }, 520);
+        }, 120);
+      }
+    }
+
+    requestAnimationFrame(updatePreloader);
+
+    // Fail-safe timeout in case tab loses focus
+    setTimeout(() => {
+      if (preloader.style.display !== "none") {
+        preloader.classList.add("preloader-fade-out");
+        document.body.classList.remove("preloader-active");
+        setTimeout(() => {
+          preloader.style.display = "none";
+          preloader.setAttribute("aria-hidden", "true");
+        }, 520);
+      }
+    }, totalDuration + 700);
+  }
+
+  initPetPreloader();
+
   // Determine if the current page is inside the 'pages/' directory
   const currentPath = window.location.pathname.replace(/\\/g, "/");
   const isInPagesDir = currentPath.includes("/pages/");
