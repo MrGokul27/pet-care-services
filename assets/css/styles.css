@@ -1828,6 +1828,7 @@ body:has(.page-banner-section)
   font-weight: 600;
   padding: 4px 14px;
   border-radius: 20px;
+  z-index: 1;
 }
 
 .blog-content {

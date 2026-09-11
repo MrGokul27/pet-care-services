@@ -165,3 +165,867 @@
   background-color: var(--primary-color);
   color: var(--black-color);
 }
+
+/* ==========================================================================
+   SECTION 6: Service Process Walkthrough
+   ========================================================================== */
+.process-walkthrough-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.process-journey-card,
+.journey-step-card {
+  background-color: var(--white-color);
+  border: 1.5px solid var(--border-secondary);
+  border-radius: 20px;
+  padding: 30px 24px 26px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 20px rgba(0, 40, 66, 0.04);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Subtle top glow bar indicator */
+.process-journey-card::before,
+.journey-step-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--bg-primary), var(--primary-color));
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: all 0.4s ease;
+}
+
+/* Subtle radial background glow on hover */
+.process-journey-card::after,
+.journey-step-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 209, 0, 0.08),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.process-journey-card:hover,
+.journey-step-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 209, 0, 0.8);
+  box-shadow:
+    0 18px 36px rgba(0, 40, 66, 0.1),
+    0 0 20px rgba(255, 209, 0, 0.15);
+}
+
+.process-journey-card:hover::before,
+.journey-step-card:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.process-journey-card:hover::after,
+.journey-step-card:hover::after {
+  opacity: 1;
+}
+
+/* Process Card Header Elements */
+.process-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.process-step-pill {
+  font-family: var(--title-font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  padding: 4px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(183, 190, 200, 0.3);
+  transition: all 0.3s ease;
+}
+
+.process-journey-card:hover .process-step-pill {
+  background-color: var(--bg-primary);
+  color: var(--primary-color);
+  border-color: var(--bg-primary);
+}
+
+.process-step-number,
+.journey-step-number {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #0d273a 100%);
+  color: var(--primary-color);
+  font-family: var(--title-font);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 40, 66, 0.18);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid var(--white-color);
+}
+
+.process-journey-card:hover .process-step-number,
+.journey-step-card:hover .journey-step-number {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #f59e0b 100%);
+  color: var(--black-color);
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 6px 16px rgba(255, 209, 0, 0.45);
+}
+
+/* Process Icon Wrap */
+.process-icon-wrap {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.process-icon,
+.journey-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(183, 190, 200, 0.25);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.8);
+}
+
+.process-journey-card:hover .process-icon,
+.journey-step-card:hover .journey-icon {
+  background-color: var(--bg-primary);
+  color: var(--primary-color);
+  transform: translateY(-4px) scale(1.08) rotate(-4deg);
+  box-shadow: 0 10px 22px rgba(26, 60, 82, 0.25);
+  border-color: var(--bg-primary);
+}
+
+.process-step-title {
+  font-family: var(--title-font);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.process-journey-card:hover .process-step-title {
+  color: var(--bg-primary);
+}
+
+.process-step-desc {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Footer tags in card */
+.process-step-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-secondary);
+}
+
+.step-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background-color: #f8fafc;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(183, 190, 200, 0.3);
+  transition: all 0.3s ease;
+}
+
+.step-meta-badge i {
+  color: #10b981;
+  font-size: 11px;
+}
+
+.process-journey-card:hover .step-meta-badge {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: rgba(255, 209, 0, 0.4);
+}
+
+/* ==========================================================================
+   SECTION 8: Happy Pets Gallery Showcase
+   ========================================================================== */
+.gallery-showcase-section {
+  position: relative;
+}
+
+.gallery-showcase-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 40, 66, 0.08);
+  transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  background-color: var(--bg-primary);
+  border: 2px solid transparent;
+}
+
+.gallery-showcase-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 40, 66, 0.18),
+    0 0 24px rgba(255, 209, 0, 0.25);
+  border-color: var(--primary-color);
+}
+
+.gallery-img-box {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.gallery-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.6s ease;
+  will-change: transform;
+}
+
+.gallery-showcase-card:hover .gallery-showcase-img {
+  transform: scale(1.14);
+  filter: brightness(0.92);
+}
+
+/* Dynamic gradient overlay */
+.gallery-showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 40, 66, 0.2) 0%,
+    rgba(0, 40, 66, 0.45) 45%,
+    rgba(0, 40, 66, 0.95) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-showcase-card:hover .gallery-showcase-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Top Chip Tag */
+.gallery-chip {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  font-family: var(--title-font);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s;
+}
+
+.gallery-chip i {
+  color: #e11d48;
+}
+
+.gallery-showcase-card:hover .gallery-chip {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Center Interactive Action Buttons */
+.gallery-actions {
+  align-self: center;
+  display: flex;
+  gap: 12px;
+  transform: scale(0.6);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+}
+
+.gallery-showcase-card:hover .gallery-actions {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.gallery-action-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.gallery-action-icon:hover {
+  background: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.18) rotate(8deg);
+  box-shadow: 0 8px 20px rgba(255, 209, 0, 0.5);
+}
+
+.gallery-action-icon.heart-icon:hover {
+  background: #f43f5e;
+  color: #ffffff;
+}
+
+/* Bottom Caption Details */
+.gallery-caption {
+  transform: translateY(16px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) 0.12s;
+}
+
+.gallery-showcase-card:hover .gallery-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-pet-title {
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-pet-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   SECTION 9: Frequently Asked Questions (FAQ Accordion)
+   ========================================================================== */
+.collection-faq-accordion .accordion-item {
+  border: 1.5px solid var(--border-secondary);
+  border-radius: 16px !important;
+  margin-bottom: 16px;
+  overflow: hidden;
+  background-color: var(--white-color);
+  box-shadow: 0 4px 14px rgba(0, 40, 66, 0.04);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.collection-faq-accordion .accordion-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 40, 66, 0.1);
+  border-color: var(--primary-color);
+}
+
+.collection-faq-accordion .accordion-button {
+  font-family: var(--title-font);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 20px 24px;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.collection-faq-accordion .faq-btn-text {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.collection-faq-accordion .faq-bullet {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(183, 190, 200, 0.25);
+}
+
+/* Accordion Item Hover bullet icon */
+.collection-faq-accordion .accordion-item:hover .faq-bullet {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.12) rotate(-6deg);
+  box-shadow: 0 4px 12px rgba(255, 209, 0, 0.35);
+  border-color: var(--primary-color);
+}
+
+.collection-faq-accordion .accordion-button:hover {
+  background-color: rgba(238, 246, 255, 0.5);
+  color: var(--bg-primary);
+}
+
+/* Accordion Expanded / Active State */
+.collection-faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--bg-primary);
+  background-color: var(--bg-secondary);
+  box-shadow: none;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+}
+
+.collection-faq-accordion .accordion-button:not(.collapsed) .faq-bullet {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(255, 209, 0, 0.35);
+  border-color: var(--primary-color);
+}
+
+.collection-faq-accordion .accordion-button:focus {
+  box-shadow: none;
+}
+
+.collection-faq-accordion .accordion-body {
+  padding: 18px 24px 24px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.75;
+  background-color: var(--white-color);
+  border-top: 1px solid var(--border-secondary);
+}
+
+/* FAQ Bottom Help / Support Strip */
+.faq-help-card {
+  background-color: var(--white-color);
+  border: 1.5px dashed var(--border-primary);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s ease;
+}
+
+.faq-help-card:hover {
+  border-color: var(--primary-color);
+  background-color: #fafcff;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.faq-help-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.faq-help-card:hover .faq-help-icon {
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  transform: rotate(10deg);
+}
+
+.faq-contact-btn {
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   SECTION 10: Direct Appointment Booking Callout
+   ========================================================================== */
+.booking-callout-box {
+  background: linear-gradient(135deg, #0f2d42 0%, #1a3c52 50%, #0d2230 100%);
+  border-radius: 24px;
+  padding: 70px 40px;
+  color: var(--white-color);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 40, 66, 0.22);
+  border: 2px solid rgba(255, 209, 0, 0.35);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.booking-callout-box:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-color);
+  box-shadow:
+    0 28px 60px rgba(0, 40, 66, 0.3),
+    0 0 30px rgba(255, 209, 0, 0.2);
+}
+
+/* Light sweep reflection effect on hover */
+.booking-callout-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.booking-callout-box:hover::before {
+  opacity: 1;
+}
+
+/* Decorative background glowing circles & paw icons */
+.callout-decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+  opacity: 0.35;
+  transition: all 0.5s ease;
+}
+
+.callout-decor-1 {
+  width: 280px;
+  height: 280px;
+  background: rgba(255, 209, 0, 0.25);
+  top: -80px;
+  left: -80px;
+}
+
+.callout-decor-2 {
+  width: 260px;
+  height: 260px;
+  background: rgba(16, 185, 129, 0.2);
+  bottom: -80px;
+  right: -80px;
+}
+
+.booking-callout-box:hover .callout-decor-1 {
+  transform: scale(1.15);
+  opacity: 0.5;
+}
+
+.booking-callout-box:hover .callout-decor-2 {
+  transform: scale(1.15);
+  opacity: 0.4;
+}
+
+.callout-paw-icon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.callout-paw-icon.paw-1 {
+  top: 30px;
+  right: 60px;
+  font-size: 60px;
+  transform: rotate(20deg);
+}
+
+.callout-paw-icon.paw-2 {
+  bottom: 25px;
+  left: 50px;
+  font-size: 70px;
+  transform: rotate(-25deg);
+}
+
+.callout-paw-icon.paw-3 {
+  top: 40px;
+  left: 80px;
+  font-size: 45px;
+  transform: rotate(15deg);
+}
+
+.booking-callout-box:hover .callout-paw-icon.paw-1 {
+  transform: rotate(35deg) scale(1.15);
+  color: rgba(255, 209, 0, 0.12);
+}
+
+.booking-callout-box:hover .callout-paw-icon.paw-2 {
+  transform: rotate(-10deg) scale(1.15);
+  color: rgba(255, 209, 0, 0.12);
+}
+
+.booking-callout-box:hover .callout-paw-icon.paw-3 {
+  transform: rotate(25deg) scale(1.15);
+  color: rgba(16, 185, 129, 0.15);
+}
+
+/* Callout Badge */
+.callout-badge {
+  background-color: rgba(255, 209, 0, 0.18) !important;
+  color: var(--primary-color) !important;
+  border: 1px solid rgba(255, 209, 0, 0.4) !important;
+  backdrop-filter: blur(6px);
+  font-size: 13px;
+  padding: 6px 18px;
+  transition: all 0.3s ease;
+}
+
+.booking-callout-box:hover .callout-badge {
+  background-color: var(--primary-color) !important;
+  color: var(--black-color) !important;
+  transform: scale(1.05);
+}
+
+.booking-callout-box:hover .callout-badge i {
+  color: var(--black-color);
+}
+
+.callout-heading {
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 767px) {
+  .callout-heading {
+    font-size: 1.85rem;
+  }
+}
+
+.callout-subtext {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  max-width: 650px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+/* Primary Button Animation */
+.callout-btn-primary {
+  font-size: 16px;
+  padding: 15px 34px;
+  box-shadow: 0 8px 24px rgba(255, 209, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.callout-btn-primary:hover {
+  background-color: #ffffff;
+  color: var(--bg-primary);
+  border-color: #ffffff;
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 14px 30px rgba(255, 255, 255, 0.35);
+}
+
+.callout-btn-primary i {
+  transition: transform 0.3s ease;
+}
+
+.callout-btn-primary:hover i {
+  transform: scale(1.2) rotate(-8deg);
+}
+
+/* Outline Button Animation */
+.callout-btn-outline {
+  font-size: 16px;
+  padding: 14px 30px;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.45) !important;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.callout-btn-outline:hover {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--black-color) !important;
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 26px rgba(255, 209, 0, 0.35);
+}
+
+.callout-btn-outline i {
+  transition: transform 0.3s ease;
+}
+
+.callout-btn-outline:hover i {
+  transform: scale(1.2) rotate(12deg);
+}
+
+/* Booking Trust / Perks row */
+.booking-perks-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px 24px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.booking-perk-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s ease;
+}
+
+.booking-perk-item i {
+  color: var(--primary-color);
+  font-size: 13px;
+  transition: transform 0.3s ease;
+}
+
+.booking-perk-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border-color: var(--primary-color);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.booking-perk-item:hover i {
+  transform: scale(1.25);
+}
+
+/* ==========================================================================
+   Responsive Adaptations for Sections 6, 8, 9, 10
+   ========================================================================== */
+@media (max-width: 991px) {
+  .process-journey-card {
+    padding: 24px 20px;
+  }
+
+  .booking-callout-box {
+    padding: 50px 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-img-box {
+    height: 210px;
+  }
+
+  .gallery-showcase-overlay {
+    padding: 12px;
+  }
+
+  .gallery-chip {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .gallery-action-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .gallery-pet-title {
+    font-size: 14px;
+  }
+
+  .gallery-pet-subtitle {
+    font-size: 11px;
+  }
+
+  .collection-faq-accordion .accordion-button {
+    font-size: 15px;
+    padding: 16px 18px;
+    gap: 12px;
+  }
+
+  .collection-faq-accordion .faq-bullet {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .collection-faq-accordion .accordion-body {
+    padding: 14px 18px 20px;
+    font-size: 14px;
+  }
+
+  .booking-callout-box {
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+
+  .booking-perks-row {
+    gap: 10px 14px;
+    margin-top: 26px;
+    padding-top: 20px;
+  }
+
+  .booking-perk-item {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+}
