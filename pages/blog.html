@@ -116,12 +116,24 @@
       >
         <div class="container py-4">
           <div class="blog-category-nav mb-0">
-            <button class="blog-cat-btn active">All Articles</button>
-            <button class="blog-cat-btn">Canine Health</button>
-            <button class="blog-cat-btn">Feline Wellness</button>
-            <button class="blog-cat-btn">Diet & Nutrition</button>
-            <button class="blog-cat-btn">Grooming & Coat</button>
-            <button class="blog-cat-btn">Puppy Training</button>
+            <button class="blog-cat-btn active" data-category="all">
+              <i class="fa-solid fa-layer-group me-1"></i> All Articles
+            </button>
+            <button class="blog-cat-btn" data-category="canine">
+              <i class="fa-solid fa-dog me-1"></i> Canine Health
+            </button>
+            <button class="blog-cat-btn" data-category="feline">
+              <i class="fa-solid fa-cat me-1"></i> Feline Wellness
+            </button>
+            <button class="blog-cat-btn" data-category="nutrition">
+              <i class="fa-solid fa-bowl-food me-1"></i> Diet & Nutrition
+            </button>
+            <button class="blog-cat-btn" data-category="grooming">
+              <i class="fa-solid fa-scissors me-1"></i> Grooming & Coat
+            </button>
+            <button class="blog-cat-btn" data-category="training">
+              <i class="fa-solid fa-graduation-cap me-1"></i> Puppy Training
+            </button>
           </div>
         </div>
       </section>
@@ -129,12 +141,15 @@
       <!-- SECTION 4: Comprehensive Blog Post Grid -->
       <section class="section-padding bg-white" id="article">
         <div class="container">
-          <div class="row g-4">
-            <!-- Post 1 -->
-            <div class="col-md-6 col-lg-4">
+          <div class="row g-4" id="blogPostGrid">
+            <!-- Post 1: Diet & Nutrition -->
+            <div
+              class="col-md-6 col-lg-4 blog-card-col"
+              data-category="nutrition"
+            >
               <div class="blog-card">
                 <div class="blog-thumb-wrap">
-                  <span class="blog-category-badge">Nutrition</span>
+                  <span class="blog-category-badge">Diet & Nutrition</span>
                   <img
                     src="../assets/images/home/home-featured-pet-products-1.webp"
                     alt="Grain-Free Food"
@@ -164,11 +179,14 @@
               </div>
             </div>
 
-            <!-- Post 2 -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Post 2: Puppy Training & Behavior -->
+            <div
+              class="col-md-6 col-lg-4 blog-card-col"
+              data-category="training"
+            >
               <div class="blog-card">
                 <div class="blog-thumb-wrap">
-                  <span class="blog-category-badge">Behavior</span>
+                  <span class="blog-category-badge">Puppy Training</span>
                   <img
                     src="../assets/images/collections/collection-img-wrap-4.webp"
                     alt="Dog Separation Anxiety"
@@ -199,11 +217,11 @@
               </div>
             </div>
 
-            <!-- Post 3 -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Post 3: Feline Wellness -->
+            <div class="col-md-6 col-lg-4 blog-card-col" data-category="feline">
               <div class="blog-card">
                 <div class="blog-thumb-wrap">
-                  <span class="blog-category-badge">Feline Health</span>
+                  <span class="blog-category-badge">Feline Wellness</span>
                   <img
                     src="../assets/images/home/home-transformation-imgs-3.webp"
                     alt="Cat Hydration"
@@ -234,11 +252,11 @@
               </div>
             </div>
 
-            <!-- Post 4 -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Post 4: Canine Health -->
+            <div class="col-md-6 col-lg-4 blog-card-col" data-category="canine">
               <div class="blog-card">
                 <div class="blog-thumb-wrap">
-                  <span class="blog-category-badge">Dental Care</span>
+                  <span class="blog-category-badge">Canine Health</span>
                   <img
                     src="../assets/images/home/home-promo-newsletter-img.webp"
                     alt="Dog Teeth Cleaning"
@@ -269,11 +287,11 @@
               </div>
             </div>
 
-            <!-- Post 5 -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Post 5: Canine Health & Senior Care -->
+            <div class="col-md-6 col-lg-4 blog-card-col" data-category="canine">
               <div class="blog-card">
                 <div class="blog-thumb-wrap">
-                  <span class="blog-category-badge">Senior Care</span>
+                  <span class="blog-category-badge">Canine Health</span>
                   <img
                     src="../assets/images/home/home-transformation-imgs-1.webp"
                     alt="Senior Golden"
@@ -303,11 +321,14 @@
               </div>
             </div>
 
-            <!-- Post 6 -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Post 6: Grooming & Coat -->
+            <div
+              class="col-md-6 col-lg-4 blog-card-col"
+              data-category="grooming"
+            >
               <div class="blog-card">
                 <div class="blog-thumb-wrap">
-                  <span class="blog-category-badge">Grooming</span>
+                  <span class="blog-category-badge">Grooming & Coat</span>
                   <img
                     src="../assets/images/home/home-blog-img-2.webp"
                     alt="Coat Grooming"
@@ -337,10 +358,121 @@
                 </div>
               </div>
             </div>
+
+            <!-- Post 7: Feline Wellness -->
+            <div class="col-md-6 col-lg-4 blog-card-col" data-category="feline">
+              <div class="blog-card">
+                <div class="blog-thumb-wrap">
+                  <span class="blog-category-badge">Feline Wellness</span>
+                  <img
+                    src="../assets/images/home/home-categories-card-2.webp"
+                    alt="Feline Scratching Guide"
+                  />
+                </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <span
+                      ><i class="fa-regular fa-calendar"></i> Apr 22, 2026</span
+                    >
+                    <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+                  </div>
+                  <h4 class="blog-title">
+                    <a href="#"
+                      >Feline Environmental Enrichment: Solving Indoor Stress &
+                      Scratching</a
+                    >
+                  </h4>
+                  <p class="blog-excerpt">
+                    Create vertical climbing territories and multi-textured
+                    scratching zones that fulfill your cat's natural predatory
+                    instincts.
+                  </p>
+                  <a href="#" class="blog-read-more"
+                    >Read Guide <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post 8: Puppy Training -->
+            <div
+              class="col-md-6 col-lg-4 blog-card-col"
+              data-category="training"
+            >
+              <div class="blog-card">
+                <div class="blog-thumb-wrap">
+                  <span class="blog-category-badge">Puppy Training</span>
+                  <img
+                    src="../assets/images/home/home-categories-card-5.webp"
+                    alt="Puppy Leash Training"
+                  />
+                </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <span
+                      ><i class="fa-regular fa-calendar"></i> Apr 18, 2026</span
+                    >
+                    <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+                  </div>
+                  <h4 class="blog-title">
+                    <a href="#"
+                      >Mastering Loose-Leash Walking: Stop Pulling Without Harsh
+                      Collars</a
+                    >
+                  </h4>
+                  <p class="blog-excerpt">
+                    Positive reward techniques and directional changes that
+                    transform chaotic neighborhood walks into calm, harmonious
+                    strolls.
+                  </p>
+                  <a href="#" class="blog-read-more"
+                    >Read Guide <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post 9: Diet & Nutrition -->
+            <div
+              class="col-md-6 col-lg-4 blog-card-col"
+              data-category="nutrition"
+            >
+              <div class="blog-card">
+                <div class="blog-thumb-wrap">
+                  <span class="blog-category-badge">Diet & Nutrition</span>
+                  <img
+                    src="../assets/images/home/home-featured-pet-products-2.webp"
+                    alt="Omega Oils for Dogs"
+                  />
+                </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <span
+                      ><i class="fa-regular fa-calendar"></i> Apr 12, 2026</span
+                    >
+                    <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+                  </div>
+                  <h4 class="blog-title">
+                    <a href="#"
+                      >Omega-3 vs Omega-6: The Science of Joint Mobility &
+                      Glossy Coats</a
+                    >
+                  </h4>
+                  <p class="blog-excerpt">
+                    How wild salmon oil and marine algae lipids reduce systemic
+                    inflammation and support brain health across all pet life
+                    stages.
+                  </p>
+                  <a href="#" class="blog-read-more"
+                    >Read Guide <i class="fa-solid fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Pagination -->
-          <div class="theme-pagination">
+          <div class="theme-pagination" id="blogPagination">
             <a href="#" class="active">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
@@ -504,66 +636,184 @@
           </div>
 
           <div class="row g-4">
-            <div class="col-md-4">
-              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
-                <span class="badge bg-secondary text-white mb-2"
-                  >Trending #1</span
-                >
-                <h4 class="fs-5 mb-2">
-                  <a href="#" class="text-dark"
-                    >How to Safely Switch Your Pet’s Food Without Upsetting
-                    Their Stomach</a
+            <!-- Trending #1 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="trending-card">
+                <div class="trending-card-header">
+                  <div class="trending-rank-badge rank-gold">
+                    <i class="fa-solid fa-fire-flame-curved"></i> #01 Trending
+                  </div>
+                  <span class="trending-read-time"
+                    ><i class="fa-regular fa-clock"></i> 3 min read</span
                   >
-                </h4>
-                <p class="text-secondary small">
-                  A gradual 7-day transition schedule to prevent digestive
-                  distress and diarrhoea.
-                </p>
-                <a href="#" class="blog-read-more small"
-                  >Read 3 min guide &rarr;</a
-                >
+                </div>
+                <div class="trending-img-wrap">
+                  <img
+                    src="../assets/images/home/home-blog-img-1.webp"
+                    alt="Switch Pet Food Safely"
+                  />
+                  <span class="trending-category-pill">Clinical Diet</span>
+                </div>
+                <div class="trending-content">
+                  <div class="trending-meta-date">
+                    <i class="fa-regular fa-calendar-check"></i> Updated May
+                    2026
+                  </div>
+                  <h4 class="trending-title">
+                    <a href="#"
+                      >How to Safely Switch Your Pet’s Food Without Upsetting
+                      Their Stomach</a
+                    >
+                  </h4>
+                  <p class="trending-excerpt">
+                    A gradual 7-day transition veterinary schedule to protect
+                    gut microbiome and avoid acute digestive distress.
+                  </p>
+                  <div class="trending-footer">
+                    <div class="trending-author-info">
+                      <img
+                        src="../assets/images/about/about-team-member-card-1.webp"
+                        alt="Dr. Vance"
+                        class="trending-author-img"
+                      />
+                      <div>
+                        <div class="trending-author-name">
+                          Dr. Eleanor Vance
+                        </div>
+                        <span class="trending-author-role"
+                          >Chief Vet Surgeon</span
+                        >
+                      </div>
+                    </div>
+                    <a
+                      href="#"
+                      class="trending-arrow-btn"
+                      aria-label="Read full article"
+                    >
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
-                <span class="badge bg-secondary text-white mb-2"
-                  >Trending #2</span
-                >
-                <h4 class="fs-5 mb-2">
-                  <a href="#" class="text-dark"
-                    >Top 5 Calming Supplements for Firework Season &
-                    Thunderstorms</a
+            <!-- Trending #2 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="trending-card">
+                <div class="trending-card-header">
+                  <div class="trending-rank-badge rank-silver">
+                    <i class="fa-solid fa-award"></i> #02 Trending
+                  </div>
+                  <span class="trending-read-time"
+                    ><i class="fa-regular fa-clock"></i> 4 min read</span
                   >
-                </h4>
-                <p class="text-secondary small">
-                  L-Theanine, Chamomile, and Valerian root therapies reviewed by
-                  our clinical team.
-                </p>
-                <a href="#" class="blog-read-more small"
-                  >Read 4 min guide &rarr;</a
-                >
+                </div>
+                <div class="trending-img-wrap">
+                  <img
+                    src="../assets/images/home/home-blog-img-3.webp"
+                    alt="Calming Supplements"
+                  />
+                  <span class="trending-category-pill">Behavior & Care</span>
+                </div>
+                <div class="trending-content">
+                  <div class="trending-meta-date">
+                    <i class="fa-regular fa-calendar-check"></i> Updated May
+                    2026
+                  </div>
+                  <h4 class="trending-title">
+                    <a href="#"
+                      >Top 5 Calming Supplements for Firework Season &
+                      Thunderstorms</a
+                    >
+                  </h4>
+                  <p class="trending-excerpt">
+                    L-Theanine, Chamomile, and Valerian root therapies reviewed
+                    by our clinical behavioral experts.
+                  </p>
+                  <div class="trending-footer">
+                    <div class="trending-author-info">
+                      <img
+                        src="../assets/images/about/about-team-member-card-4.webp"
+                        alt="Liam Bennett"
+                        class="trending-author-img"
+                      />
+                      <div>
+                        <div class="trending-author-name">Liam Bennett</div>
+                        <span class="trending-author-role"
+                          >Certified Behaviorist</span
+                        >
+                      </div>
+                    </div>
+                    <a
+                      href="#"
+                      class="trending-arrow-btn"
+                      aria-label="Read full article"
+                    >
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
-                <span class="badge bg-secondary text-white mb-2"
-                  >Trending #3</span
-                >
-                <h4 class="fs-5 mb-2">
-                  <a href="#" class="text-dark"
-                    >Cat Scratching Post Guide: Why Sisal Rope Outperforms
-                    Cardboard</a
+            <!-- Trending #3 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="trending-card">
+                <div class="trending-card-header">
+                  <div class="trending-rank-badge rank-bronze">
+                    <i class="fa-solid fa-star"></i> #03 Trending
+                  </div>
+                  <span class="trending-read-time"
+                    ><i class="fa-regular fa-clock"></i> 3 min read</span
                   >
-                </h4>
-                <p class="text-secondary small">
-                  How post stability and scratching angles save your living room
-                  furniture.
-                </p>
-                <a href="#" class="blog-read-more small"
-                  >Read 3 min guide &rarr;</a
-                >
+                </div>
+                <div class="trending-img-wrap">
+                  <img
+                    src="../assets/images/about/about-our-story-img-2.webp"
+                    alt="Cat Scratching Post Guide"
+                  />
+                  <span class="trending-category-pill">Feline Life</span>
+                </div>
+                <div class="trending-content">
+                  <div class="trending-meta-date">
+                    <i class="fa-regular fa-calendar-check"></i> Updated May
+                    2026
+                  </div>
+                  <h4 class="trending-title">
+                    <a href="#"
+                      >Cat Scratching Post Guide: Why Sisal Rope Outperforms
+                      Cardboard</a
+                    >
+                  </h4>
+                  <p class="trending-excerpt">
+                    How post stability, ergonomic scratching angles, and scent
+                    markers save your furniture and soothe claws.
+                  </p>
+                  <div class="trending-footer">
+                    <div class="trending-author-info">
+                      <img
+                        src="../assets/images/about/about-team-member-card-2.webp"
+                        alt="Dr. Thorne"
+                        class="trending-author-img"
+                      />
+                      <div>
+                        <div class="trending-author-name">
+                          Dr. Marcus Thorne
+                        </div>
+                        <span class="trending-author-role"
+                          >Feline Specialist</span
+                        >
+                      </div>
+                    </div>
+                    <a
+                      href="#"
+                      class="trending-arrow-btn"
+                      aria-label="Read full article"
+                    >
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

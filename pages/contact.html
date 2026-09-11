@@ -139,32 +139,50 @@
                 within 30 minutes.
               </p>
 
-              <div class="p-4 bg-white rounded-4 border mb-3">
-                <h5 class="mb-2">
-                  <i class="fa-solid fa-shield-check text-success me-2"></i>
-                  Fast Confirmation
-                </h5>
-                <p class="text-secondary small mb-0">
-                  Emergency triage requests receive immediate telephone callback
-                  within 5 minutes.
-                </p>
+              <!-- Benefit Card 1 -->
+              <div class="contact-benefit-card mb-3">
+                <div class="benefit-icon-box text-success">
+                  <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <div class="benefit-card-content">
+                  <h5 class="mb-1">Fast Priority Confirmation</h5>
+                  <p class="text-secondary small mb-0">
+                    Emergency triage requests receive immediate telephone
+                    callback within 5 minutes.
+                  </p>
+                </div>
               </div>
 
-              <div class="p-4 bg-white rounded-4 border">
-                <h5 class="mb-2">
-                  <i class="fa-solid fa-heart-pulse text-danger me-2"></i> Free
-                  New Patient Consult
-                </h5>
-                <p class="text-secondary small mb-0">
-                  First-time visitors receive 20% off comprehensive health
-                  examinations.
-                </p>
+              <!-- Benefit Card 2 -->
+              <div class="contact-benefit-card">
+                <div class="benefit-icon-box text-danger">
+                  <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div class="benefit-card-content">
+                  <h5 class="mb-1">Free New Patient Consult</h5>
+                  <p class="text-secondary small mb-0">
+                    First-time visitors receive 20% off comprehensive wellness
+                    examinations.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div class="col-lg-7">
               <div class="contact-form-wrapper">
-                <h3 class="fs-4 mb-4">Appointment & Inquiry Request</h3>
+                <div
+                  class="d-flex align-items-center justify-content-between mb-4"
+                >
+                  <div>
+                    <h3 class="fs-4 mb-1">Appointment & Inquiry Request</h3>
+                    <p class="text-secondary small mb-0">
+                      We respond to routine inquiries within 30 mins
+                    </p>
+                  </div>
+                  <div class="form-badge-icon d-none d-sm-flex">
+                    <i class="fa-solid fa-paw text-warning fs-3"></i>
+                  </div>
+                </div>
                 <form class="pet-care-form">
                   <div class="row g-3">
                     <div class="col-md-6">
@@ -252,8 +270,14 @@
                       ></textarea>
                     </div>
                     <div class="col-12 mt-4">
-                      <button type="submit" class="theme-btn w-100">
-                        <i class="fa-solid fa-paper-plane"></i> Submit Request
+                      <button
+                        type="submit"
+                        class="theme-btn contact-submit-btn w-100"
+                      >
+                        <span
+                          ><i class="fa-solid fa-paper-plane me-2"></i> Submit
+                          Booking Request</span
+                        >
                       </button>
                     </div>
                   </div>
@@ -279,47 +303,102 @@
                 day, 365 days a year.
               </p>
 
-              <table class="hours-table">
-                <tr>
-                  <td class="fw-semibold text-dark">Monday - Friday</td>
-                  <td class="text-end text-secondary">
-                    8:00 AM &ndash; 8:00 PM
-                  </td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold text-dark">Saturday</td>
-                  <td class="text-end text-secondary">
-                    9:00 AM &ndash; 6:00 PM
-                  </td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold text-dark">Sunday</td>
-                  <td class="text-end text-danger fw-semibold">
-                    Emergency Urgent Care Only
-                  </td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold text-dark">Bank Holidays</td>
-                  <td class="text-end text-secondary">
-                    10:00 AM &ndash; 4:00 PM
-                  </td>
-                </tr>
-                <tr>
-                  <td class="fw-semibold text-dark">24/7 Emergency Line</td>
-                  <td class="text-end text-success fw-bold">
-                    Always Active (+91 9876543210)
-                  </td>
-                </tr>
-              </table>
+              <div class="hours-card-wrapper">
+                <table class="hours-table">
+                  <tr class="hours-table-row">
+                    <td>
+                      <span class="hours-day"
+                        ><i
+                          class="fa-regular fa-calendar-days me-2 text-warning"
+                        ></i>
+                        Monday &ndash; Friday</span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <span class="hours-time">8:00 AM &ndash; 8:00 PM</span>
+                    </td>
+                  </tr>
+                  <tr class="hours-table-row">
+                    <td>
+                      <span class="hours-day"
+                        ><i
+                          class="fa-regular fa-calendar-days me-2 text-warning"
+                        ></i>
+                        Saturday</span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <span class="hours-time">9:00 AM &ndash; 6:00 PM</span>
+                    </td>
+                  </tr>
+                  <tr class="hours-table-row">
+                    <td>
+                      <span class="hours-day"
+                        ><i
+                          class="fa-solid fa-triangle-exclamation me-2 text-danger"
+                        ></i>
+                        Sunday</span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <span
+                        class="badge bg-danger-subtle text-danger border border-danger-subtle px-3 py-1 rounded-pill fw-semibold"
+                      >
+                        Emergency Urgent Only
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="hours-table-row">
+                    <td>
+                      <span class="hours-day"
+                        ><i class="fa-regular fa-flag me-2 text-primary"></i>
+                        Bank Holidays</span
+                      >
+                    </td>
+                    <td class="text-end">
+                      <span class="hours-time">10:00 AM &ndash; 4:00 PM</span>
+                    </td>
+                  </tr>
+                  <tr class="hours-table-row emergency-row">
+                    <td>
+                      <span class="hours-day fw-bold text-dark">
+                        <i
+                          class="fa-solid fa-truck-medical me-2 text-danger"
+                        ></i>
+                        24/7 Emergency Line
+                      </span>
+                    </td>
+                    <td class="text-end">
+                      <span class="emergency-badge">
+                        <span class="pulse-live-dot"></span> Always Active (+91
+                        9876543210)
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
 
             <div class="col-lg-6">
-              <img
-                src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=700&q=80"
-                alt="Clinic Reception"
-                class="rounded-4 shadow-md w-100"
-                style="max-height: 380px; object-fit: cover"
-              />
+              <div class="clinic-hours-media-card">
+                <img
+                  src="../assets/images/about/about-modern-facilities.webp"
+                  alt="Clinic Reception"
+                  class="clinic-hours-img"
+                />
+                <div class="clinic-hours-live-badge">
+                  <span class="pulse-live-dot"></span> Open Today &bull;
+                  Kensington Medical Hub
+                </div>
+                <div class="clinic-hours-overlay-info">
+                  <div class="fw-bold text-white fs-6">
+                    RCVS Accredited Surgical Suite
+                  </div>
+                  <span class="text-white-50 small"
+                    >Advanced Diagnostics, Ultrasound & Digital X-Ray</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -344,67 +423,75 @@
 
           <div class="row g-4">
             <div class="col-lg-8">
-              <div class="map-embed-container">
-                <iframe
-                  title="Clinic Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.546376840733!2d-0.1982878233792377!3d51.50319897181363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760ffb6a782e4f%3A0x6b8eb7c9b88cf205!2sKensington%20High%20St%2C%20London%2C%20UK!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
-                  loading="lazy"
-                ></iframe>
+              <div class="interactive-map-wrapper">
+                <div class="map-floating-tag">
+                  <i class="fa-solid fa-location-dot text-danger me-2"></i> 124
+                  Kensington High St, London W8 7RG
+                </div>
+                <div class="map-embed-container">
+                  <iframe
+                    title="Clinic Location Map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.546376840733!2d-0.1982878233792377!3d51.50319897181363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760ffb6a782e4f%3A0x6b8eb7c9b88cf205!2sKensington%20High%20St%2C%20London%2C%20UK!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                    loading="lazy"
+                  ></iframe>
+                </div>
               </div>
             </div>
 
             <div class="col-lg-4">
-              <div
-                class="p-4 bg-white rounded-4 border shadow-sm h-100 d-flex flex-column justify-content-between"
-              >
+              <div class="transit-box-card">
                 <div>
-                  <h4 class="fs-5 mb-3">Transit & Parking Details</h4>
-                  <div class="mb-3">
-                    <h6
-                      class="mb-1 text-primary fw-bold"
-                      style="color: var(--bg-primary) !important"
-                    >
-                      <i class="fa-solid fa-train-subway me-2"></i> London
-                      Underground
-                    </h6>
-                    <p class="small text-secondary">
-                      High Street Kensington Station (Circle & District lines)
-                      &ndash; 3 min walk.
-                    </p>
+                  <h4 class="fs-5 mb-3 text-dark fw-bold">
+                    Transit & Parking Details
+                  </h4>
+
+                  <div class="transit-feature-item">
+                    <div class="transit-icon">
+                      <i class="fa-solid fa-train-subway"></i>
+                    </div>
+                    <div>
+                      <h6 class="transit-title">London Underground</h6>
+                      <p class="transit-text">
+                        High Street Kensington Station (Circle & District lines)
+                        &ndash; 3 min walk.
+                      </p>
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <h6
-                      class="mb-1 text-primary fw-bold"
-                      style="color: var(--bg-primary) !important"
-                    >
-                      <i class="fa-solid fa-square-parking me-2"></i> Free Pet
-                      Parking
-                    </h6>
-                    <p class="small text-secondary">
-                      6 reserved off-street parking spots right at the front
-                      entrance for easy pet drop-off.
-                    </p>
+
+                  <div class="transit-feature-item">
+                    <div class="transit-icon">
+                      <i class="fa-solid fa-square-parking"></i>
+                    </div>
+                    <div>
+                      <h6 class="transit-title">Free Dedicated Pet Parking</h6>
+                      <p class="transit-text">
+                        6 reserved off-street parking bays right at the front
+                        entrance for safe drop-off.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h6
-                      class="mb-1 text-primary fw-bold"
-                      style="color: var(--bg-primary) !important"
-                    >
-                      <i class="fa-solid fa-wheelchair me-2"></i> Step-Free
-                      Access
-                    </h6>
-                    <p class="small text-secondary">
-                      Ramp access and wide automatic doors for large dogs and
-                      strollers.
-                    </p>
+
+                  <div class="transit-feature-item">
+                    <div class="transit-icon">
+                      <i class="fa-solid fa-wheelchair"></i>
+                    </div>
+                    <div>
+                      <h6 class="transit-title">Step-Free Access</h6>
+                      <p class="transit-text">
+                        Ramp access and extra-wide automatic doors for large
+                        breed stretchers and strollers.
+                      </p>
+                    </div>
                   </div>
                 </div>
+
                 <a
-                  href="#"
-                  class="theme-btn theme-btn-sm w-100 text-center mt-3"
-                  ><i class="fa-solid fa-phone"></i> Call for Driving
-                  Directions</a
+                  href="tel:+919876543210"
+                  class="theme-btn theme-btn-sm w-100 text-center mt-3 transit-action-btn"
                 >
+                  <i class="fa-solid fa-phone me-1"></i> Call for Live Driving
+                  Directions
+                </a>
               </div>
             </div>
           </div>
@@ -422,53 +509,77 @@
               What to Do in a Pet Medical Emergency
             </h2>
             <p class="section-desc">
-              Follow these vital steps while heading to our Kensington hospital.
+              Follow these vital protocol steps while heading to our Kensington
+              hospital.
             </p>
           </div>
 
           <div class="row g-4">
+            <!-- Step 1 -->
             <div class="col-md-4">
-              <div
-                class="p-4 rounded-4 border h-100"
-                style="background-color: var(--bg-secondary)"
-              >
-                <div class="display-6 fw-bold mb-2 text-danger">01</div>
-                <h4 class="fs-5 mb-2">Call +91 9876543210 First</h4>
-                <p class="text-secondary small mb-0">
-                  Calling in advance allows our surgical and triage team to
-                  prepare the emergency room, oxygen masks, and IV catheters
-                  before your vehicle arrives.
+              <div class="emergency-protocol-card">
+                <div class="emergency-card-top-bar"></div>
+                <div class="emergency-step-watermark">01</div>
+                <div class="emergency-icon-wrap">
+                  <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <h4 class="emergency-card-title">Call Hotline First</h4>
+                <p class="emergency-card-text">
+                  Calling ahead allows our surgical and critical care team to
+                  prepare oxygen incubators, IV lines, and trauma suites before
+                  you arrive.
                 </p>
+                <div class="emergency-card-action">
+                  <a href="tel:+919876543210" class="emergency-pill-link">
+                    <i class="fa-solid fa-phone me-1"></i> +91 9876543210
+                  </a>
+                </div>
               </div>
             </div>
 
+            <!-- Step 2 -->
             <div class="col-md-4">
-              <div
-                class="p-4 rounded-4 border h-100"
-                style="background-color: var(--bg-secondary)"
-              >
-                <div class="display-6 fw-bold mb-2 text-danger">02</div>
-                <h4 class="fs-5 mb-2">Keep Your Pet Warm & Calm</h4>
-                <p class="text-secondary small mb-0">
-                  Wrap your pet in a clean, soft blanket. Minimize sudden
-                  movements and do not administer human medications (such as
-                  paracetamol/ibuprofen), which are toxic to pets.
+              <div class="emergency-protocol-card">
+                <div class="emergency-card-top-bar"></div>
+                <div class="emergency-step-watermark">02</div>
+                <div class="emergency-icon-wrap">
+                  <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <h4 class="emergency-card-title">Keep Warm & Calm</h4>
+                <p class="emergency-card-text">
+                  Wrap your pet gently in a clean blanket to combat shock.
+                  Minimize sudden motion and never give human painkillers
+                  (paracetamol/ibuprofen).
                 </p>
+                <div class="emergency-card-action">
+                  <span class="emergency-info-tag">
+                    <i class="fa-solid fa-circle-info me-1"></i> Stabilize Body
+                    Heat
+                  </span>
+                </div>
               </div>
             </div>
 
+            <!-- Step 3 -->
             <div class="col-md-4">
-              <div
-                class="p-4 rounded-4 border h-100"
-                style="background-color: var(--bg-secondary)"
-              >
-                <div class="display-6 fw-bold mb-2 text-danger">03</div>
-                <h4 class="fs-5 mb-2">Bring Any Ingested Toxins</h4>
-                <p class="text-secondary small mb-0">
-                  If your pet swallowed a chemical, plant, or packaging, bring
-                  the container with you to help our toxicologists identify the
-                  exact antidote quickly.
+              <div class="emergency-protocol-card">
+                <div class="emergency-card-top-bar"></div>
+                <div class="emergency-step-watermark">03</div>
+                <div class="emergency-icon-wrap">
+                  <i class="fa-solid fa-flask-vial"></i>
+                </div>
+                <h4 class="emergency-card-title">Bring Ingested Toxins</h4>
+                <p class="emergency-card-text">
+                  If your pet swallowed a chemical, toxic plant, or foreign
+                  packaging, bring the label or sample so our toxicologists
+                  match the exact antidote.
                 </p>
+                <div class="emergency-card-action">
+                  <span class="emergency-info-tag">
+                    <i class="fa-solid fa-triangle-exclamation me-1"></i> Bring
+                    Packaging / Plants
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -481,7 +592,7 @@
         style="background-color: var(--bg-secondary)"
       >
         <div class="container">
-          <div class="p-4 p-md-5 bg-white rounded-4 border shadow-sm">
+          <div class="telehealth-main-banner">
             <div class="row align-items-center g-4">
               <div class="col-lg-6">
                 <div class="section-subtitle-badge">
@@ -492,27 +603,62 @@
                 </h2>
                 <p class="text-secondary mb-4">
                   Not able to travel? Speak to our licensed veterinary
-                  clinicians from the comfort of your living room. Ideal for
-                  mild skin triage, diet discussions, behavioral queries, and
-                  post-surgery check-ins.
+                  clinicians from the comfort of your home. Ideal for mild skin
+                  triage, diet adjustments, puppy behavioral queries, and
+                  post-op follow-ups.
                 </p>
+
+                <!-- Telehealth Perks -->
+                <div class="telehealth-perks-list mb-4">
+                  <div class="telehealth-perk-item">
+                    <i class="fa-solid fa-circle-check text-success"></i>
+                    <span>RCVS Licensed Veterinarians</span>
+                  </div>
+                  <div class="telehealth-perk-item">
+                    <i class="fa-solid fa-circle-check text-success"></i>
+                    <span>Zero Travel Stress for Pets</span>
+                  </div>
+                  <div class="telehealth-perk-item">
+                    <i class="fa-solid fa-circle-check text-success"></i>
+                    <span>Digital Prescription Direct to Door</span>
+                  </div>
+                </div>
+
                 <div class="d-flex flex-wrap gap-3">
-                  <a href="#" class="theme-btn"
-                    ><i class="fa-solid fa-video"></i> Schedule Video Consult</a
+                  <a href="#" class="theme-btn telehealth-btn"
+                    ><i class="fa-solid fa-video me-1"></i> Schedule Video
+                    Consult</a
                   >
-                  <a href="#" class="theme-btn-outline"
-                    ><i class="fa-solid fa-phone"></i> +91 9876543210</a
+                  <a
+                    href="tel:+919876543210"
+                    class="theme-btn-outline telehealth-btn-outline"
+                    ><i class="fa-solid fa-phone me-1"></i> +91 9876543210</a
                   >
                 </div>
               </div>
 
               <div class="col-lg-6">
-                <img
-                  src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80"
-                  alt="Tele-Health Vet"
-                  class="rounded-4 shadow-sm w-100"
-                  style="height: 300px; object-fit: cover"
-                />
+                <div class="telehealth-media-container">
+                  <img
+                    src="../assets/images/about/about-our-story-img-3.webp"
+                    alt="Tele-Health Vet"
+                    class="telehealth-img"
+                  />
+                  <div class="telehealth-vet-badge">
+                    <span class="doctor-pulse-dot"></span>
+                    <div>
+                      <div class="fw-bold text-dark fs-6">
+                        Dr. Marcus Thorne, DVM
+                      </div>
+                      <span class="small text-secondary"
+                        >Tele-Health Clinical Lead &bull; Online</span
+                      >
+                    </div>
+                  </div>
+                  <div class="telehealth-cam-indicator">
+                    <i class="fa-solid fa-video"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -528,14 +674,16 @@
             </div>
             <h2 class="section-main-title">Contact & Appointment FAQs</h2>
             <p class="section-desc">
-              Quick answers regarding scheduling, cancellations, and billing.
+              Quick answers regarding scheduling, triage arrival, cancellations,
+              and clinic billing.
             </p>
           </div>
 
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <div class="accordion" id="contactFaq">
-                <div class="accordion-item">
+              <div class="accordion custom-faq-accordion" id="contactFaq">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item faq-card-item">
                   <h3 class="accordion-header" id="cOne">
                     <button
                       class="accordion-button"
@@ -545,6 +693,9 @@
                       aria-expanded="true"
                       aria-controls="collapseConOne"
                     >
+                      <span class="faq-icon-pill"
+                        ><i class="fa-solid fa-calendar-check"></i
+                      ></span>
                       What is the cancellation policy for grooming and vet
                       visits?
                     </button>
@@ -556,15 +707,28 @@
                     data-bs-parent="#contactFaq"
                   >
                     <div class="accordion-body">
-                      We appreciate at least 24 hours' notice for routine
-                      appointments so we can offer the slot to another pet in
-                      need. There are no cancellation fees for rescheduled
-                      appointments.
+                      <p class="mb-2">
+                        We appreciate at least 24 hours' advance notice for
+                        routine appointments so our care coordinators can offer
+                        that time slot to another pet awaiting non-emergency
+                        care.
+                      </p>
+                      <div class="faq-highlight-note">
+                        <i
+                          class="fa-solid fa-check-circle text-success me-2"
+                        ></i>
+                        <span
+                          >There are <strong>zero penalty fees</strong> when
+                          rescheduling appointments with advance
+                          notification.</span
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="accordion-item">
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item faq-card-item">
                   <h3 class="accordion-header" id="cTwo">
                     <button
                       class="accordion-button collapsed"
@@ -574,7 +738,10 @@
                       aria-expanded="false"
                       aria-controls="collapseConTwo"
                     >
-                      Can I stay with my pet during examinations?
+                      <span class="faq-icon-pill"
+                        ><i class="fa-solid fa-user-doctor"></i
+                      ></span>
+                      Can I stay with my pet during examinations and treatment?
                     </button>
                   </h3>
                   <div
@@ -584,14 +751,24 @@
                     data-bs-parent="#contactFaq"
                   >
                     <div class="accordion-body">
-                      Yes! We encourage pet parents to accompany their
-                      companions in our spacious consultation rooms to provide
-                      familiar comfort and reassurance.
+                      <p class="mb-2">
+                        Yes, absolutely! We practice fear-free veterinary
+                        protocols and actively encourage pet parents to stay
+                        inside our soothing consultation rooms to offer familiar
+                        scent and comforting reassurance.
+                      </p>
+                      <p class="text-secondary small mb-0">
+                        For sterile surgical procedures in the operating
+                        theater, pets remain under dedicated veterinary
+                        anesthesiologist supervision, and you will receive live
+                        text updates.
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="accordion-item">
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item faq-card-item">
                   <h3 class="accordion-header" id="cThree">
                     <button
                       class="accordion-button collapsed"
@@ -601,7 +778,10 @@
                       aria-expanded="false"
                       aria-controls="collapseConThree"
                     >
-                      What payment methods are accepted at the clinic?
+                      <span class="faq-icon-pill"
+                        ><i class="fa-solid fa-credit-card"></i
+                      ></span>
+                      What payment methods and insurance claims are accepted?
                     </button>
                   </h3>
                   <div
@@ -611,9 +791,104 @@
                     data-bs-parent="#contactFaq"
                   >
                     <div class="accordion-body">
-                      We accept all major credit and debit cards (Visa,
-                      Mastercard, Amex), Apple Pay, Google Pay, direct pet
-                      insurance claims, and interest-free payment plans.
+                      <p class="mb-2">
+                        We accept all major credit and debit cards (Visa,
+                        MasterCard, American Express), Apple Pay, Google Pay,
+                        cash, and direct claim settlement with all major UK pet
+                        insurance providers.
+                      </p>
+                      <div class="faq-highlight-note">
+                        <i
+                          class="fa-solid fa-shield-halved text-primary me-2"
+                        ></i>
+                        <span
+                          >We also provide
+                          <strong>0% interest installment plans</strong> for
+                          complex elective surgeries and extended hospital
+                          stays.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item faq-card-item">
+                  <h3 class="accordion-header" id="cFour">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseConFour"
+                      aria-expanded="false"
+                      aria-controls="collapseConFour"
+                    >
+                      <span class="faq-icon-pill"
+                        ><i class="fa-solid fa-bell"></i
+                      ></span>
+                      How does arrival triage work if I have a critical medical
+                      emergency?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseConFour"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="cFour"
+                    data-bs-parent="#contactFaq"
+                  >
+                    <div class="accordion-body">
+                      <p class="mb-2">
+                        Please call our 24/7 hotline at
+                        <strong>+91 9876543210</strong> while traveling to the
+                        clinic. Our emergency surgeon and critical care nurses
+                        will be waiting at the designated red emergency drop-off
+                        bay with stretchers and oxygen gear ready.
+                      </p>
+                      <p class="text-secondary small mb-0">
+                        Critical patients bypass routine reception check-in and
+                        are brought directly into the intensive care unit for
+                        immediate life-saving stabilization.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item faq-card-item">
+                  <h3 class="accordion-header" id="cFive">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseConFive"
+                      aria-expanded="false"
+                      aria-controls="collapseConFive"
+                    >
+                      <span class="faq-icon-pill"
+                        ><i class="fa-solid fa-laptop-medical"></i
+                      ></span>
+                      What technical equipment do I need for a virtual tele-vet
+                      consultation?
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseConFive"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="cFive"
+                    data-bs-parent="#contactFaq"
+                  >
+                    <div class="accordion-body">
+                      <p class="mb-2">
+                        All you need is a smartphone, tablet, or laptop with a
+                        camera and web browser. No complex apps to install!
+                      </p>
+                      <p class="text-secondary small mb-0">
+                        After booking, you will receive a secure 1-click video
+                        link via SMS and email. Our vet will examine your pet
+                        visually, review medical history, and transmit digital
+                        prescriptions directly to your nearest pharmacy or
+                        deliver to your home.
+                      </p>
                     </div>
                   </div>
                 </div>

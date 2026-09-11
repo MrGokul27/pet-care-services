@@ -350,6 +350,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // 5.1 Interactive Blog Category Filter
+  const blogCatButtons = document.querySelectorAll(".blog-cat-btn");
+  const blogCardCols = document.querySelectorAll(".blog-card-col");
+  const blogEmptyState = document.getElementById("blogEmptyState");
+  const blogPagination = document.getElementById("blogPagination");
+
+  if (blogCatButtons.length > 0 && blogCardCols.length > 0) {
+    blogCatButtons.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        blogCatButtons.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+
+        const selectedCategory = this.getAttribute("data-category") || "all";
+        let visibleCount = 0;
+
+        blogCardCols.forEach((col) => {
+          const colCategory = col.getAttribute("data-category");
+          if (selectedCategory === "all" || colCategory === selectedCategory) {
+            col.classList.remove("filtering-hide");
+            col.classList.add("filtering-show");
+            col.style.display = "";
+            visibleCount++;
+          } else {
+            col.classList.remove("filtering-show");
+            col.classList.add("filtering-hide");
+          }
+        });
+
+        if (blogEmptyState) {
+          if (visibleCount === 0) {
+            blogEmptyState.classList.remove("d-none");
+            if (blogPagination) blogPagination.style.display = "none";
+          } else {
+            blogEmptyState.classList.add("d-none");
+            if (blogPagination) blogPagination.style.display = "";
+          }
+        }
+      });
+    });
+  }
+
   // 6. Add to Cart & Wishlist Interactive Notifications
   let cartCount = 3;
   let wishlistCount = 2;
