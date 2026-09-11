@@ -233,6 +233,8 @@
                     class="form-check-input"
                     type="checkbox"
                     id="grainFree"
+                    name="grainFree"
+                    autocomplete="off"
                     checked
                   />
                   <label class="form-check-label small" for="grainFree"
@@ -244,6 +246,8 @@
                     class="form-check-input"
                     type="checkbox"
                     id="organic"
+                    name="organic"
+                    autocomplete="off"
                     checked
                   />
                   <label class="form-check-label small" for="organic"
@@ -255,6 +259,8 @@
                     class="form-check-input"
                     type="checkbox"
                     id="hypoallergenic"
+                    name="hypoallergenic"
+                    autocomplete="off"
                   />
                   <label class="form-check-label small" for="hypoallergenic"
                     >Hypoallergenic</label
@@ -265,6 +271,8 @@
                     class="form-check-input"
                     type="checkbox"
                     id="vetPrescription"
+                    name="vetPrescription"
+                    autocomplete="off"
                   />
                   <label class="form-check-label small" for="vetPrescription"
                     >Vet Prescription Diet</label
@@ -297,10 +305,15 @@
                   >Showing <strong>8 of 48</strong> Products</span
                 >
                 <div class="d-flex align-items-center gap-2">
-                  <span class="small text-secondary">Sort by:</span>
+                  <label for="shopSort" class="small text-secondary mb-0"
+                    >Sort by:</label
+                  >
                   <select
+                    id="shopSort"
+                    name="shopSort"
                     class="form-select form-select-sm border-0 bg-white"
                     style="width: auto; cursor: pointer"
+                    autocomplete="off"
                   >
                     <option selected>Featured & Popular</option>
                     <option>Price: Low to High</option>
@@ -645,10 +658,18 @@
                   <div class="row g-3">
                     <div class="col-md-4">
                       <div class="nutrition-select-wrapper">
-                        <label class="small text-white-50 mb-1 fw-medium"
+                        <label
+                          for="nutrition_pet_type"
+                          class="small text-white-50 mb-1 fw-medium"
                           ><i class="fa-solid fa-paw me-1"></i> Pet Type</label
                         >
-                        <select class="nutrition-select" required>
+                        <select
+                          id="nutrition_pet_type"
+                          name="nutrition_pet_type"
+                          class="nutrition-select"
+                          autocomplete="off"
+                          required
+                        >
                           <option>Dog (Canine)</option>
                           <option>Cat (Feline)</option>
                           <option>Puppy / Kitten</option>
@@ -657,11 +678,19 @@
                     </div>
                     <div class="col-md-4">
                       <div class="nutrition-select-wrapper">
-                        <label class="small text-white-50 mb-1 fw-medium"
+                        <label
+                          for="nutrition_age_bracket"
+                          class="small text-white-50 mb-1 fw-medium"
                           ><i class="fa-solid fa-calendar-days me-1"></i> Age
                           Bracket</label
                         >
-                        <select class="nutrition-select" required>
+                        <select
+                          id="nutrition_age_bracket"
+                          name="nutrition_age_bracket"
+                          class="nutrition-select"
+                          autocomplete="off"
+                          required
+                        >
                           <option>Puppy / Kitten (0-1 yr)</option>
                           <option>Adult (1-7 yrs)</option>
                           <option>Senior (7+ yrs)</option>
@@ -670,11 +699,19 @@
                     </div>
                     <div class="col-md-4">
                       <div class="nutrition-select-wrapper">
-                        <label class="small text-white-50 mb-1 fw-medium"
+                        <label
+                          for="nutrition_health_focus"
+                          class="small text-white-50 mb-1 fw-medium"
                           ><i class="fa-solid fa-heart-pulse me-1"></i> Health
                           Focus</label
                         >
-                        <select class="nutrition-select" required>
+                        <select
+                          id="nutrition_health_focus"
+                          name="nutrition_health_focus"
+                          class="nutrition-select"
+                          autocomplete="off"
+                          required
+                        >
                           <option>Weight Management</option>
                           <option>Sensitive Digestion</option>
                           <option>Skin & Fur Lustre</option>
@@ -1129,8 +1166,12 @@
                     <i class="fa-regular fa-envelope promo-input-icon"></i>
                     <input
                       type="email"
+                      id="shop_newsletter_email"
+                      name="email"
                       class="promo-newsletter-input"
                       placeholder="Your email address..."
+                      aria-label="Email Address"
+                      autocomplete="email"
                       required
                     />
                   </div>

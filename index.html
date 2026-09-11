@@ -797,8 +797,11 @@
                       <input
                         type="text"
                         id="booking_name"
+                        name="booking_name"
                         class="booking-form-control"
                         placeholder="Your Name"
+                        aria-label="Your Name"
+                        autocomplete="name"
                         maxlength="16"
                         required
                       />
@@ -807,15 +810,25 @@
                       <input
                         type="tel"
                         id="booking_phone"
+                        name="booking_phone"
                         class="booking-form-control"
                         placeholder="Your Phone (e.g. 9876543210)"
+                        aria-label="Your Phone"
+                        autocomplete="tel"
                         minlength="10"
                         maxlength="10"
                         required
                       />
                     </div>
                     <div class="col-md-6">
-                      <select class="booking-form-control" required>
+                      <select
+                        id="booking_service"
+                        name="booking_service"
+                        class="booking-form-control"
+                        aria-label="Select Service"
+                        autocomplete="off"
+                        required
+                      >
                         <option value="" disabled selected>
                           Select Service
                         </option>
@@ -831,7 +844,14 @@
                       </select>
                     </div>
                     <div class="col-md-6">
-                      <select class="booking-form-control" required>
+                      <select
+                        id="booking_species"
+                        name="booking_species"
+                        class="booking-form-control"
+                        aria-label="Pet Species"
+                        autocomplete="off"
+                        required
+                      >
                         <option value="" disabled selected>Pet Species</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
@@ -845,7 +865,10 @@
                       <input
                         type="date"
                         id="booking_date"
+                        name="booking_date"
                         class="booking-form-control"
+                        aria-label="Appointment Date"
+                        autocomplete="off"
                         required
                       />
                     </div>
@@ -1514,8 +1537,12 @@
                 <form class="promo-newsletter-form">
                   <input
                     type="email"
+                    id="home_newsletter_email"
+                    name="email"
                     class="promo-newsletter-input"
                     placeholder="Enter your email address..."
+                    aria-label="Email Address"
+                    autocomplete="email"
                     required
                   />
                   <button

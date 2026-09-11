@@ -465,11 +465,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const redirect404 = isInPagesDir ? "../404.html" : "404.html";
 
   // Form Input Validation & Restriction Helpers
-  function restrictToAlphabetsAndSpaces(inputEl) {
+  function restrictToAlphabetsAndSpaces(inputEl, allowSpaces) {
     if (!inputEl) return;
+    const pattern = allowSpaces ? /^[a-zA-Z]$/ : /^[a-zA-Z]$/;
+    const sanitizeRegex = allowSpaces ? /[^a-zA-Z\s]/g : /[^a-zA-Z]/g;
 
     inputEl.addEventListener("keydown", function (e) {
-      // Allow functional / navigation keys
       if (
         e.key === "Backspace" ||
         e.key === "Tab" ||
@@ -488,19 +489,20 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Allow space
-      if (e.key === " ") {
+      if (!allowSpaces && e.key === " ") {
+        e.preventDefault();
         return;
       }
 
-      // Block any character that is not a letter
-      if (e.key.length === 1 && !/^[a-zA-Z]$/.test(e.key)) {
+      if (allowSpaces && e.key === " ") return;
+
+      if (e.key.length === 1 && !pattern.test(e.key)) {
         e.preventDefault();
       }
     });
 
     inputEl.addEventListener("input", function () {
-      const sanitized = this.value.replace(/[^a-zA-Z\s]/g, "");
+      const sanitized = this.value.replace(sanitizeRegex, "");
       if (this.value !== sanitized) {
         this.value = sanitized;
       }
@@ -510,7 +512,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const text =
         (e.clipboardData || window.clipboardData).getData("text") || "";
-      const sanitized = text.replace(/[^a-zA-Z\s]/g, "");
+      const sanitized = text.replace(sanitizeRegex, "");
       if (
         document.queryCommandSupported &&
         document.queryCommandSupported("insertText")
@@ -614,7 +616,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const bookingPhone = document.getElementById("booking_phone");
     const bookingDate = document.getElementById("booking_date");
 
-    restrictToAlphabetsAndSpaces(bookingName);
+    restrictToAlphabetsAndSpaces(bookingName, false);
     restrictToDigitsOnly(bookingPhone);
     restrictPastDates(bookingDate);
 
@@ -624,9 +626,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const contactBreed = document.getElementById("contact_breed");
     const contactDate = document.getElementById("contact_date");
 
-    restrictToAlphabetsAndSpaces(contactName);
+    restrictToAlphabetsAndSpaces(contactName, false);
     restrictToDigitsOnly(contactPhone);
-    restrictToAlphabetsAndSpaces(contactBreed);
+    restrictToAlphabetsAndSpaces(contactBreed, true);
     restrictPastDates(contactDate);
 
     // Also attach past-date restriction to all date inputs across all forms
@@ -879,7 +881,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <p class="text-secondary small mb-3">Find premium pet foods, grooming spa services, certified vet appointments, and accessories.</p>
     <form action="shop.html" method="get">
       <div class="search-modal-input-group">
-        <input type="text" name="q" placeholder="Type what your pet needs..." required />
+        <input type="text" id="header_search_input" name="q" placeholder="Type what your pet needs..." aria-label="Search" autocomplete="off" required />
         <button type="submit" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
     </form>
