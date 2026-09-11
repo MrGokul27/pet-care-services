@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "contact.html",
         "login.html",
         "register.html",
+        "dashboard.html",
       ];
       subpages.forEach((page) => {
         const hrefRegex = new RegExp(

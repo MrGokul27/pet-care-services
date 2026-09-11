@@ -620,14 +620,49 @@ document.addEventListener("DOMContentLoaded", function () {
           '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Authenticating...';
       }
 
+      // Save user session details
+      const selectedRole = roleSelect.value;
+      const userEmailVal = emailInput.value.trim();
+
+      // Derive a user display name from email (e.g. alex.miller@example.com -> Alex Miller)
+      let derivedName = "Pet Care User";
+      try {
+        const usernamePart = userEmailVal.split("@")[0];
+        const cleanName = usernamePart.replace(/[._-]/g, " ");
+        derivedName = cleanName
+          .split(" ")
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ");
+      } catch (err) {
+        derivedName = "Pet Care User";
+      }
+
+      const userData = {
+        role: selectedRole,
+        email: userEmailVal,
+        name: derivedName,
+        remember: rememberCheck ? rememberCheck.checked : true,
+        loginTime: new Date().toISOString(),
+      };
+
+      try {
+        localStorage.setItem("petcare_current_user", JSON.stringify(userData));
+        sessionStorage.setItem(
+          "petcare_current_user",
+          JSON.stringify(userData),
+        );
+      } catch (err) {
+        console.warn("Storage write failed", err);
+      }
+
       showAuthToast(
         "Welcome Back! 🐾",
-        "Login successful. Redirecting to home dashboard...",
+        "Login successful. Redirecting to your Pet Care Dashboard...",
       );
 
       setTimeout(function () {
-        window.location.href = "../index.html";
-      }, 1300);
+        window.location.href = `dashboard.html?role=${encodeURIComponent(selectedRole)}`;
+      }, 1200);
     });
   }
 

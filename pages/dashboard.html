@@ -1,0 +1,4152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Care Services - Role Based Dashboard</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/webp"
+      href="../assets/images/logoStackly.webp"
+    />
+
+    <!-- Bootstrap 5.3.3 CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6.5.1 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom Theme & Dashboard Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  </head>
+
+  <body class="dashboard-body">
+    <!-- Backdrop for Mobile Offcanvas Sidebar -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="dashboard-wrapper">
+      <!-- ===================================================================
+           1. SIDEBAR NAVIGATION
+           =================================================================== -->
+      <aside class="dashboard-sidebar" id="dashboardSidebar">
+        <!-- Sidebar Brand Header -->
+        <div class="sidebar-brand-header">
+          <a href="../index.html" class="sidebar-brand-link">
+            <img
+              src="../assets/images/logoStackly.webp"
+              alt="Pet Care Services"
+              class="sidebar-brand-logo"
+            />
+          </a>
+          <button
+            type="button"
+            class="sidebar-close-btn"
+            id="sidebarCloseBtn"
+            aria-label="Close Sidebar"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Role Showcase Card -->
+        <div class="sidebar-role-card">
+          <div class="role-badge-icon" id="sidebarRoleIcon">
+            <i class="fa-solid fa-paw"></i>
+          </div>
+          <div class="role-badge-info">
+            <div class="role-badge-title" id="sidebarRolePill">Active Role</div>
+            <h6 class="role-badge-name" id="sidebarRoleName">
+              Pet Owner / Parent
+            </h6>
+          </div>
+        </div>
+
+        <!-- Sidebar Navigation Container -->
+        <div class="sidebar-nav-container">
+          <!-- ---------------------------------------------------------------
+               A. Pet Owner Navigation
+               --------------------------------------------------------------- -->
+          <nav class="role-sidebar-nav" id="nav-role-pet_owner">
+            <div class="sidebar-nav-title">Pet Parent Tools</div>
+            <ul class="sidebar-menu-list">
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn active"
+                  data-view="owner-overview"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Overview</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="owner-pets"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-shield-dog"></i>
+                    <span>My Pet Profiles</span>
+                  </span>
+                  <span class="badge-pill">3 Pets</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="owner-appointments"
+                >
+                  <span class="btn-left">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Appointments</span>
+                  </span>
+                  <span class="badge-pill">2 Next</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="owner-health"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-notes-medical"></i>
+                    <span>Health & Vaccines</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="owner-diet"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-bowl-food"></i>
+                    <span>Diet & Store Orders</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="owner-reminders"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Care Reminders</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- ---------------------------------------------------------------
+               B. Certified Veterinarian Navigation
+               --------------------------------------------------------------- -->
+          <nav class="role-sidebar-nav d-none" id="nav-role-veterinarian">
+            <div class="sidebar-nav-title">Clinical Operations</div>
+            <ul class="sidebar-menu-list">
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="vet-overview"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Clinic Overview</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="vet-queue"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-user-clock"></i>
+                    <span>Patient Queue & Triage</span>
+                  </span>
+                  <span class="badge-pill">8 Today</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="vet-records"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>Medical Case Files</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="vet-diagnostics"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-x-ray"></i>
+                    <span>Lab & Diagnostics</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="vet-surgery"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-syringe"></i>
+                    <span>Surgery Schedule</span>
+                  </span>
+                  <span class="badge-pill">2 Slots</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="vet-prescriptions"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-pills"></i>
+                    <span>Rx Dispenser</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- ---------------------------------------------------------------
+               C. Professional Pet Groomer Navigation
+               --------------------------------------------------------------- -->
+          <nav class="role-sidebar-nav d-none" id="nav-role-pet_groomer">
+            <div class="sidebar-nav-title">Salon & Spa Studio</div>
+            <ul class="sidebar-menu-list">
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="groomer-overview"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-store"></i>
+                    <span>Salon Overview</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="groomer-schedule"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-scissors"></i>
+                    <span>Grooming Schedule</span>
+                  </span>
+                  <span class="badge-pill">6 Bookings</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="groomer-coats"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Coat Cards & Notes</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="groomer-inventory"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-pump-soap"></i>
+                    <span>Spa Product Stock</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="groomer-gallery"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Transformation Gallery</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="groomer-reviews"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Client Reviews & Tips</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- ---------------------------------------------------------------
+               D. Shelter / Foster Organization Navigation
+               --------------------------------------------------------------- -->
+          <nav class="role-sidebar-nav d-none" id="nav-role-shelter_breeder">
+            <div class="sidebar-nav-title">Sanctuary & Rescue Hub</div>
+            <ul class="sidebar-menu-list">
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="shelter-overview"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-building-shield"></i>
+                    <span>Shelter Operations</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="shelter-intake"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <span>Intake & Rescue Registry</span>
+                  </span>
+                  <span class="badge-pill">42 Pets</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="shelter-adoptions"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                    <span>Adoption Screening</span>
+                  </span>
+                  <span class="badge-pill">7 Pending</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="shelter-fosters"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-people-roof"></i>
+                    <span>Foster Families Network</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="shelter-rehab"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-kit-medical"></i>
+                    <span>Medical Rehab & Quarantine</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="shelter-donations"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <span>Donations & Food Bank</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- ---------------------------------------------------------------
+               E. Pet Care Staff & Volunteer Navigation
+               --------------------------------------------------------------- -->
+          <nav class="role-sidebar-nav d-none" id="nav-role-staff_volunteer">
+            <div class="sidebar-nav-title">Care Facility & Duty</div>
+            <ul class="sidebar-menu-list">
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="staff-overview"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Duty Overview</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="staff-checklist"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-tasks"></i>
+                    <span>Daily Care Checklist</span>
+                  </span>
+                  <span class="badge-pill">12 Tasks</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="staff-boarding"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-hotel"></i>
+                    <span>Daycare & Boarding</span>
+                  </span>
+                  <span class="badge-pill">18 In House</span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="staff-behavior"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <span>Behavior & Mood Log</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="staff-roster"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Shift Timetable</span>
+                  </span>
+                </button>
+              </li>
+              <li class="sidebar-menu-item">
+                <button
+                  type="button"
+                  class="sidebar-menu-btn"
+                  data-view="staff-maintenance"
+                >
+                  <span class="btn-left">
+                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                    <span>Sanitization & Safety</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Sidebar Footer & Logout -->
+        <div class="sidebar-footer-box">
+          <button
+            type="button"
+            class="sidebar-logout-btn"
+            id="dashboard_logout_btn"
+          >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Log Out Session</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- ===================================================================
+           2. MAIN DASHBOARD CONTENT AREA & TOPBAR
+           =================================================================== -->
+      <div class="dashboard-main-panel">
+        <!-- Sticky Topbar Header -->
+        <header class="dashboard-topbar">
+          <div class="topbar-left">
+            <button
+              type="button"
+              class="mobile-sidebar-toggle"
+              id="mobileSidebarToggle"
+              aria-label="Open Mobile Menu"
+            >
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <div class="topbar-page-info">
+              <h4 id="topbarPageTitle">Pet Care Dashboard</h4>
+              <p id="topbarPageSubtitle" class="d-none d-md-block">
+                Manage your clinical health, bookings and pet records
+              </p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <!-- Role Switcher Dropdown (Allows evaluating all 5 roles on the fly) -->
+            <div class="dropdown role-switcher-dropdown">
+              <button
+                class="role-switcher-btn dropdown-toggle"
+                type="button"
+                id="roleSwitcherBtn"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                title="Switch Dashboard Role View"
+              >
+                <span class="role-dot"></span>
+                <span class="role-title-text" id="topbarRoleLabel"
+                  >Pet Owner / Parent</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end shadow-sm"
+                aria-labelledby="roleSwitcherBtn"
+              >
+                <li>
+                  <h6 class="dropdown-header text-uppercase small fw-bold">
+                    Switch Account Role
+                  </h6>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item role-switch-item"
+                    href="javascript:void(0)"
+                    data-role="pet_owner"
+                  >
+                    🐾 Pet Owner / Parent
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item role-switch-item"
+                    href="javascript:void(0)"
+                    data-role="veterinarian"
+                  >
+                    🩺 Certified Veterinarian
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item role-switch-item"
+                    href="javascript:void(0)"
+                    data-role="pet_groomer"
+                  >
+                    ✂️ Professional Pet Groomer
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item role-switch-item"
+                    href="javascript:void(0)"
+                    data-role="shelter_breeder"
+                  >
+                    🏠 Shelter / Foster Hub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item role-switch-item"
+                    href="javascript:void(0)"
+                    data-role="staff_volunteer"
+                  >
+                    🤝 Pet Care Staff & Volunteer
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- User Profile Widget -->
+            <div class="topbar-user-profile">
+              <div class="user-avatar-circle" id="userAvatarChar">A</div>
+              <div class="user-meta-details d-none d-sm-block">
+                <div class="user-display-name" id="userHeaderName">
+                  Alex Miller
+                </div>
+                <div class="user-email-tag" id="userHeaderEmail">
+                  alex.miller@example.com
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content Body -->
+        <main class="dashboard-content-area">
+          <!-- ===============================================================
+               ROLE 1: PET OWNER / PARENT CONTAINER
+               =============================================================== -->
+          <div
+            class="role-dashboard-container"
+            id="dashboard-container-pet_owner"
+          >
+            <!-- 1.1 Overview View -->
+            <section
+              class="dashboard-view-section active"
+              id="view-owner-overview"
+              data-title="Pet Parent Dashboard"
+              data-subtitle="Monitor health schedules, upcoming vet slots & daily wellness"
+            >
+              <!-- Role Welcome Banner -->
+              <div class="role-welcome-banner">
+                <div class="welcome-badge">
+                  <i class="fa-solid fa-shield-heart"></i> Verified Pet Parent
+                </div>
+                <h2 class="role-welcome-title">
+                  Welcome to Your <span>Pet Care Family</span> Hub
+                </h2>
+                <p class="role-welcome-desc">
+                  You have 2 scheduled checkups coming up this week. Max and
+                  Luna's annual rabies boost is due in 18 days.
+                </p>
+              </div>
+
+              <!-- Stat KPI Cards (Equal Alignment Grid) -->
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-gold">
+                        <i class="fa-solid fa-paw"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">
+                        <i class="fa-solid fa-arrow-trend-up"></i> Healthy
+                      </span>
+                    </div>
+                    <div>
+                      <div class="stat-value">3 Pets</div>
+                      <p class="stat-label">Registered Companions</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-blue">
+                        <i class="fa-solid fa-calendar-check"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-neutral"
+                        >Upcoming</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">14 Sep</div>
+                      <p class="stat-label">Next Vet Appointment</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-green">
+                        <i class="fa-solid fa-syringe"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">98% Done</span>
+                    </div>
+                    <div>
+                      <div class="stat-value">Up to Date</div>
+                      <p class="stat-label">Vaccination Compliance</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-purple">
+                        <i class="fa-solid fa-coins"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">+150 pts</span>
+                    </div>
+                    <div>
+                      <div class="stat-value">1,420</div>
+                      <p class="stat-label">Pet Perks Club Points</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Main Dashboard Rows -->
+              <div class="row g-4 align-items-stretch mb-4">
+                <!-- Upcoming Appointments List -->
+                <div class="col-12 col-lg-8">
+                  <div class="dash-content-card">
+                    <div class="card-header-bar">
+                      <div class="card-header-left">
+                        <h5>Upcoming Vet & Grooming Sessions</h5>
+                        <p>Confirmed appointments at Kensington High Clinic</p>
+                      </div>
+                      <div class="card-header-actions">
+                        <button
+                          type="button"
+                          class="dash-btn-outline dash-btn-action"
+                        >
+                          <i class="fa-solid fa-plus"></i> Book Care
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="table-responsive dash-table-wrapper">
+                      <table class="dash-custom-table align-middle">
+                        <thead>
+                          <tr>
+                            <th>Pet Name</th>
+                            <th>Service Type</th>
+                            <th>Specialist / Vet</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="pet-avatar-chip">
+                                <div class="avatar-badge-circle dog">
+                                  <i class="fa-solid fa-dog"></i>
+                                </div>
+                                <div>
+                                  <div class="pet-meta-title">Max</div>
+                                  <div class="pet-meta-subtitle">
+                                    Golden Retriever &bull; 3 yrs
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td><strong>Full Spa & Deshedding</strong></td>
+                            <td>Oliver Scott (Stylist)</td>
+                            <td>14 Sep 2026, 10:30 AM</td>
+                            <td>
+                              <span class="status-pill status-confirmed"
+                                >Confirmed</span
+                              >
+                            </td>
+                            <td>
+                              <button
+                                type="button"
+                                class="dash-btn-outline btn-sm dash-btn-action"
+                              >
+                                View Ticket
+                              </button>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <div class="pet-avatar-chip">
+                                <div class="avatar-badge-circle cat">
+                                  <i class="fa-solid fa-cat"></i>
+                                </div>
+                                <div>
+                                  <div class="pet-meta-title">Luna</div>
+                                  <div class="pet-meta-subtitle">
+                                    British Shorthair &bull; 2 yrs
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td><strong>Dental Check & Ultrasound</strong></td>
+                            <td>Dr. Clara Watson (DVM)</td>
+                            <td>18 Sep 2026, 02:00 PM</td>
+                            <td>
+                              <span class="status-pill status-pending"
+                                >Pending Prep</span
+                              >
+                            </td>
+                            <td>
+                              <button
+                                type="button"
+                                class="dash-btn-outline btn-sm dash-btn-action"
+                              >
+                                View Ticket
+                              </button>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <div class="pet-avatar-chip">
+                                <div class="avatar-badge-circle dog">
+                                  <i class="fa-solid fa-dog"></i>
+                                </div>
+                                <div>
+                                  <div class="pet-meta-title">Milo</div>
+                                  <div class="pet-meta-subtitle">
+                                    Beagle Puppy &bull; 8 mos
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <strong>Puppy Socialization Daycare</strong>
+                            </td>
+                            <td>Emma Davis (Trainer)</td>
+                            <td>22 Sep 2026, 09:00 AM</td>
+                            <td>
+                              <span class="status-pill status-routine"
+                                >Reserved</span
+                              >
+                            </td>
+                            <td>
+                              <button
+                                type="button"
+                                class="dash-btn-outline btn-sm dash-btn-action"
+                              >
+                                View Ticket
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Daily Routine & Medication Tracker -->
+                <div class="col-12 col-lg-4">
+                  <div class="dash-content-card">
+                    <div class="card-header-bar">
+                      <div class="card-header-left">
+                        <h5>Today's Care Plan</h5>
+                        <p>Daily wellness tasks</p>
+                      </div>
+                    </div>
+
+                    <div class="care-checklist-wrapper">
+                      <div class="checklist-item">
+                        <div class="checklist-left">
+                          <input
+                            type="checkbox"
+                            class="custom-dash-check"
+                            checked
+                          />
+                          <div class="checklist-text">
+                            <h6>Morning Walk & Park Play</h6>
+                            <span>Max & Milo &bull; 45 mins</span>
+                          </div>
+                        </div>
+                        <span class="badge bg-success-subtle text-success"
+                          >Done</span
+                        >
+                      </div>
+
+                      <div class="checklist-item">
+                        <div class="checklist-left">
+                          <input
+                            type="checkbox"
+                            class="custom-dash-check"
+                            checked
+                          />
+                          <div class="checklist-text">
+                            <h6>Salmon Oil Supplement</h6>
+                            <span>Luna (Cat) with breakfast</span>
+                          </div>
+                        </div>
+                        <span class="badge bg-success-subtle text-success"
+                          >Done</span
+                        >
+                      </div>
+
+                      <div class="checklist-item">
+                        <div class="checklist-left">
+                          <input type="checkbox" class="custom-dash-check" />
+                          <div class="checklist-text">
+                            <h6>Flea & Tick Pipette</h6>
+                            <span>Max &bull; Monthly dose</span>
+                          </div>
+                        </div>
+                        <span class="badge bg-warning-subtle text-warning"
+                          >Pending</span
+                        >
+                      </div>
+
+                      <div class="checklist-item">
+                        <div class="checklist-left">
+                          <input type="checkbox" class="custom-dash-check" />
+                          <div class="checklist-text">
+                            <h6>Evening Teething Chew</h6>
+                            <span>Milo (Beagle Puppy)</span>
+                          </div>
+                        </div>
+                        <span class="badge bg-secondary-subtle text-secondary"
+                          >8:00 PM</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 1.2 My Pets View -->
+            <section
+              class="dashboard-view-section"
+              id="view-owner-pets"
+              data-title="Registered Pet Profiles"
+              data-subtitle="Comprehensive medical microchip IDs and bio credentials"
+            >
+              <div
+                class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
+              >
+                <div>
+                  <h4 class="mb-1 text-primary fw-bold">Family Pet Profiles</h4>
+                  <p class="text-secondary small mb-0">
+                    Track microchip registries, biological stats, and dietary
+                    profiles.
+                  </p>
+                </div>
+                <button type="button" class="dash-btn-primary dash-btn-action">
+                  <i class="fa-solid fa-plus"></i> Register New Pet
+                </button>
+              </div>
+
+              <div class="row g-4 align-items-stretch">
+                <!-- Pet Card 1: Max -->
+                <div class="col-12 col-md-6 col-xl-4">
+                  <div class="pet-profile-card">
+                    <div>
+                      <div class="pet-card-top">
+                        <div class="d-flex align-items-center gap-3">
+                          <div class="pet-photo-avatar">
+                            <i class="fa-solid fa-dog"></i>
+                          </div>
+                          <div>
+                            <h5 class="mb-0 fw-bold">Max</h5>
+                            <span class="text-muted small"
+                              >Golden Retriever</span
+                            >
+                          </div>
+                        </div>
+                        <span class="status-pill status-active">Active</span>
+                      </div>
+
+                      <div class="pet-info-grid">
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Age / Gender</span>
+                          <span class="pet-info-val">3 Yrs &bull; Male</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Body Weight</span>
+                          <span class="pet-info-val">31.4 kg</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Microchip ID</span>
+                          <span class="pet-info-val">#UK-9820-4109</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Vaccine Status</span>
+                          <span class="pet-info-val text-success">Valid</span>
+                        </div>
+                      </div>
+
+                      <p class="small text-muted mb-3">
+                        <strong class="text-dark">Diet Note:</strong> Grain-free
+                        salmon kibble twice daily. Allergic to chicken meal.
+                      </p>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                      <button
+                        type="button"
+                        class="dash-btn-primary btn-sm flex-fill dash-btn-action"
+                      >
+                        <i class="fa-solid fa-file-medical"></i> Health File
+                      </button>
+                      <button
+                        type="button"
+                        class="dash-btn-outline btn-sm dash-btn-action"
+                      >
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Pet Card 2: Luna -->
+                <div class="col-12 col-md-6 col-xl-4">
+                  <div class="pet-profile-card">
+                    <div>
+                      <div class="pet-card-top">
+                        <div class="d-flex align-items-center gap-3">
+                          <div
+                            class="pet-photo-avatar"
+                            style="background: #fef3c7; color: #b45309"
+                          >
+                            <i class="fa-solid fa-cat"></i>
+                          </div>
+                          <div>
+                            <h5 class="mb-0 fw-bold">Luna</h5>
+                            <span class="text-muted small"
+                              >British Shorthair</span
+                            >
+                          </div>
+                        </div>
+                        <span class="status-pill status-active">Active</span>
+                      </div>
+
+                      <div class="pet-info-grid">
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Age / Gender</span>
+                          <span class="pet-info-val">2 Yrs &bull; Female</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Body Weight</span>
+                          <span class="pet-info-val">4.6 kg</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Microchip ID</span>
+                          <span class="pet-info-val">#UK-5510-8821</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Vaccine Status</span>
+                          <span class="pet-info-val text-success">Valid</span>
+                        </div>
+                      </div>
+
+                      <p class="small text-muted mb-3">
+                        <strong class="text-dark">Diet Note:</strong> Wet tuna
+                        pate + urinary tract care kibble. Indoor only.
+                      </p>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                      <button
+                        type="button"
+                        class="dash-btn-primary btn-sm flex-fill dash-btn-action"
+                      >
+                        <i class="fa-solid fa-file-medical"></i> Health File
+                      </button>
+                      <button
+                        type="button"
+                        class="dash-btn-outline btn-sm dash-btn-action"
+                      >
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Pet Card 3: Milo -->
+                <div class="col-12 col-md-6 col-xl-4">
+                  <div class="pet-profile-card">
+                    <div>
+                      <div class="pet-card-top">
+                        <div class="d-flex align-items-center gap-3">
+                          <div
+                            class="pet-photo-avatar"
+                            style="background: #e0f2fe; color: #0284c7"
+                          >
+                            <i class="fa-solid fa-dog"></i>
+                          </div>
+                          <div>
+                            <h5 class="mb-0 fw-bold">Milo</h5>
+                            <span class="text-muted small">Beagle Hound</span>
+                          </div>
+                        </div>
+                        <span class="status-pill status-active">Active</span>
+                      </div>
+
+                      <div class="pet-info-grid">
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Age / Gender</span>
+                          <span class="pet-info-val">8 Mos &bull; Male</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Body Weight</span>
+                          <span class="pet-info-val">9.8 kg</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Microchip ID</span>
+                          <span class="pet-info-val">#UK-1102-7749</span>
+                        </div>
+                        <div class="pet-info-cell">
+                          <span class="pet-info-label">Vaccine Status</span>
+                          <span class="pet-info-val text-warning"
+                            >Booster Due</span
+                          >
+                        </div>
+                      </div>
+
+                      <p class="small text-muted mb-3">
+                        <strong class="text-dark">Diet Note:</strong>
+                        High-protein puppy growth recipe. Enjoys dental chew
+                        sticks.
+                      </p>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                      <button
+                        type="button"
+                        class="dash-btn-primary btn-sm flex-fill dash-btn-action"
+                      >
+                        <i class="fa-solid fa-file-medical"></i> Health File
+                      </button>
+                      <button
+                        type="button"
+                        class="dash-btn-outline btn-sm dash-btn-action"
+                      >
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 1.3 Appointments View -->
+            <section
+              class="dashboard-view-section"
+              id="view-owner-appointments"
+              data-title="Clinical & Spa Bookings"
+              data-subtitle="Manage upcoming sessions and service history"
+            >
+              <div class="dash-content-card mb-4">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>All Scheduled Appointments</h5>
+                    <p>
+                      Verified veterinary clinic and luxury grooming
+                      reservations
+                    </p>
+                  </div>
+                  <button type="button" class="dash-btn-accent dash-btn-action">
+                    <i class="fa-solid fa-calendar-plus"></i> New Booking
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Booking ID</th>
+                        <th>Pet</th>
+                        <th>Specialist Care</th>
+                        <th>Location / Room</th>
+                        <th>Date & Slot</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#BK-9021</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-dog text-warning"></i>
+                            <span class="fw-bold">Max</span>
+                          </div>
+                        </td>
+                        <td>Luxury Hydrobath Spa & Ear Clean</td>
+                        <td>Grooming Studio #2</td>
+                        <td>14 Sep 2026, 10:30 AM</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Confirmed</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Reschedule
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#BK-9045</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-cat text-info"></i>
+                            <span class="fw-bold">Luna</span>
+                          </div>
+                        </td>
+                        <td>Annual Cardiac & Dental Exam</td>
+                        <td>Vet Consultation Rm 3</td>
+                        <td>18 Sep 2026, 02:00 PM</td>
+                        <td>
+                          <span class="status-pill status-pending"
+                            >Pending Prep</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Reschedule
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#BK-8890</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-dog text-warning"></i>
+                            <span class="fw-bold">Milo</span>
+                          </div>
+                        </td>
+                        <td>DHPP Puppy Booster 3rd Shot</td>
+                        <td>Immunization Station</td>
+                        <td>28 Sep 2026, 11:15 AM</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Upcoming</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Reschedule
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#BK-7412</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-dog text-warning"></i>
+                            <span class="fw-bold">Max</span>
+                          </div>
+                        </td>
+                        <td>Routine Blood Panel & Parasite Check</td>
+                        <td>Diagnostics Lab</td>
+                        <td>02 Aug 2026, 09:00 AM</td>
+                        <td>
+                          <span class="status-pill status-completed"
+                            >Completed</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Download Rx
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 1.4 Health & Vaccines View -->
+            <section
+              class="dashboard-view-section"
+              id="view-owner-health"
+              data-title="Health & Vaccination Records"
+              data-subtitle="Digital immunization passport and medical history"
+            >
+              <div class="row g-4 align-items-stretch">
+                <div class="col-12 col-lg-8">
+                  <div class="dash-content-card">
+                    <div class="card-header-bar">
+                      <div class="card-header-left">
+                        <h5>Immunization Passport</h5>
+                        <p>Certified veterinary vaccine records</p>
+                      </div>
+                      <button
+                        type="button"
+                        class="dash-btn-outline dash-btn-action"
+                      >
+                        <i class="fa-solid fa-download"></i> Export PDF
+                      </button>
+                    </div>
+
+                    <div class="table-responsive dash-table-wrapper">
+                      <table class="dash-custom-table align-middle">
+                        <thead>
+                          <tr>
+                            <th>Pet</th>
+                            <th>Vaccine Type</th>
+                            <th>Administered Date</th>
+                            <th>Next Booster Due</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>Max (Dog)</strong></td>
+                            <td>Rabies 3-Year Protection</td>
+                            <td>12 Oct 2024</td>
+                            <td>12 Oct 2027</td>
+                            <td>
+                              <span class="status-pill status-confirmed"
+                                >Valid</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Max (Dog)</strong></td>
+                            <td>DHPP / Parvo Core</td>
+                            <td>15 Sep 2025</td>
+                            <td>15 Sep 2026</td>
+                            <td>
+                              <span class="status-pill status-warning"
+                                >Due in 4 Days</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Luna (Cat)</strong></td>
+                            <td>FVRCP (Feline Distemper)</td>
+                            <td>20 Jan 2026</td>
+                            <td>20 Jan 2027</td>
+                            <td>
+                              <span class="status-pill status-confirmed"
+                                >Valid</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Luna (Cat)</strong></td>
+                            <td>FeLV (Feline Leukemia)</td>
+                            <td>20 Jan 2026</td>
+                            <td>20 Jan 2027</td>
+                            <td>
+                              <span class="status-pill status-confirmed"
+                                >Valid</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Milo (Dog)</strong></td>
+                            <td>Puppy Bordetella (Kennel Cough)</td>
+                            <td>01 Aug 2026</td>
+                            <td>01 Aug 2027</td>
+                            <td>
+                              <span class="status-pill status-confirmed"
+                                >Valid</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                  <div class="dash-content-card">
+                    <div class="card-header-bar">
+                      <div class="card-header-left">
+                        <h5>Vet Clinical Notes</h5>
+                        <p>Latest doctor observations</p>
+                      </div>
+                    </div>
+
+                    <div class="dash-timeline">
+                      <div class="timeline-step">
+                        <h6>Max - Weight Optimization</h6>
+                        <p>
+                          Maintained healthy target 31.4kg. Coat shines
+                          excellently on salmon oil.
+                        </p>
+                        <span class="time-tag"
+                          >Dr. Clara Watson &bull; 02 Aug 2026</span
+                        >
+                      </div>
+                      <div class="timeline-step">
+                        <h6>Luna - Dental Plaque Check</h6>
+                        <p>
+                          Grade 1 mild plaque detected on upper molars.
+                          Recommended enzymatic dental gel.
+                        </p>
+                        <span class="time-tag"
+                          >Dr. Marcus Lee &bull; 15 Jun 2026</span
+                        >
+                      </div>
+                      <div class="timeline-step">
+                        <h6>Milo - Puppy Growth Milestones</h6>
+                        <p>
+                          Teething normally, hips and joints in ideal
+                          development curve.
+                        </p>
+                        <span class="time-tag"
+                          >Dr. Clara Watson &bull; 01 May 2026</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 1.5 Diet & Store Orders View -->
+            <section
+              class="dashboard-view-section"
+              id="view-owner-diet"
+              data-title="Nutrition Plans & Store Orders"
+              data-subtitle="Manage pet food subscriptions and recent supply deliveries"
+            >
+              <div class="dash-content-card mb-4">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Recent Store Orders & Subscriptions</h5>
+                    <p>
+                      Auto-replenishment pet food, supplements & accessories
+                    </p>
+                  </div>
+                  <a href="../pages/shop.html" class="dash-btn-primary">
+                    <i class="fa-solid fa-cart-shopping"></i> Visit Pet Shop
+                  </a>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Order #</th>
+                        <th>Items Ordered</th>
+                        <th>Recipient Pet</th>
+                        <th>Total Amount</th>
+                        <th>Delivery Status</th>
+                        <th>Tracking</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#ORD-7819</strong></td>
+                        <td>
+                          Premium Grain-Free Scottish Salmon Kibble (12kg)
+                        </td>
+                        <td>Max</td>
+                        <td>&pound;64.99</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Delivered</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Invoice
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#ORD-8201</strong></td>
+                        <td>Wild Ocean Tuna Pate Cans (24 Pack) + Cat Grass</td>
+                        <td>Luna</td>
+                        <td>&pound;38.50</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Out for Delivery</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Track Courier
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#ORD-8430</strong></td>
+                        <td>
+                          Natural Teething Puppy Ring & Organic Lamb Biscuits
+                        </td>
+                        <td>Milo</td>
+                        <td>&pound;22.00</td>
+                        <td>
+                          <span class="status-pill status-pending"
+                            >Processing</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Details
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 1.6 Care Reminders View -->
+            <section
+              class="dashboard-view-section"
+              id="view-owner-reminders"
+              data-title="Daily Pet Care Reminders"
+              data-subtitle="Custom alerts, feeding alarms and exercise milestones"
+            >
+              <div class="row g-4 align-items-stretch">
+                <div class="col-12 col-md-6">
+                  <div class="dash-content-card">
+                    <div class="card-header-bar">
+                      <div class="card-header-left">
+                        <h5>Active Daily Routine Alarms</h5>
+                        <p>Timed notifications for feeding & walks</p>
+                      </div>
+                      <button
+                        type="button"
+                        class="dash-btn-outline dash-btn-action"
+                      >
+                        <i class="fa-solid fa-plus"></i> Add Alert
+                      </button>
+                    </div>
+
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <i class="fa-solid fa-bowl-food text-warning fs-5"></i>
+                        <div class="checklist-text">
+                          <h6>07:30 AM &bull; Morning Feeding</h6>
+                          <span
+                            >Max (2.5 cups), Luna (1 can), Milo (1.5 cups)</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-success text-white">Active</span>
+                    </div>
+
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <i
+                          class="fa-solid fa-person-walking text-info fs-5"
+                        ></i>
+                        <div class="checklist-text">
+                          <h6>08:15 AM &bull; Morning Park Exercise</h6>
+                          <span>Max & Milo &bull; Kensington Gardens</span>
+                        </div>
+                      </div>
+                      <span class="badge bg-success text-white">Active</span>
+                    </div>
+
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <i class="fa-solid fa-pills text-danger fs-5"></i>
+                        <div class="checklist-text">
+                          <h6>01:00 PM &bull; Salmon Oil Drops</h6>
+                          <span>Luna &bull; 2ml with wet lunch</span>
+                        </div>
+                      </div>
+                      <span class="badge bg-success text-white">Active</span>
+                    </div>
+
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <i class="fa-solid fa-moon text-primary fs-5"></i>
+                        <div class="checklist-text">
+                          <h6>09:00 PM &bull; Bedtime Potty & Hydration</h6>
+                          <span>All pets fresh filtered water bowl refill</span>
+                        </div>
+                      </div>
+                      <span class="badge bg-success text-white">Active</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="dash-content-card">
+                    <div class="card-header-bar">
+                      <div class="card-header-left">
+                        <h5>Monthly Health Reminders</h5>
+                        <p>Preventative medical milestones</p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="alert alert-warning d-flex align-items-center gap-3 mb-3"
+                    >
+                      <i class="fa-solid fa-triangle-exclamation fs-3"></i>
+                      <div>
+                        <strong>Flea & Tick Prevention (Max)</strong>
+                        <p class="mb-0 small">
+                          Frontline Plus spot-on pipette application due in 2
+                          days.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="alert alert-info d-flex align-items-center gap-3 mb-3"
+                    >
+                      <i class="fa-solid fa-tooth fs-3"></i>
+                      <div>
+                        <strong>Dental Scaling Review (Luna)</strong>
+                        <p class="mb-0 small">
+                          Book ultrasonic dental scaling before end of next
+                          month.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="alert alert-success d-flex align-items-center gap-3"
+                    >
+                      <i class="fa-solid fa-shield-check fs-3"></i>
+                      <div>
+                        <strong>Pet Insurance Renewal</strong>
+                        <p class="mb-0 small">
+                          Active policy #UK-PET-401 covering all 3 pets with
+                          &pound;10,000 vet cover.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ===============================================================
+               ROLE 2: CERTIFIED VETERINARIAN CONTAINER
+               =============================================================== -->
+          <div
+            class="role-dashboard-container d-none"
+            id="dashboard-container-veterinarian"
+          >
+            <!-- 2.1 Vet Overview -->
+            <section
+              class="dashboard-view-section active"
+              id="view-vet-overview"
+              data-title="Veterinary Clinical Dashboard"
+              data-subtitle="Daily surgical schedule, outpatient triage & radiology records"
+            >
+              <div
+                class="role-welcome-banner"
+                style="
+                  background: linear-gradient(135deg, #002842 0%, #0369a1 100%);
+                "
+              >
+                <div class="welcome-badge">
+                  <i class="fa-solid fa-stethoscope"></i> Chief Medical Officer
+                  &bull; MRCVS
+                </div>
+                <h2 class="role-welcome-title">
+                  Welcome, <span>Dr. Clara Watson</span> (DVM)
+                </h2>
+                <p class="role-welcome-desc">
+                  You have 8 patient consultations scheduled today, including 2
+                  minor surgeries in Operating Theatre 1.
+                </p>
+              </div>
+
+              <!-- Vet KPI Stats -->
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-blue">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">Today</span>
+                    </div>
+                    <div>
+                      <div class="stat-value">8 Patients</div>
+                      <p class="stat-label">In Clinical Queue</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-gold">
+                        <i class="fa-solid fa-syringe"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-neutral"
+                        >Theatre 1</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">2 Surgeries</div>
+                      <p class="stat-label">Scheduled Operations</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-green">
+                        <i class="fa-solid fa-flask-vial"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">4 Ready</span>
+                    </div>
+                    <div>
+                      <div class="stat-value">6 Lab Tests</div>
+                      <p class="stat-label">Diagnostic Pathology</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-orange">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-down"
+                        >Priority</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">1 Triage</div>
+                      <p class="stat-label">Urgent Care Patient</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vet Patient Queue Table -->
+              <div class="dash-content-card mb-4">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Today's Outpatient Appointments & Triage Queue</h5>
+                    <p>
+                      Clinical Room #3 &bull; Kensington Veterinary Hospital
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-plus"></i> Admit Walk-In
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Patient</th>
+                        <th>Species & Breed</th>
+                        <th>Owner Name</th>
+                        <th>Chief Complaint / Symptom</th>
+                        <th>Triage Level</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>09:00 AM</strong></td>
+                        <td><span class="fw-bold text-dark">Rocky</span></td>
+                        <td>Dog &bull; German Shepherd</td>
+                        <td>David Beckham</td>
+                        <td>Limping on right hind leg (X-Ray req)</td>
+                        <td>
+                          <span class="status-pill status-urgent">Urgent</span>
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Open Chart
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>10:15 AM</strong></td>
+                        <td><span class="fw-bold text-dark">Bella</span></td>
+                        <td>Cat &bull; Persian Longhair</td>
+                        <td>Sarah Jenkins</td>
+                        <td>Mild corneal conjunctivitis eye irritation</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Routine</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Open Chart
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>11:30 AM</strong></td>
+                        <td><span class="fw-bold text-dark">Max</span></td>
+                        <td>Dog &bull; Golden Retriever</td>
+                        <td>Alex Miller</td>
+                        <td>Annual preventative vaccine booster</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Routine</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Open Chart
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>02:00 PM</strong></td>
+                        <td><span class="fw-bold text-dark">Coco</span></td>
+                        <td>Dog &bull; French Bulldog</td>
+                        <td>Arthur Pendelton</td>
+                        <td>Pre-op soft palate airway evaluation</td>
+                        <td>
+                          <span class="status-pill status-pending">Pre-Op</span>
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Open Chart
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 2.2 Vet Patient Queue & Triage -->
+            <section
+              class="dashboard-view-section"
+              id="view-vet-queue"
+              data-title="Outpatient Queue & Emergency Triage"
+              data-subtitle="Live clinic waiting room and urgency categorization"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Emergency Triage & Consultation Waiting List</h5>
+                    <p>Live patient tracking for Vet Staff</p>
+                  </div>
+                  <div class="card-header-actions">
+                    <button
+                      type="button"
+                      class="dash-btn-primary dash-btn-action"
+                    >
+                      <i class="fa-solid fa-bell"></i> Call Next Patient
+                    </button>
+                  </div>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Queue #</th>
+                        <th>Pet Name</th>
+                        <th>Owner Contact</th>
+                        <th>Reason for Visit</th>
+                        <th>Vitals Status</th>
+                        <th>Urgency Flag</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="badge bg-danger">Q-01</span></td>
+                        <td><strong>Thor (Rottweiler)</strong></td>
+                        <td>+44 7911 234567</td>
+                        <td>Acute gastric distress / suspected bloat</td>
+                        <td>Temp: 39.2&deg;C &bull; HR: 140 bpm</td>
+                        <td>
+                          <span class="status-pill status-urgent"
+                            >Critical / Priority</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-primary btn-sm dash-btn-action"
+                          >
+                            Admit Now
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><span class="badge bg-primary">Q-02</span></td>
+                        <td><strong>Mimi (Siamese Cat)</strong></td>
+                        <td>+44 7922 890123</td>
+                        <td>Ear mite inspection & deep flushing</td>
+                        <td>Temp: 38.5&deg;C &bull; HR: 160 bpm</td>
+                        <td>
+                          <span class="status-pill status-routine">Normal</span>
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Call Patient
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><span class="badge bg-primary">Q-03</span></td>
+                        <td><strong>Charlie (Cocker Spaniel)</strong></td>
+                        <td>+44 7933 456789</td>
+                        <td>Skin allergy cytology scrape</td>
+                        <td>Temp: 38.3&deg;C &bull; HR: 110 bpm</td>
+                        <td>
+                          <span class="status-pill status-routine">Normal</span>
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Call Patient
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 2.3 Vet Medical Case Files -->
+            <section
+              class="dashboard-view-section"
+              id="view-vet-records"
+              data-title="Clinical Case Files & History"
+              data-subtitle="Electronic medical records, diagnoses and treatment plans"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Electronic Health Records (EHR) Database</h5>
+                    <p>Recent diagnosed cases and follow-up protocols</p>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      placeholder="Search patient or chip ID..."
+                      style="width: 220px"
+                    />
+                    <button
+                      type="button"
+                      class="dash-btn-primary btn-sm dash-btn-action"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Case Ref</th>
+                        <th>Patient Name</th>
+                        <th>Diagnosis</th>
+                        <th>Treatment Protocol</th>
+                        <th>Attending Vet</th>
+                        <th>Last Updated</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#MED-4401</strong></td>
+                        <td>Bailey (Golden Doodle)</td>
+                        <td>Canine Otitis Externa (Bacterial)</td>
+                        <td>Otic antibiotic drops (Posatex) BID x 10d</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>10 Sep 2026</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            View Full File
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#MED-4390</strong></td>
+                        <td>Shadow (Domestic Black Cat)</td>
+                        <td>Feline Lower Urinary Tract Disease (FLUTD)</td>
+                        <td>Prazosin + Royal Canin Urinary S/O Diet</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>08 Sep 2026</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            View Full File
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#MED-4382</strong></td>
+                        <td>Zeus (Great Dane)</td>
+                        <td>Bilateral Hip Osteoarthritis</td>
+                        <td>Meloxicam NSAID + Cartrophen Injections</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>03 Sep 2026</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            View Full File
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 2.4 Vet Lab & Diagnostics -->
+            <section
+              class="dashboard-view-section"
+              id="view-vet-diagnostics"
+              data-title="Laboratory & Diagnostic Pathology"
+              data-subtitle="Radiology X-rays, blood biochemistry panels & cytology"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Diagnostic Reports & Imaging Hub</h5>
+                    <p>Certified Idexx & In-House Radiology Lab</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-outline dash-btn-action"
+                  >
+                    <i class="fa-solid fa-cloud-arrow-up"></i> Upload Scans
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Report ID</th>
+                        <th>Patient</th>
+                        <th>Diagnostic Test</th>
+                        <th>Findings Summary</th>
+                        <th>Pathologist Status</th>
+                        <th>Download</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#LAB-1092</strong></td>
+                        <td>Rocky (German Shepherd)</td>
+                        <td>Digital X-Ray (Right Stifle & Hip)</td>
+                        <td>No fracture. Mild soft tissue cruciate sprain.</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Ready</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-primary btn-sm dash-btn-action"
+                          >
+                            <i class="fa-solid fa-file-pdf"></i> PDF
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#LAB-1088</strong></td>
+                        <td>Luna (British Shorthair)</td>
+                        <td>Complete Blood Count & Kidney Panel (SDMA)</td>
+                        <td>BUN, Creatinine within ideal reference ranges.</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Ready</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-primary btn-sm dash-btn-action"
+                          >
+                            <i class="fa-solid fa-file-pdf"></i> PDF
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#LAB-1075</strong></td>
+                        <td>Bruno (Boxer)</td>
+                        <td>Fine Needle Aspirate Cytology</td>
+                        <td>Benign lipoma cells. Negative for malignancy.</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Ready</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-primary btn-sm dash-btn-action"
+                          >
+                            <i class="fa-solid fa-file-pdf"></i> PDF
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 2.5 Vet Surgery Schedule -->
+            <section
+              class="dashboard-view-section"
+              id="view-vet-surgery"
+              data-title="Surgical Theatre & Procedures"
+              data-subtitle="Operating room rosters, anesthesia protocols and recovery monitoring"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Theatre 1 & 2 Surgical Logbook</h5>
+                    <p>Sterile surgical suites & recovery telemetry</p>
+                  </div>
+                  <button type="button" class="dash-btn-accent dash-btn-action">
+                    <i class="fa-solid fa-calendar-plus"></i> Schedule Surgery
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Theatre</th>
+                        <th>Patient</th>
+                        <th>Procedure</th>
+                        <th>Lead Surgeon</th>
+                        <th>Anesthesiologist</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>OT-1</strong></td>
+                        <td>Oscar (Tabby Cat)</td>
+                        <td>Feline Ovariohysterectomy (Spay)</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>Nurse Chloe Evans</td>
+                        <td>12:30 PM</td>
+                        <td>
+                          <span class="status-pill status-pending"
+                            >Pre-Op Prep</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>OT-1</strong></td>
+                        <td>Daisy (Jack Russell)</td>
+                        <td>Dental Prophylaxis & Ultrasonic Extraction</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>Nurse Liam Reed</td>
+                        <td>03:30 PM</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Scheduled</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>OT-2</strong></td>
+                        <td>Buster (Labrador)</td>
+                        <td>Sebaceous Cyst Excision (Left Flank)</td>
+                        <td>Dr. Marcus Lee</td>
+                        <td>Nurse Chloe Evans</td>
+                        <td>10:00 AM</td>
+                        <td>
+                          <span class="status-pill status-completed"
+                            >Completed / Stable</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 2.6 Vet Prescriptions -->
+            <section
+              class="dashboard-view-section"
+              id="view-vet-prescriptions"
+              data-title="Pharmacy & Prescription Dispenser"
+              data-subtitle="Digital medication orders, refills and client instructions"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Veterinary Pharmacy Dispensary</h5>
+                    <p>Regulated veterinary medicine stock & digital scripts</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-plus"></i> Create Digital Rx
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Rx #</th>
+                        <th>Patient</th>
+                        <th>Medication & Dosage</th>
+                        <th>Instructions</th>
+                        <th>Dispensed By</th>
+                        <th>Refills Left</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#RX-7890</strong></td>
+                        <td>Max (Golden Retriever)</td>
+                        <td>Apoquel 16mg Tablets (30 count)</td>
+                        <td>1 tab daily with food for seasonal pruritus</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>2 Refills</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Active</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#RX-7884</strong></td>
+                        <td>Luna (British Shorthair)</td>
+                        <td>Gabapentin 50mg Liquid</td>
+                        <td>0.5ml 2 hrs prior to vet visit for calm travel</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>0 Refills</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Active</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#RX-7871</strong></td>
+                        <td>Thor (Rottweiler)</td>
+                        <td>Amoxicillin / Clavulanate 250mg</td>
+                        <td>1 tablet every 12 hours for 7 days</td>
+                        <td>Dr. Clara Watson</td>
+                        <td>1 Refill</td>
+                        <td>
+                          <span class="status-pill status-completed"
+                            >Dispensed</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ===============================================================
+               ROLE 3: PROFESSIONAL PET GROOMER CONTAINER
+               =============================================================== -->
+          <div
+            class="role-dashboard-container d-none"
+            id="dashboard-container-pet_groomer"
+          >
+            <!-- 3.1 Groomer Overview -->
+            <section
+              class="dashboard-view-section active"
+              id="view-groomer-overview"
+              data-title="Pet Grooming Salon Studio"
+              data-subtitle="Today's station bookings, coat styling cards and spa inventory"
+            >
+              <div
+                class="role-welcome-banner"
+                style="
+                  background: linear-gradient(135deg, #002842 0%, #db2777 100%);
+                "
+              >
+                <div class="welcome-badge">
+                  <i class="fa-solid fa-scissors"></i> Master Pet Stylist &bull;
+                  Salon Hub
+                </div>
+                <h2 class="role-welcome-title">
+                  Welcome, <span>Oliver Scott</span>!
+                </h2>
+                <p class="role-welcome-desc">
+                  You have 6 spa appointments lined up today across Hydrobath
+                  Station A & Scissor Styling Table 1.
+                </p>
+              </div>
+
+              <!-- Groomer KPI Cards -->
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-purple">
+                        <i class="fa-solid fa-scissors"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">Today</span>
+                    </div>
+                    <div>
+                      <div class="stat-value">6 Bookings</div>
+                      <p class="stat-label">Full Groom & Spa</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-gold">
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up"
+                        >4.9 / 5.0</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">98 Reviews</div>
+                      <p class="stat-label">Client Satisfaction</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-blue">
+                        <i class="fa-solid fa-shower"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-neutral"
+                        >Station A</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">100% Ready</div>
+                      <p class="stat-label">Hydrobath Sanitized</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-green">
+                        <i class="fa-solid fa-sterling-sign"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">+18%</span>
+                    </div>
+                    <div>
+                      <div class="stat-value">&pound;385.00</div>
+                      <p class="stat-label">Today's Salon Revenue</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grooming Schedule Table -->
+              <div class="dash-content-card mb-4">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Today's Grooming Appointments</h5>
+                    <p>Kensington Luxury Spa & Grooming Lounge</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-plus"></i> Walk-In Slot
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Pet & Breed</th>
+                        <th>Service Package</th>
+                        <th>Coat Type & Sensitivity</th>
+                        <th>Station</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>09:30 AM</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-dog text-warning"></i>
+                            <span class="fw-bold">Coco (Cockapoo)</span>
+                          </div>
+                        </td>
+                        <td>Teddy Bear Scissor Cut & Berry Facial</td>
+                        <td>Curly Wool &bull; Sensitive Skin</td>
+                        <td>Table 1</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >In Progress</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Coat Card
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>11:00 AM</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-dog text-primary"></i>
+                            <span class="fw-bold">Max (Golden Retriever)</span>
+                          </div>
+                        </td>
+                        <td>Deep Deshedding & Paw Pad Balm</td>
+                        <td>Double Coat &bull; Heavy Undercoat</td>
+                        <td>Hydrobath A</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Upcoming</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Coat Card
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>01:30 PM</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-cat text-warning"></i>
+                            <span class="fw-bold">Cleo (Persian Cat)</span>
+                          </div>
+                        </td>
+                        <td>Lion Trim & Anti-Matting Detangle</td>
+                        <td>Fine Longhair &bull; Gentle Handling</td>
+                        <td>Cat Spa Suite</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Upcoming</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Coat Card
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>03:30 PM</strong></td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-dog text-success"></i>
+                            <span class="fw-bold">Barnaby (Poodle)</span>
+                          </div>
+                        </td>
+                        <td>Royal Show Clip & Ozone Spa Rinse</td>
+                        <td>Tight Curls &bull; Hypoallergenic Soap</td>
+                        <td>Table 1</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Upcoming</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Coat Card
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3.2 Grooming Schedule -->
+            <section
+              class="dashboard-view-section"
+              id="view-groomer-schedule"
+              data-title="Salon Schedule & Station Allocations"
+              data-subtitle="Grooming tables, hydrobath baths and drying booths"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Weekly Salon Timetable</h5>
+                    <p>
+                      Stylist station allocation and customer booking calendar
+                    </p>
+                  </div>
+                  <button type="button" class="dash-btn-accent dash-btn-action">
+                    <i class="fa-solid fa-calendar-plus"></i> Block Out Slot
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Total Bookings</th>
+                        <th>Hydrobath Sessions</th>
+                        <th>Full Scissor Clips</th>
+                        <th>Express Baths</th>
+                        <th>Capacity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Today (Monday)</strong></td>
+                        <td>6 Pets</td>
+                        <td>4 Slots</td>
+                        <td>3 Slots</td>
+                        <td>2 Slots</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >85% Full</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Tuesday</strong></td>
+                        <td>8 Pets</td>
+                        <td>5 Slots</td>
+                        <td>4 Slots</td>
+                        <td>3 Slots</td>
+                        <td>
+                          <span class="status-pill status-urgent"
+                            >100% Full</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Wednesday</strong></td>
+                        <td>5 Pets</td>
+                        <td>3 Slots</td>
+                        <td>2 Slots</td>
+                        <td>2 Slots</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >65% Full</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3.3 Coat Cards & Styling Notes -->
+            <section
+              class="dashboard-view-section"
+              id="view-groomer-coats"
+              data-title="Pet Coat Cards & Styling Notes"
+              data-subtitle="Individual pet breed preferences, sensitivities and blade lengths"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Registered Client Pet Coat Cards</h5>
+                    <p>Custom specifications for repeat salon clients</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-plus"></i> Add Coat Card
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Pet Name</th>
+                        <th>Breed</th>
+                        <th>Preferred Clip Style</th>
+                        <th>Blade / Comb Guard</th>
+                        <th>Shampoo Formula</th>
+                        <th>Temperament Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Coco</strong></td>
+                        <td>Cockapoo</td>
+                        <td>Teddy Bear round face, fluffy ears</td>
+                        <td>#4 Guard (13mm) body, #7F hygiene</td>
+                        <td>Organic Oatmeal & Coconut</td>
+                        <td>Loves paw massages, gentle with dryer</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Barnaby</strong></td>
+                        <td>Standard Poodle</td>
+                        <td>Modern clip, clean face & clean feet</td>
+                        <td>#10 clean face, hand scissor legs</td>
+                        <td>Silk Protein Whitening Shampoo</td>
+                        <td>Show-trained, stands patiently</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Max</strong></td>
+                        <td>Golden Retriever</td>
+                        <td>Full deshedding, tidy feathers & hocks</td>
+                        <td>Undercoat rake, hand scissor pads</td>
+                        <td>Aloe Vera Hypoallergenic Rinse</td>
+                        <td>Very friendly, loves warm blow dry</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3.4 Spa Products & Inventory -->
+            <section
+              class="dashboard-view-section"
+              id="view-groomer-inventory"
+              data-title="Spa Product Inventory & Equipment"
+              data-subtitle="Shampoo stocks, ear flushes, blades and shear sharpening"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Salon Supplies & Equipment Status</h5>
+                    <p>Stock levels in Grooming Dispensary</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-outline dash-btn-action"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i> Reorder Supplies
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Product Item</th>
+                        <th>Category</th>
+                        <th>Current Quantity</th>
+                        <th>Reorder Level</th>
+                        <th>Stock Health</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <strong>Natural Oatmeal Shampoo (5L Gallon)</strong>
+                        </td>
+                        <td>Washing & Bath</td>
+                        <td>3 Gallons</td>
+                        <td>1 Gallon</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >In Stock</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Reorder
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Blueberry Facial & Tear Stain Foam</strong>
+                        </td>
+                        <td>Facial Spa</td>
+                        <td>6 Bottles (500ml)</td>
+                        <td>2 Bottles</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >In Stock</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Reorder
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Wahl Competition #10 Clipper Blades</strong>
+                        </td>
+                        <td>Hardware / Blades</td>
+                        <td>1 Blade (Need sharpening)</td>
+                        <td>3 Blades</td>
+                        <td>
+                          <span class="status-pill status-urgent"
+                            >Low Stock</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-primary btn-sm dash-btn-action"
+                          >
+                            Order Now
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3.5 Transformation Gallery -->
+            <section
+              class="dashboard-view-section"
+              id="view-groomer-gallery"
+              data-title="Pet Makeover Transformation Showcase"
+              data-subtitle="High-definition before & after styling gallery for salon portfolio"
+            >
+              <div
+                class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
+              >
+                <div>
+                  <h4 class="mb-1 text-primary fw-bold">
+                    Recent Makeover Portfolio
+                  </h4>
+                  <p class="text-secondary small mb-0">
+                    Showcase your grooming styling works.
+                  </p>
+                </div>
+                <button type="button" class="dash-btn-primary dash-btn-action">
+                  <i class="fa-solid fa-camera"></i> Upload New Makeover
+                </button>
+              </div>
+
+              <div class="row g-4 align-items-stretch">
+                <div class="col-12 col-md-4">
+                  <div class="grooming-gallery-card">
+                    <div class="gallery-image-box">
+                      <img
+                        src="../assets/images/about/about-modern-facilities.webp"
+                        alt="Pet Spa"
+                      />
+                      <span class="gallery-badge">Teddy Cut</span>
+                    </div>
+                    <div class="gallery-card-body">
+                      <div>
+                        <h6 class="fw-bold mb-1">Milo (Maltipoo)</h6>
+                        <p class="small text-muted mb-2">
+                          Full tangle de-matting & hand-scissor facial.
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <span class="text-warning small"
+                          ><i class="fa-solid fa-star"></i> 5.0 (Client
+                          Review)</span
+                        >
+                        <span class="badge bg-light text-dark">Completed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="grooming-gallery-card">
+                    <div class="gallery-image-box">
+                      <img
+                        src="../assets/images/home/home-categories-card-1.webp"
+                        alt="Grooming"
+                      />
+                      <span class="gallery-badge">Show Clip</span>
+                    </div>
+                    <div class="gallery-card-body">
+                      <div>
+                        <h6 class="fw-bold mb-1">Winston (Bichon Frise)</h6>
+                        <p class="small text-muted mb-2">
+                          Fluffy powder-puff sphere head & paw shaping.
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <span class="text-warning small"
+                          ><i class="fa-solid fa-star"></i> 5.0 (Client
+                          Review)</span
+                        >
+                        <span class="badge bg-light text-dark">Completed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="grooming-gallery-card">
+                    <div class="gallery-image-box">
+                      <img
+                        src="../assets/images/home/home-categories-card-2.webp"
+                        alt="Deshedding"
+                      />
+                      <span class="gallery-badge">Deshed Pro</span>
+                    </div>
+                    <div class="gallery-card-body">
+                      <div>
+                        <h6 class="fw-bold mb-1">Kona (Husky)</h6>
+                        <p class="small text-muted mb-2">
+                          High-velocity blowout removing 2.5kg undercoat.
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <span class="text-warning small"
+                          ><i class="fa-solid fa-star"></i> 5.0 (Client
+                          Review)</span
+                        >
+                        <span class="badge bg-light text-dark">Completed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3.6 Client Reviews & Tips -->
+            <section
+              class="dashboard-view-section"
+              id="view-groomer-reviews"
+              data-title="Client Reviews & Feedback"
+              data-subtitle="Verified ratings from pet owners across London & UK"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Latest Verified Pet Parent Reviews</h5>
+                    <p>Overall rating: 4.9 out of 5 stars (98 reviews)</p>
+                  </div>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Pet Parent</th>
+                        <th>Pet Styled</th>
+                        <th>Rating</th>
+                        <th>Review Comment</th>
+                        <th>Date</th>
+                        <th>Tip Received</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Emily Watson</strong></td>
+                        <td>Coco (Cockapoo)</td>
+                        <td>
+                          <span class="text-warning"
+                            ><i class="fa-solid fa-star"></i> 5.0</span
+                          >
+                        </td>
+                        <td>
+                          "Oliver did the most incredible Teddy Bear cut on
+                          Coco! She smells divine."
+                        </td>
+                        <td>Yesterday</td>
+                        <td>
+                          <span class="badge bg-success-subtle text-success"
+                            >&pound;15.00</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>James Sterling</strong></td>
+                        <td>Max (Golden Retriever)</td>
+                        <td>
+                          <span class="text-warning"
+                            ><i class="fa-solid fa-star"></i> 5.0</span
+                          >
+                        </td>
+                        <td>
+                          "The deshedding treatment worked wonders. No loose
+                          hair around the sofa!"
+                        </td>
+                        <td>08 Sep 2026</td>
+                        <td>
+                          <span class="badge bg-success-subtle text-success"
+                            >&pound;10.00</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Claire Redfield</strong></td>
+                        <td>Cleo (Persian Cat)</td>
+                        <td>
+                          <span class="text-warning"
+                            ><i class="fa-solid fa-star"></i> 5.0</span
+                          >
+                        </td>
+                        <td>
+                          "First groomer who handled my nervous Persian with so
+                          much gentleness."
+                        </td>
+                        <td>05 Sep 2026</td>
+                        <td>
+                          <span class="badge bg-success-subtle text-success"
+                            >&pound;20.00</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ===============================================================
+               ROLE 4: SHELTER / FOSTER ORGANIZATION CONTAINER
+               =============================================================== -->
+          <div
+            class="role-dashboard-container d-none"
+            id="dashboard-container-shelter_breeder"
+          >
+            <!-- 4.1 Shelter Overview -->
+            <section
+              class="dashboard-view-section active"
+              id="view-shelter-overview"
+              data-title="Shelter & Rescue Sanctuary Hub"
+              data-subtitle="Intake registries, adoption applications, foster network and quarantine tracker"
+            >
+              <div
+                class="role-welcome-banner"
+                style="
+                  background: linear-gradient(135deg, #002842 0%, #ea580c 100%);
+                "
+              >
+                <div class="welcome-badge">
+                  <i class="fa-solid fa-house-chimney-medical"></i> St. Jude Pet
+                  Sanctuary &bull; Registered Charity #UK-7721
+                </div>
+                <h2 class="role-welcome-title">
+                  Welcome, <span>Shelter Director</span>!
+                </h2>
+                <p class="role-welcome-desc">
+                  There are currently 42 rescued animals in care (26 in shelter
+                  kennels, 16 in active foster homes). 7 adoption applications
+                  are ready for vetting.
+                </p>
+              </div>
+
+              <!-- Shelter KPI Stats -->
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-orange">
+                        <i class="fa-solid fa-shield-dog"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-neutral"
+                        >In Care</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">42 Animals</div>
+                      <p class="stat-label">Total Rescued Pets</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-green">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up"
+                        >7 Pending</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">18 Adopted</div>
+                      <p class="stat-label">This Month's Forever Homes</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-blue">
+                        <i class="fa-solid fa-people-roof"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up"
+                        >12 Active</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">16 Fosters</div>
+                      <p class="stat-label">Placed in Foster Homes</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-gold">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up">+24%</span>
+                    </div>
+                    <div>
+                      <div class="stat-value">&pound;12,450</div>
+                      <p class="stat-label">Community Donations</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pending Adoption Applications Table -->
+              <div class="dash-content-card mb-4">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Adoption Applications Awaiting Review</h5>
+                    <p>Applicant background checks and home visit scheduling</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-file-signature"></i> Intake Form
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Application #</th>
+                        <th>Applicant Name</th>
+                        <th>Animal Requested</th>
+                        <th>Home Check Status</th>
+                        <th>Submitted Date</th>
+                        <th>Vetting Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#ADP-901</strong></td>
+                        <td>Oliver & Lucy Taylor</td>
+                        <td>Barnaby (Labrador Mix &bull; 1 yr)</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Approved (Fenced Garden)</span
+                          >
+                        </td>
+                        <td>Yesterday</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Ready for Meet</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-primary btn-sm dash-btn-action"
+                          >
+                            Approve
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#ADP-898</strong></td>
+                        <td>Rachel Green</td>
+                        <td>Pip (Tabby Kitten &bull; 3 mos)</td>
+                        <td>
+                          <span class="status-pill status-pending"
+                            >Pending Virtual Tour</span
+                          >
+                        </td>
+                        <td>08 Sep 2026</td>
+                        <td>
+                          <span class="status-pill status-pending"
+                            >In Review</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Schedule Tour
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>#ADP-894</strong></td>
+                        <td>Mark Henderson</td>
+                        <td>Bella (Staffie Cross &bull; 4 yrs)</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Reference Checked</span
+                          >
+                        </td>
+                        <td>06 Sep 2026</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Interviewing</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Review Form
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 4.2 Shelter Pet Intake Registry -->
+            <section
+              class="dashboard-view-section"
+              id="view-shelter-intake"
+              data-title="Animal Intake & Rescue Registry"
+              data-subtitle="Intake logs, surrender documentation and microchip verification"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Rescued Animal Master Registry</h5>
+                    <p>Current resident pets under shelter custody</p>
+                  </div>
+                  <button type="button" class="dash-btn-accent dash-btn-action">
+                    <i class="fa-solid fa-plus"></i> New Animal Intake
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Intake ID</th>
+                        <th>Pet Name</th>
+                        <th>Species & Breed</th>
+                        <th>Intake Date</th>
+                        <th>Rescue Origin</th>
+                        <th>Medical Status</th>
+                        <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#INT-204</strong></td>
+                        <td>Barnaby</td>
+                        <td>Dog &bull; Labrador Mix</td>
+                        <td>15 Aug 2026</td>
+                        <td>Stray (Surrey Highway)</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Neutered & Vaccinated</span
+                          >
+                        </td>
+                        <td>Kennel Block A-4</td>
+                      </tr>
+                      <tr>
+                        <td><strong>#INT-205</strong></td>
+                        <td>Pip</td>
+                        <td>Cat &bull; Domestic Short Hair</td>
+                        <td>28 Aug 2026</td>
+                        <td>Abandoned Litter</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Vaccinated & Microchipped</span
+                          >
+                        </td>
+                        <td>Cattery Rm 2</td>
+                      </tr>
+                      <tr>
+                        <td><strong>#INT-206</strong></td>
+                        <td>Copper</td>
+                        <td>Dog &bull; Beagle Mix</td>
+                        <td>02 Sep 2026</td>
+                        <td>Owner Surrender</td>
+                        <td>
+                          <span class="status-pill status-pending"
+                            >Dental Pending</span
+                          >
+                        </td>
+                        <td>Foster Home (Smith)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 4.3 Shelter Adoption Screening -->
+            <section
+              class="dashboard-view-section"
+              id="view-shelter-adoptions"
+              data-title="Adoption Screening & Matching"
+              data-subtitle="Vetting protocols, family compatibility interviews and adoption contracts"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Applicant Compatibility Scoring</h5>
+                    <p>Smart matching shelter animals with approved adopters</p>
+                  </div>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Applicant</th>
+                        <th>Pet Matched</th>
+                        <th>Experience Level</th>
+                        <th>Household Environment</th>
+                        <th>Compatibility Score</th>
+                        <th>Contract Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Oliver Taylor</strong></td>
+                        <td>Barnaby (Labrador Mix)</td>
+                        <td>Experienced (Had Lab for 12 yrs)</td>
+                        <td>House with 150ft enclosed garden</td>
+                        <td><span class="badge bg-success">98% Match</span></td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Contract Sent</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Rachel Green</strong></td>
+                        <td>Pip (Kitten)</td>
+                        <td>Moderate (Has 1 older cat)</td>
+                        <td>2-Bed Apartment, Cat-Proof Balcony</td>
+                        <td><span class="badge bg-info">92% Match</span></td>
+                        <td>
+                          <span class="status-pill status-pending"
+                            >Awaiting Review</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 4.4 Shelter Foster Network -->
+            <section
+              class="dashboard-view-section"
+              id="view-shelter-fosters"
+              data-title="Foster Families & Volunteer Network"
+              data-subtitle="Volunteer home placements, emergency temporary care and supplies"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Registered Foster Network</h5>
+                    <p>
+                      16 pets currently placed across 12 licensed foster
+                      families
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-user-plus"></i> Register Foster Family
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Foster Parent</th>
+                        <th>Location</th>
+                        <th>Current Foster Pet</th>
+                        <th>Placement Date</th>
+                        <th>Emergency Contact</th>
+                        <th>Supplies Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>David & Jane Smith</strong></td>
+                        <td>Richmond, London</td>
+                        <td>Copper (Beagle Mix)</td>
+                        <td>03 Sep 2026</td>
+                        <td>+44 7922 110022</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Kibble & Meds Delivered</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Hannah Moretti</strong></td>
+                        <td>Chelsea, London</td>
+                        <td>Mochi (Feral Kitten Litter of 3)</td>
+                        <td>20 Aug 2026</td>
+                        <td>+44 7933 998877</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Weaning Milk Stocked</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 4.5 Shelter Medical Rehab -->
+            <section
+              class="dashboard-view-section"
+              id="view-shelter-rehab"
+              data-title="Medical Rehabilitation & Quarantine Log"
+              data-subtitle="Isolation suites, infectious disease protocol and post-op recoveries"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Quarantine & Isolation Unit</h5>
+                    <p>Strict clinical isolation for newly rescued pets</p>
+                  </div>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Isolation Suite</th>
+                        <th>Animal</th>
+                        <th>Intake Condition</th>
+                        <th>Quarantine Days</th>
+                        <th>Vaccines / Blood Tests</th>
+                        <th>Release Clearance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Isolation Bay 1</strong></td>
+                        <td>Gemma (Spaniel Mix)</td>
+                        <td>Malnourished, flea dermatitis</td>
+                        <td>Day 8 of 14</td>
+                        <td>Parvo Negative &bull; Dewormed</td>
+                        <td>
+                          <span class="status-pill status-urgent"
+                            >In Quarantine</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Isolation Bay 3</strong></td>
+                        <td>Felix (Tomcat)</td>
+                        <td>Minor bite wound abscess (Drained)</td>
+                        <td>Day 12 of 14</td>
+                        <td>FeLV/FIV Negative &bull; Rabies Given</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Clearing in 2 Days</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 4.6 Shelter Donations & Food Bank -->
+            <section
+              class="dashboard-view-section"
+              id="view-shelter-donations"
+              data-title="Community Donations & Food Bank Ledger"
+              data-subtitle="Sponsorship tracking, financial contributions and grain bank inventory"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Charity Contributions & Monthly Sponsors</h5>
+                    <p>Community generosity supporting our rescue efforts</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-gift"></i> Log Donation
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Receipt #</th>
+                        <th>Donor Name</th>
+                        <th>Donation Type</th>
+                        <th>Amount / Goods</th>
+                        <th>Date</th>
+                        <th>Dedicated Animal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>#DON-3401</strong></td>
+                        <td>Kensington Pet Lovers Club</td>
+                        <td>Direct Wire Grant</td>
+                        <td>&pound;2,500.00</td>
+                        <td>10 Sep 2026</td>
+                        <td>Shelter Medical Fund</td>
+                      </tr>
+                      <tr>
+                        <td><strong>#DON-3398</strong></td>
+                        <td>Royal Canin UK Ltd</td>
+                        <td>Dry & Wet Food Pallets</td>
+                        <td>40 Bags (15kg each)</td>
+                        <td>08 Sep 2026</td>
+                        <td>Rescue Food Bank</td>
+                      </tr>
+                      <tr>
+                        <td><strong>#DON-3390</strong></td>
+                        <td>Eleanor Rigby</td>
+                        <td>Monthly Kennel Sponsorship</td>
+                        <td>&pound;50.00 / month</td>
+                        <td>01 Sep 2026</td>
+                        <td>Barnaby (Lab Mix)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ===============================================================
+               ROLE 5: PET CARE STAFF & VOLUNTEER CONTAINER
+               =============================================================== -->
+          <div
+            class="role-dashboard-container d-none"
+            id="dashboard-container-staff_volunteer"
+          >
+            <!-- 5.1 Staff Overview -->
+            <section
+              class="dashboard-view-section active"
+              id="view-staff-overview"
+              data-title="Pet Care Duty & Facility Dashboard"
+              data-subtitle="Daily feeding checklists, boarding room attendance & kennel maintenance"
+            >
+              <div
+                class="role-welcome-banner"
+                style="
+                  background: linear-gradient(135deg, #002842 0%, #4f46e5 100%);
+                "
+              >
+                <div class="welcome-badge">
+                  <i class="fa-solid fa-handshake-angle"></i> Daily Operations
+                  &bull; Morning Shift
+                </div>
+                <h2 class="role-welcome-title">
+                  Welcome on Duty, <span>Emma Davis</span>!
+                </h2>
+                <p class="role-welcome-desc">
+                  Morning exercise runs in Playyard B are completed. 18 boarding
+                  dogs and 8 daycare pets are currently checked in.
+                </p>
+              </div>
+
+              <!-- Staff KPI Stats -->
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-blue">
+                        <i class="fa-solid fa-hotel"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up"
+                        >Full House</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">26 Boarders</div>
+                      <p class="stat-label">In-House Animals</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-green">
+                        <i class="fa-solid fa-list-check"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up"
+                        >9 / 12 Done</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">75% Complete</div>
+                      <p class="stat-label">Shift Task Roster</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-gold">
+                        <i class="fa-solid fa-bone"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-neutral"
+                        >12:30 PM</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">Lunch Round</div>
+                      <p class="stat-label">Special Dietary Prep</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-kpi-card">
+                    <div class="stat-header">
+                      <div class="stat-icon-wrapper stat-icon-purple">
+                        <i class="fa-solid fa-shield-halved"></i>
+                      </div>
+                      <span class="stat-trend-tag stat-trend-up"
+                        >Zero Incidents</span
+                      >
+                    </div>
+                    <div>
+                      <div class="stat-value">Safe Yard</div>
+                      <p class="stat-label">Playgroup Harmony Score</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Daycare Attendance Table -->
+              <div class="dash-content-card mb-4">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Current Daycare & Boarding Guest Roster</h5>
+                    <p>Kensington Facility &bull; Suites & Playgrounds</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-plus"></i> Pet Check-In
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Suite #</th>
+                        <th>Guest Pet</th>
+                        <th>Breed & Energy</th>
+                        <th>Playgroup Room</th>
+                        <th>Diet / Med Instructions</th>
+                        <th>Checkout Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Suite 04</strong></td>
+                        <td><strong>Cooper</strong></td>
+                        <td>Golden Retriever &bull; High Energy</td>
+                        <td>Group A (Large Dogs)</td>
+                        <td>2 cups kibble + 1 spoon pumpkin puree</td>
+                        <td>15 Sep 2026</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Daily Log
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Suite 09</strong></td>
+                        <td><strong>Bella</strong></td>
+                        <td>French Bulldog &bull; Moderate</td>
+                        <td>Group C (Small Gentle)</td>
+                        <td>Strict slow feeder bowl &bull; Eye drops BID</td>
+                        <td>Today 06:00 PM</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Daily Log
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Cat Condo 2</strong></td>
+                        <td><strong>Oliver</strong></td>
+                        <td>Maine Coon &bull; Calm</td>
+                        <td>Quiet Cattery Solarium</td>
+                        <td>Wet tuna can morning & evening</td>
+                        <td>18 Sep 2026</td>
+                        <td>
+                          <button
+                            type="button"
+                            class="dash-btn-outline btn-sm dash-btn-action"
+                          >
+                            Daily Log
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5.2 Staff Checklist -->
+            <section
+              class="dashboard-view-section"
+              id="view-staff-checklist"
+              data-title="Daily Care & Sanitation Checklist"
+              data-subtitle="Morning feeding, kennel disinfection, agility runs and water bowls"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Duty Routine Check-Off List</h5>
+                    <p>Shift Supervisor: Emma Davis</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-check-double"></i> Mark Shift Complete
+                  </button>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <input
+                          type="checkbox"
+                          class="custom-dash-check"
+                          checked
+                        />
+                        <div class="checklist-text">
+                          <h6>07:00 AM &bull; Morning Feeding & Medication</h6>
+                          <span
+                            >Administered all prescription meals in Suites
+                            1-12</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-success">Done</span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <input
+                          type="checkbox"
+                          class="custom-dash-check"
+                          checked
+                        />
+                        <div class="checklist-text">
+                          <h6>
+                            08:30 AM &bull; Playyard A Agility & Ball Play
+                          </h6>
+                          <span
+                            >Large dog exercise group (45 mins active run)</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-success">Done</span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <input
+                          type="checkbox"
+                          class="custom-dash-check"
+                          checked
+                        />
+                        <div class="checklist-text">
+                          <h6>10:30 AM &bull; Water Station Disinfection</h6>
+                          <span
+                            >Cleaned all automatic stainless water
+                            fountains</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-success">Done</span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <input type="checkbox" class="custom-dash-check" />
+                        <div class="checklist-text">
+                          <h6>01:00 PM &bull; Afternoon Playgroup Rotation</h6>
+                          <span
+                            >Small dog socialize session in AstroTurf Yard
+                            B</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-warning text-dark">Pending</span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <input type="checkbox" class="custom-dash-check" />
+                        <div class="checklist-text">
+                          <h6>
+                            04:00 PM &bull; Evening Kennel Deep Sanitization
+                          </h6>
+                          <span
+                            >Hospital-grade enzymatic washdown of suites</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-secondary">Upcoming</span>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="checklist-item">
+                      <div class="checklist-left">
+                        <input type="checkbox" class="custom-dash-check" />
+                        <div class="checklist-text">
+                          <h6>
+                            06:00 PM &bull; Daycare Check-Out & Parent Handover
+                          </h6>
+                          <span
+                            >Prepare daily report cards for picking up
+                            parents</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-secondary">Upcoming</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5.3 Staff Boarding & Daycare Attendance -->
+            <section
+              class="dashboard-view-section"
+              id="view-staff-boarding"
+              data-title="Daycare & Boarding Guest Management"
+              data-subtitle="Track check-in times, emergency contacts and locker belongings"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Active Boarding Kennel Suites</h5>
+                    <p>26 animals currently residing</p>
+                  </div>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Suite</th>
+                        <th>Pet Name</th>
+                        <th>Owner</th>
+                        <th>Emergency Phone</th>
+                        <th>Feeding Schedule</th>
+                        <th>Locker #</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Suite 01</strong></td>
+                        <td>Zeus (Great Dane)</td>
+                        <td>Jonathan Myers</td>
+                        <td>+44 7890 123456</td>
+                        <td>3 times daily (Elevated bowl)</td>
+                        <td>L-04</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Checked In</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Suite 02</strong></td>
+                        <td>Rusty (Irish Setter)</td>
+                        <td>Margaret Atwood</td>
+                        <td>+44 7811 654321</td>
+                        <td>2 times daily with probiotic</td>
+                        <td>L-07</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Checked In</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5.4 Staff Behavior & Incident Log -->
+            <section
+              class="dashboard-view-section"
+              id="view-staff-behavior"
+              data-title="Pet Behavior & Playyard Observations"
+              data-subtitle="Social compatibility, appetite monitoring and wellness observations"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Daily Temperament & Health Observation Log</h5>
+                    <p>Staff playgroup monitoring notes</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-outline dash-btn-action"
+                  >
+                    <i class="fa-solid fa-plus"></i> New Note
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Pet Name</th>
+                        <th>Observation Category</th>
+                        <th>Behavior Note</th>
+                        <th>Appetite Score</th>
+                        <th>Logged By</th>
+                        <th>Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Cooper</strong></td>
+                        <td>Social Play</td>
+                        <td>
+                          Very playful, shared tennis ball nicely in Group A.
+                        </td>
+                        <td>
+                          <span class="badge bg-success">100% Finished</span>
+                        </td>
+                        <td>Emma Davis</td>
+                        <td>10:15 AM</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Bella</strong></td>
+                        <td>Nap & Rest</td>
+                        <td>
+                          Slept soundly in orthopedic bed, breathing clear.
+                        </td>
+                        <td>
+                          <span class="badge bg-success">100% Finished</span>
+                        </td>
+                        <td>Liam Reed</td>
+                        <td>11:45 AM</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5.5 Staff Shift Roster -->
+            <section
+              class="dashboard-view-section"
+              id="view-staff-roster"
+              data-title="Staff Shift Roster & Team Timetable"
+              data-subtitle="Duty allocations across grooming, boarding, front desk and vet nurses"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>This Week's Staff Shift Allocations</h5>
+                    <p>Kensington High Street Facility Team</p>
+                  </div>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Staff Member</th>
+                        <th>Role Duty</th>
+                        <th>Assigned Station</th>
+                        <th>Shift Hours</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Emma Davis</strong></td>
+                        <td>Lead Care Supervisor</td>
+                        <td>Boarding & Daycare Playyards</td>
+                        <td>07:00 AM - 03:30 PM</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >On Duty</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Liam Reed</strong></td>
+                        <td>Animal Care Technician</td>
+                        <td>Kennel Blocks A & B</td>
+                        <td>08:00 AM - 04:30 PM</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >On Duty</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Chloe Evans</strong></td>
+                        <td>Veterinary Nurse</td>
+                        <td>Clinical Suite & OT 1</td>
+                        <td>08:30 AM - 05:00 PM</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >On Duty</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Sam Gallagher</strong></td>
+                        <td>Evening Care Lead</td>
+                        <td>Facility Security & Night Feeding</td>
+                        <td>03:00 PM - 11:00 PM</td>
+                        <td>
+                          <span class="status-pill status-routine"
+                            >Upcoming Shift</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5.6 Staff Sanitization & Maintenance -->
+            <section
+              class="dashboard-view-section"
+              id="view-staff-maintenance"
+              data-title="Facility Sanitization & Safety Protocols"
+              data-subtitle="Disinfection checklists, air filtration logs and pest safety"
+            >
+              <div class="dash-content-card">
+                <div class="card-header-bar">
+                  <div class="card-header-left">
+                    <h5>Hygiene & Environmental Health Records</h5>
+                    <p>DEFRA certified pet facility hygiene checklist</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="dash-btn-primary dash-btn-action"
+                  >
+                    <i class="fa-solid fa-stamp"></i> Sign Off Log
+                  </button>
+                </div>
+
+                <div class="table-responsive dash-table-wrapper">
+                  <table class="dash-custom-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Zone</th>
+                        <th>Sanitization Protocol</th>
+                        <th>Chemical Agent Used</th>
+                        <th>Last Completed</th>
+                        <th>Inspector Signature</th>
+                        <th>Compliance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Kennel Block A</strong></td>
+                        <td>High Pressure Wash & Enzymatic Disinfection</td>
+                        <td>Virkon-S Broad Spectrum</td>
+                        <td>06:30 AM Today</td>
+                        <td>Liam Reed</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Passed</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Playyard AstroTurf</strong></td>
+                        <td>Odor Neutralizer & UV Sterilization</td>
+                        <td>Bio-Enzyme Turf Clean</td>
+                        <td>Yesterday 07:00 PM</td>
+                        <td>Emma Davis</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Passed</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Cat Condos & Solarium</strong></td>
+                        <td>Steam Clean & Feline Safe Antiseptic</td>
+                        <td>F10SC Veterinary Disinfectant</td>
+                        <td>Today 08:00 AM</td>
+                        <td>Chloe Evans</td>
+                        <td>
+                          <span class="status-pill status-confirmed"
+                            >Passed</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- Mini Footer in Dashboard -->
+        <footer class="dashboard-mini-footer">
+          <div>
+            &copy; 2026 <strong>Pet Care Services UK</strong> &bull; All Rights
+            Reserved.
+          </div>
+          <div>
+            <a href="../index.html" class="me-3">Back to Website</a>
+            <a href="contact.html">Support Helpdesk</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Dashboard Script -->
+    <script src="../assets/js/dashboard.js"></script>
+  </body>
+</html>
