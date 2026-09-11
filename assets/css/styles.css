@@ -2642,6 +2642,18 @@ body.preloader-active {
   }
 }
 
+/* Preloader Logo */
+.preloader-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.preloader-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* Responsive adjustments */
 @media (max-width: 576px) {
   .preloader-card {
