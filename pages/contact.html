@@ -183,7 +183,7 @@
                     <i class="fa-solid fa-paw text-warning fs-3"></i>
                   </div>
                 </div>
-                <form class="pet-care-form">
+                <form class="pet-care-form" id="contactInquiryForm">
                   <div class="row g-3">
                     <div class="col-md-6">
                       <label class="small text-secondary fw-semibold mb-1"
@@ -191,7 +191,9 @@
                       >
                       <input
                         type="text"
+                        id="contact_name"
                         class="contact-input-control"
+                        maxlength="16"
                         placeholder="e.g. Sarah Jenkins"
                         required
                       />
@@ -202,8 +204,11 @@
                       >
                       <input
                         type="tel"
+                        id="contact_phone"
                         class="contact-input-control"
-                        placeholder="+91 9876543210"
+                        placeholder="e.g. 9876543210"
+                        minlength="10"
+                        maxlength="10"
                         required
                       />
                     </div>
@@ -213,6 +218,7 @@
                       >
                       <input
                         type="email"
+                        id="contact_email"
                         class="contact-input-control"
                         placeholder="yourname@email.com"
                         required
@@ -220,12 +226,13 @@
                     </div>
                     <div class="col-md-6">
                       <label class="small text-secondary fw-semibold mb-1"
-                        >Pet Species & Breed</label
+                        >Pet Species & Breed *</label
                       >
                       <input
                         type="text"
+                        id="contact_breed"
                         class="contact-input-control"
-                        placeholder="e.g. Dog, Golden Retriever"
+                        placeholder="e.g. Dog Golden Retriever"
                         required
                       />
                     </div>
@@ -233,7 +240,11 @@
                       <label class="small text-secondary fw-semibold mb-1"
                         >Required Service *</label
                       >
-                      <select class="contact-input-control" required>
+                      <select
+                        id="contact_service"
+                        class="contact-input-control"
+                        required
+                      >
                         <option value="" disabled selected>
                           Select a Service
                         </option>
@@ -251,22 +262,25 @@
                     </div>
                     <div class="col-md-6">
                       <label class="small text-secondary fw-semibold mb-1"
-                        >Preferred Date</label
+                        >Preferred Date *</label
                       >
                       <input
                         type="date"
+                        id="contact_date"
                         class="contact-input-control"
                         required
                       />
                     </div>
                     <div class="col-12">
                       <label class="small text-secondary fw-semibold mb-1"
-                        >Your Message or Pet Details</label
+                        >Your Message or Pet Details *</label
                       >
                       <textarea
+                        id="contact_message"
                         class="contact-input-control"
                         rows="4"
                         placeholder="Tell us about your pet, any symptoms, or special grooming preferences..."
+                        required
                       ></textarea>
                     </div>
                     <div class="col-12 mt-4">

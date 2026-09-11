@@ -462,13 +462,187 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2800);
   }
 
-  // 7. Interactive Booking / Contact Form Handlers
+  const redirect404 = isInPagesDir ? "../404.html" : "404.html";
+
+  // Form Input Validation & Restriction Helpers
+  function restrictToAlphabetsAndSpaces(inputEl) {
+    if (!inputEl) return;
+
+    inputEl.addEventListener("keydown", function (e) {
+      // Allow functional / navigation keys
+      if (
+        e.key === "Backspace" ||
+        e.key === "Tab" ||
+        e.key === "Enter" ||
+        e.key === "Escape" ||
+        e.key === "ArrowLeft" ||
+        e.key === "ArrowRight" ||
+        e.key === "ArrowUp" ||
+        e.key === "ArrowDown" ||
+        e.key === "Delete" ||
+        e.key === "Home" ||
+        e.key === "End" ||
+        e.ctrlKey ||
+        e.metaKey
+      ) {
+        return;
+      }
+
+      // Allow space
+      if (e.key === " ") {
+        return;
+      }
+
+      // Block any character that is not a letter
+      if (e.key.length === 1 && !/^[a-zA-Z]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+
+    inputEl.addEventListener("input", function () {
+      const sanitized = this.value.replace(/[^a-zA-Z\s]/g, "");
+      if (this.value !== sanitized) {
+        this.value = sanitized;
+      }
+    });
+
+    inputEl.addEventListener("paste", function (e) {
+      e.preventDefault();
+      const text =
+        (e.clipboardData || window.clipboardData).getData("text") || "";
+      const sanitized = text.replace(/[^a-zA-Z\s]/g, "");
+      if (
+        document.queryCommandSupported &&
+        document.queryCommandSupported("insertText")
+      ) {
+        document.execCommand("insertText", false, sanitized);
+      } else {
+        const start = this.selectionStart;
+        const end = this.selectionEnd;
+        this.value =
+          this.value.substring(0, start) +
+          sanitized +
+          this.value.substring(end);
+        this.selectionStart = this.selectionEnd = start + sanitized.length;
+      }
+    });
+  }
+
+  function restrictToDigitsOnly(inputEl) {
+    if (!inputEl) return;
+
+    inputEl.addEventListener("keydown", function (e) {
+      // Allow functional / navigation keys
+      if (
+        e.key === "Backspace" ||
+        e.key === "Tab" ||
+        e.key === "Enter" ||
+        e.key === "Escape" ||
+        e.key === "ArrowLeft" ||
+        e.key === "ArrowRight" ||
+        e.key === "ArrowUp" ||
+        e.key === "ArrowDown" ||
+        e.key === "Delete" ||
+        e.key === "Home" ||
+        e.key === "End" ||
+        e.ctrlKey ||
+        e.metaKey
+      ) {
+        return;
+      }
+
+      // Block any character that is not a digit (0-9)
+      if (e.key.length === 1 && !/^[0-9]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+
+    inputEl.addEventListener("input", function () {
+      const sanitized = this.value.replace(/[^0-9]/g, "");
+      if (this.value !== sanitized) {
+        this.value = sanitized;
+      }
+    });
+
+    inputEl.addEventListener("paste", function (e) {
+      e.preventDefault();
+      const text =
+        (e.clipboardData || window.clipboardData).getData("text") || "";
+      const sanitized = text.replace(/[^0-9]/g, "");
+      if (
+        document.queryCommandSupported &&
+        document.queryCommandSupported("insertText")
+      ) {
+        document.execCommand("insertText", false, sanitized);
+      } else {
+        const start = this.selectionStart;
+        const end = this.selectionEnd;
+        this.value =
+          this.value.substring(0, start) +
+          sanitized +
+          this.value.substring(end);
+        this.selectionStart = this.selectionEnd = start + sanitized.length;
+      }
+    });
+  }
+
+  function restrictPastDates(dateInputEl) {
+    if (!dateInputEl) return;
+
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, "0");
+    const dd = String(now.getDate()).padStart(2, "0");
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+
+    dateInputEl.setAttribute("min", todayStr);
+
+    const enforceMin = function () {
+      if (this.value && this.value < todayStr) {
+        this.value = todayStr;
+      }
+    };
+
+    dateInputEl.addEventListener("change", enforceMin);
+    dateInputEl.addEventListener("input", enforceMin);
+  }
+
+  // Initialize Input Validation & Restriction Rules
+  function initFormValidationRules() {
+    // 1. Home Section 7 booking form fields
+    const bookingName = document.getElementById("booking_name");
+    const bookingPhone = document.getElementById("booking_phone");
+    const bookingDate = document.getElementById("booking_date");
+
+    restrictToAlphabetsAndSpaces(bookingName);
+    restrictToDigitsOnly(bookingPhone);
+    restrictPastDates(bookingDate);
+
+    // 2. Contact Section 3 inquiry form fields
+    const contactName = document.getElementById("contact_name");
+    const contactPhone = document.getElementById("contact_phone");
+    const contactBreed = document.getElementById("contact_breed");
+    const contactDate = document.getElementById("contact_date");
+
+    restrictToAlphabetsAndSpaces(contactName);
+    restrictToDigitsOnly(contactPhone);
+    restrictToAlphabetsAndSpaces(contactBreed);
+    restrictPastDates(contactDate);
+
+    // Also attach past-date restriction to all date inputs across all forms
+    document.querySelectorAll('input[type="date"]').forEach((dateInput) => {
+      restrictPastDates(dateInput);
+    });
+  }
+
+  initFormValidationRules();
+
+  // 7. Interactive Booking / Contact Form Handlers (Redirects to 404)
   const bookingForms = document.querySelectorAll(".pet-care-form");
   bookingForms.forEach((form) => {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerHTML : "Submit";
       if (submitBtn) {
         submitBtn.innerHTML =
           '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
@@ -476,19 +650,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       setTimeout(() => {
-        showToast(
-          "Thank you! Your request has been received. Our team will contact you shortly.",
-        );
-        form.reset();
-        if (submitBtn) {
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }
-      }, 1200);
+        window.location.href = redirect404;
+      }, 300);
     });
   });
 
-  // 8. Newsletter Form
+  // 8. Newsletter Form Handlers (Redirects to 404)
   function initNewsletterForms() {
     const newsletterForms = document.querySelectorAll(
       ".newsletter-form, .subscribe__form, .promo-newsletter-form",
@@ -499,16 +666,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        const input = this.querySelector('input[type="email"]');
-        if (input && input.value) {
-          showToast(
-            "🎉 Thank you for subscribing to Pet Care Services VIP Club!",
-          );
-          input.value = "";
+        const submitBtn = this.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
         }
+        window.location.href = redirect404;
       });
     });
   }
+
+  initNewsletterForms();
 
   // 9. Flash Deal of the Week Live Countdown Timer
   function initFlashDealCountdown() {

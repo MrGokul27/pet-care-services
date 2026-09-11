@@ -791,21 +791,26 @@
               </div>
 
               <div class="col-lg-7">
-                <form class="pet-care-form">
+                <form class="pet-care-form" id="quickAppointmentForm">
                   <div class="row g-3">
                     <div class="col-md-6">
                       <input
                         type="text"
+                        id="booking_name"
                         class="booking-form-control"
                         placeholder="Your Name"
+                        maxlength="16"
                         required
                       />
                     </div>
                     <div class="col-md-6">
                       <input
                         type="tel"
+                        id="booking_phone"
                         class="booking-form-control"
-                        placeholder="Your Phone (+91 9876543210)"
+                        placeholder="Your Phone (e.g. 9876543210)"
+                        minlength="10"
+                        maxlength="10"
                         required
                       />
                     </div>
@@ -839,6 +844,7 @@
                     <div class="col-md-6">
                       <input
                         type="date"
+                        id="booking_date"
                         class="booking-form-control"
                         required
                       />
